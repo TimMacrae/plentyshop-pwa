@@ -260,6 +260,7 @@ export default defineNuxtConfig({
     '@vee-validate/nuxt',
     '@vite-pwa/nuxt',
     'vuetify-nuxt-module',
+    '~/modules/custom-homepage',
   ],
   vuetify: {
     moduleOptions: {
