@@ -2,7 +2,6 @@
 <template>
   <!-- <NuxtLayout name="default"> -->
   <div class="custom-homepage">
-    <EditablePage :identifier="'index'" :type="'immutable'" />
     <!-- Custom Hero Component -->
     <CustomHero :content="heroData" />
 
