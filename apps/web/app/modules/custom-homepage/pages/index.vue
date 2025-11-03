@@ -1,5 +1,8 @@
 <!-- filepath: apps/web/app/modules/custom-homepage/pages/index.vue -->
 <template>
+  <div>
+    <EditablePage :identifier="'index'" :type="'immutable'" />
+  </div>
   <!-- <NuxtLayout name="default"> -->
   <div class="custom-homepage">
     <!-- Custom Hero Component -->
