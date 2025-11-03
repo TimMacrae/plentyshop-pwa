@@ -1,6 +1,5 @@
 <template>
   <div class="himmi-page">
-    <EditablePage :identifier="'producktwelt/himmi'" :type="'immutable'" />
     <h1>Himmi Page</h1>
     <!-- Loading State -->
     <div v-if="builderLoading" class="flex justify-center py-16">
