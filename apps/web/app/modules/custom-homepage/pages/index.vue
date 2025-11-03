@@ -1,13 +1,23 @@
-<!-- filepath: apps/web/app/modules/custom-homepage/pages/index.vue -->
 <template>
-  <div>
-    <EditablePage :identifier="'index'" :type="'immutable'" />
-  </div>
-  <!-- <NuxtLayout name="default"> -->
   <div class="custom-homepage">
-    <!-- Custom Hero Component -->
-    <CustomHero :content="heroData" />
+    <div class="custom-banner-carousel-section">
+      <!-- Loading State -->
+      <div v-if="builderLoading" class="flex justify-center py-16">
+        <SfLoaderCircular size="xl" />
+      </div>
 
+      <!-- Dynamic Shop Builder Blocks -->
+      <template v-else-if="blocks.length > 0">
+        <component
+          v-for="(block, index) in blocks"
+          :key="`block-${index}`"
+          :is="resolveBlockComponent(block.type)"
+          :data="block.data"
+        />
+      </template>
+      <!-- Fallback: Use BannerCarousel component -->
+      <!-- <component v-else :is="bannerComponent" :data="bannerData" /> -->
+    </div>
     <!-- Featured Products Section -->
     <div class="max-w-7xl mx-auto px-4 py-16">
       <h2 class="text-3xl font-bold text-gray-900 mb-8">Producktwelt Kornfetti</h2>
@@ -73,6 +83,9 @@ import { SfLoaderCircular, SfButton } from '@storefront-ui/vue';
 import type { HimmiBombSectionProps } from './types';
 import { productGetters } from '@plentymarkets/shop-api';
 import type { Product } from '@plentymarkets/shop-api';
+// Imports for BannerCarousal
+import { defineAsyncComponent } from 'vue';
+import { getBlockLoader } from '~/utils/blocks-imports';
 
 const props = withDefaults(defineProps<HimmiBombSectionProps>(), {
   productImage:
@@ -92,24 +105,112 @@ const { fetchHomepageData, loading } = useCustomHomepage();
 // Import useModernImage composable
 const { addModernImageExtension } = useModernImage();
 
-const heroData = computed(() => {
-  return {
-    title: 'Willkommen in der Producktwelt Kornfetti',
-    subtitle: 'Entdecke unsere einzigartigen Produkte',
-    description:
-      'Tauche ein in die bunte Welt von Kornfetti und entdecke unsere exklusiven Himmi-Sorten und vieles mehr!',
-    ctaText: 'Zur Producktwelt',
-    ctaLink: '/producktwelt',
-  };
-});
+// Fetch Shop Builder content
+const { blocks, loading: builderLoading, fetchContent } = useShopBuilderContent('homepage');
+
+// Banner data matching BannerCarousel component structure
+const bannerData = {
+  banners: [
+    {
+      image: {
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi-Bomb-Kornfetti.jpg',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi-Bomb-Kornfetti.jpg',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi-Bomb-Kornfetti.jpg',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi-Bomb-Kornfetti.jpg',
+        alt: 'Himmi Bomb',
+        brightness: 0.8, // Darken image for better text visibility
+      },
+      text: {
+        pretitle: 'NEU',
+        title: '##HIMMI BOMB##',
+        subtitle: 'Die Himmi Bomb ist da!',
+        htmlDescription:
+          '<p>Ein kleiner Kick für den Gaumen aus unserem Himmi und Prosecco, der dich genauso aus den Socken haut wie ein guter Shot, aber mit der Leichtigkeit eines richtig guten Drinks.</p>',
+        color: '#FFFFFF', // White text
+        bgcolor: '#000000', // Black background
+        bgopacity: 0.7, // Semi-transparent background
+        background: true, // Enable background
+        align: 'center', // Horizontal alignment: left, center, right
+        justify: 'center', // Vertical alignment: start, center, end
+        textAlignment: 'center', // Text alignment: left, center, right
+      },
+      button: {
+        label: 'Jetzt bestellen',
+        link: '/producktwelt/himmi',
+        variant: 'primary', // or 'secondary', 'tertiary'
+      },
+    },
+  ],
+  autoplay: false, // Disable autoplay for single banner
+  loop: false,
+};
+
+// Load BannerCarousel dynamically
+// const bannerComponent = defineAsyncComponent(() => getBlockLoader('BannerCarousel')());
+
+// Helper to resolve dynamic blocks as async components
+// const resolveBlockComponent = (blockType: string) => {
+//   const loader = getBlockLoader(blockType);
+//   return defineAsyncComponent(() => loader);
+// };
+
+// Empty fallback component for when block loader fails
+const EmptyBlock: Component = {
+  template: '<div class="text-center p-4 text-red-500">Banner component not found</div>',
+};
+
+// Helper to safely resolve dynamic blocks as async components
+const resolveBlockComponent = (blockType: string) => {
+  const loader = getBlockLoader(blockType);
+
+  if (!loader) {
+    console.warn(`Block loader not found for type: ${blockType}`);
+    return defineAsyncComponent(() => Promise.resolve(EmptyBlock));
+  }
+
+  return defineAsyncComponent(() => {
+    try {
+      const result = loader();
+      return result && typeof (result as any).then === 'function' ? result : Promise.resolve(result);
+    } catch (error) {
+      console.error(`Error loading block ${blockType}:`, error);
+      return Promise.resolve(EmptyBlock);
+    }
+  });
+};
+// Load BannerCarousel dynamically with null safety
+const bannerComponent = (() => {
+  const loader = getBlockLoader('BannerCarousel');
+
+  if (!loader) {
+    console.warn('BannerCarousel block not found');
+    return defineAsyncComponent(() => Promise.resolve(EmptyBlock));
+  }
+
+  return defineAsyncComponent(() => {
+    try {
+      const result = loader();
+      return result && typeof (result as any).then === 'function' ? result : Promise.resolve(result);
+    } catch (error) {
+      console.error('Error loading BannerCarousel:', error);
+      return Promise.resolve(EmptyBlock);
+    }
+  });
+})();
 
 definePageMeta({
   layout: 'default',
   pageType: 'content',
 });
 
-onMounted(() => {
+onMounted(async () => {
   fetchHomepageData();
+  await fetchContent();
+  console.log('Shop Builder Blocks:', blocks.value);
 });
 </script>
 
