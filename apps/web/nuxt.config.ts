@@ -241,6 +241,9 @@ export default defineNuxtConfig({
       fetchDynamicTranslations: false,
       sessionLifetime: process.env.NUXT_PUBLIC_SESSION_LIFETIME || '3600',
       shippingTextCategoryId: process.env.NUXT_PUBLIC_SHIPPING_TEXT_CATEGORY_ID || '',
+      // CUSTOM GOOGLE SHEET URL FOR PRODUCT AVAILABILITY
+      googleSheetsApiKey: process.env.NUXT_PUBLIC_GOOGLE_SHEETS_API_KEY || '',
+      googleSheetsSheetId: process.env.NUXT_PUBLIC_GOOGLE_SHEETS_SHEET_ID || '',
     },
   },
   modules: [
