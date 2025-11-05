@@ -7,13 +7,16 @@ describe('CustomImageTextBlock', () => {
   const mockData: CustomImageTextBlockData = {
     image: {
       url: 'https://example.com/image.jpg',
+      mobileUrl: 'https://example.com/image-mobile.jpg',
       alt: 'Test Image',
     },
-    title: 'HIMMI BOMB',
-    subtitle: 'Die Himmi Bomb ist da!',
-    description: 'Test description',
+    title: { text: 'HIMMI BOMB', color: '#e60073' },
+    subtitle: { text: 'Die Himmi Bomb ist da!', color: '#fff' },
+    description: { text: 'Test description', color: '#fff' },
     cta: {
       text: 'Mehr Infos',
+      color: '#ffffff',
+      bgColor: '#e60073',
       link: '/producktwelt/himmi',
     },
   };

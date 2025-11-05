@@ -1,15 +1,19 @@
 export interface CustomImageTextBlockData {
   image?: {
     url: string;
+    mobileUrl?: string;
     alt?: string;
   };
-  title?: string;
-  subtitle?: string;
-  description?: string;
+  title?: { text: string; color?: string };
+  subtitle?: { text: string; color?: string };
+  description?: { text: string; color?: string };
   cta?: {
     text: string;
+    color?: string;
+    bgColor?: string;
     link: string;
   };
+  bgColor?: string;
 }
 
 export interface CustomImageTextBlockProps {
