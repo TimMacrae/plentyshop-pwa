@@ -56,10 +56,10 @@
 <script setup lang="ts">
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/vue';
 import Banner from '~/components/blocks/BannerCarousel/Banner.vue';
-import type { Banner as BannerData } from '~/modules/custom-homepage/composables/useGoogleSheetsCMS/types';
+import type { BannerCampaign } from '~/modules/custom-homepage/composables/useCustomBannerCampaign/types';
 
 interface Props {
-  banners: BannerData[];
+  banners: BannerCampaign[];
   autoplay?: boolean;
   loop?: boolean;
   autoplayDelay?: number;
@@ -75,7 +75,7 @@ const props = withDefaults(defineProps<Props>(), {
 const activeIndex = ref(0);
 let autoplayInterval: NodeJS.Timeout | null = null;
 
-const createBannerBlock = (banner: BannerData, index: number) => {
+const createBannerBlock = (banner: BannerCampaign, index: number) => {
   return {
     name: 'Banner' as const,
     type: 'Banner' as const,

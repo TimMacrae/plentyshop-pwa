@@ -8,6 +8,7 @@ describe('CustomBannerCarouselWrapper', () => {
     // Add default props for testing
     banners: [
       {
+        id: 'banner1',
         image: {
           mobile: 'https://example.com/banner1.jpg',
           tablet: 'https://example.com/banner1.jpg',
@@ -34,6 +35,8 @@ describe('CustomBannerCarouselWrapper', () => {
           link: '/shop',
           variant: 'primary',
         },
+        startDate: new Date('2023-01-01T00:00:00Z'),
+        endDate: new Date('2023-12-31T23:59:59Z'),
       },
     ],
     autoplay: true,

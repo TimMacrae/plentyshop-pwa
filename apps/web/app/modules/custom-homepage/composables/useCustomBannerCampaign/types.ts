@@ -1,7 +1,5 @@
-/**
- * Banner data structure matching Banner.vue component expectations
- */
-export interface Banner {
+export interface BannerCampaign {
+  id: string;
   image: {
     mobile: string;
     tablet: string;
@@ -28,23 +26,6 @@ export interface Banner {
     link: string;
     variant: 'primary' | 'secondary';
   };
-}
-
-/**
- * Carousel data structure returned by composable
- */
-export interface BannerCarouselData {
-  banners: Banner[];
-  autoplay?: boolean;
-  loop?: boolean;
-}
-
-/**
- * Return type for useGoogleSheetsCMS composable
- */
-export interface UseGoogleSheetsCMSReturn {
-  loading: Ref<boolean>;
-  data: Ref<Banner | null>;
-  error: Ref<Error | null>;
-  fetchContent: () => Promise<void>;
+  startDate: Date;
+  endDate: Date;
 }

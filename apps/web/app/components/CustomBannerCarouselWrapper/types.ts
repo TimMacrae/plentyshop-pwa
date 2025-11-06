@@ -1,10 +1,10 @@
-import type { Banner as BannerData } from '~/modules/custom-homepage/composables/useGoogleSheetsCMS/types';
+import type { BannerCampaign } from '~/modules/custom-homepage/composables/useCustomBannerCampaign/types';
 
 /**
  * Props for CustomBannerCarouselWrapper component
  */
 export interface CustomBannerCarouselWrapperProps {
-  banners: BannerData[];
+  banners: BannerCampaign[];
   autoplay?: boolean;
   loop?: boolean;
   autoplayDelay?: number;

@@ -1,15 +1,18 @@
 <template>
   <div class="custom-homepage">
     <!-- Carousel Section -->
-    <div v-if="loading" class="w-full h-full flex items-center justify-center bg-neutral-100">
+    <!-- <div v-if="loading" class="w-full h-full flex items-center justify-center bg-neutral-100">
       <SfLoaderCircular size="xl" />
-    </div>
-    <div v-if="data"><CustomHero :banner="data" /></div>
+    </div> -->
+
+    <div v-if="bannerCampaign"><CustomHero :banner="bannerCampaign" /></div>
 
     <!-- Featured Products Section -->
 
     <div class="px-16 py-16 bg-black">
-      <h2 class="font-bold text-white mb-8 typography-headline-2" style="font-size: clamp(1rem, 8vw, 3rem)"">Produkte Kornfetti</h2>
+      <h2 class="font-bold text-white mb-8 typography-headline-2" style="font-size: clamp(1rem, 8vw, 3rem)">
+        Produkte Kornfetti
+      </h2>
 
       <ProductSlider v-if="productsList?.length" :items="productsList" />
     </div>
@@ -82,24 +85,18 @@
 </template>
 
 <script setup lang="ts">
-import { SfLoaderCircular } from '@storefront-ui/vue';
-import { useGoogleSheetsCMS } from '../composables/useGoogleSheetsCMS';
 import { useCustomContent } from '../composables/useCustomContent';
+import { useCustomBannerCampaign } from '../composables/useCustomBannerCampaign/useCustomBannerCampaign';
 import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
 import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/NewsletterSubscribe.vue';
 
-const runtimeConfig = useRuntimeConfig();
-
-// Fetch content from Google Sheets
-const { data, loading, fetchContent } = useGoogleSheetsCMS(runtimeConfig.public.googleSheetsSheetId, 'image-slider');
+const bannerCampaign = useCustomBannerCampaign();
 
 // Fetch products from category 40
 const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
-console.log('Fetching products for category 40', productsData);
 await fetchProducts({ categoryId: '40' });
 const productsList = computed(() => productsData.value?.products || []);
 const productListReduced = computed(() => [...productsList.value.slice(2, 5), ...productsList.value.slice(6, 7)]);
-
 
 // Get custom content
 const { customImageTextBlock_himmiBombContent, customImageTextBlock_pinkRiotSquadContent } = useCustomContent();
@@ -125,9 +122,7 @@ definePageMeta({
 });
 
 // Fetch all Shop Builder content on mount
-onMounted(async () => {
-  await fetchContent();
-});
+onMounted(async () => {});
 </script>
 
 <style>
