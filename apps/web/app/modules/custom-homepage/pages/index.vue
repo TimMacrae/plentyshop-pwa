@@ -7,8 +7,9 @@
     <div v-if="data"><CustomHero :banner="data" /></div>
 
     <!-- Featured Products Section -->
+
     <div class="px-16 py-16 bg-black">
-      <h2 class="text-3xl font-bold text-white mb-8">Produkte Kornfetti</h2>
+      <h2 class="font-bold text-white mb-8 typography-headline-2">Produkte Kornfetti</h2>
 
       <ProductSlider v-if="productsList?.length" :items="productsList" />
     </div>
@@ -94,6 +95,7 @@ const { data, loading, fetchContent } = useGoogleSheetsCMS(runtimeConfig.public.
 
 // Fetch products from category 40
 const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
+console.log('Fetching products for category 40', productsData);
 await fetchProducts({ categoryId: '40' });
 const productsList = computed(() => productsData.value?.products || []);
 const productListReduced = computed(() => productsList.value.slice(2, 5));

@@ -1,9 +1,13 @@
+import { _fontSize } from '#tailwind-config/theme';
 import sfTypography from '@storefront-ui/typography';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
+import { clamp } from '@vueuse/core';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const fontFamilyText = process.env.NUXT_PUBLIC_FONT || 'Red Hat Text';
+
+const headingsStack = ['kornfetti-font', ...defaultTheme.fontFamily.sans];
 
 export default {
   presets: [tailwindConfig],
@@ -23,10 +27,10 @@ export default {
           fontFamily: 'inherit',
         },
         'headline-1': {
-          fontFamily: 'inherit',
+          fontFamily: headingsStack.join(', '),
         },
         'headline-2': {
-          fontFamily: 'inherit',
+          fontFamily: headingsStack.join(', '),
         },
         'headline-3': {
           fontFamily: 'inherit',
@@ -44,6 +48,8 @@ export default {
       fontFamily: {
         body: [`${fontFamilyText}`, ...defaultTheme.fontFamily.sans],
         editor: ['Red Hat Text', ...defaultTheme.fontFamily.sans],
+        'kornfetti-font': headingsStack,
+        headings: headingsStack,
       },
       colors: {
         primary: {
