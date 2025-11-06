@@ -9,7 +9,7 @@
     <!-- Featured Products Section -->
 
     <div class="px-16 py-16 bg-black">
-      <h2 class="font-bold text-white mb-8 typography-headline-2">Produkte Kornfetti</h2>
+      <h2 class="font-bold text-white mb-8 typography-headline-2" style="font-size: clamp(1rem, 8vw, 3rem)"">Produkte Kornfetti</h2>
 
       <ProductSlider v-if="productsList?.length" :items="productsList" />
     </div>
@@ -20,8 +20,8 @@
     </div>
 
     <!-- Products Section -->
-    <div v-if="productListReduced.length" class="custom-product-section sm:p-16 lg:py-32 bg-black">
-      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6">
+    <div v-if="productListReduced.length" class="custom-product-section py-32 xs:py-16 xs:px-8 bg-black">
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
         <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
       </div>
     </div>
@@ -98,7 +98,8 @@ const { fetchProducts, data: productsData, loading: productsLoading } = useProdu
 console.log('Fetching products for category 40', productsData);
 await fetchProducts({ categoryId: '40' });
 const productsList = computed(() => productsData.value?.products || []);
-const productListReduced = computed(() => productsList.value.slice(2, 5));
+const productListReduced = computed(() => [...productsList.value.slice(2, 5), ...productsList.value.slice(6, 7)]);
+
 
 // Get custom content
 const { customImageTextBlock_himmiBombContent, customImageTextBlock_pinkRiotSquadContent } = useCustomContent();

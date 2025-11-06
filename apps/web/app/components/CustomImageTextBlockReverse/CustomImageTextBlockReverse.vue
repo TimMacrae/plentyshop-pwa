@@ -13,7 +13,7 @@
           <h2
             v-if="data?.title?.text"
             class="font-bold uppercase tracking-wider typography-headline-1"
-            style="font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1"
+            style="font-size: clamp(4rem, 8vw, 7rem); line-height: 1"
             :style="{ color: data.title.color || '#e60073' }"
           >
             {{ data.title.text }}

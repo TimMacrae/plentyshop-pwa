@@ -35,7 +35,11 @@
         </p>
 
         <!-- Title -->
-        <h1 v-if="banner.text.title" class="text-4xl md:text-6xl font-extrabold mb-4">
+        <h1
+          v-if="banner.text.title"
+          class="text-4xl md:text-6xl font-extrabold mb-4 typography-headline-1"
+          style="font-size: clamp(4rem, 8vw, 7rem)"
+        >
           {{ banner.text.title }}
         </h1>
 
