@@ -1,7 +1,6 @@
 import { _fontSize } from '#tailwind-config/theme';
 import sfTypography from '@storefront-ui/typography';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
-import { clamp } from '@vueuse/core';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 

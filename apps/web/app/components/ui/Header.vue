@@ -1,9 +1,58 @@
 <template>
   <MegaMenu :categories="categoryTree">
     <template v-if="viewport.isGreaterOrEquals('md')">
-      <UiSearch class="hidden md:block flex-1" />
+      <!-- CUSTOM SEARCH BAR REMOVED -->
+      <!-- <UiSearch class="hidden md:block flex-1" /> -->
+      <!-- CUSTOM NAV MENU  -->
+      <nav class="flex-1 flex items-center justify-start">
+        <ul class="flex items-center gap-x-6 text-white">
+          <li
+            v-for="link in navigationLinks"
+            :key="link.label"
+            class="relative"
+            @mouseenter="handleMouseEnter(link)"
+            @mouseleave="handleMouseLeave"
+          >
+            <!-- Main Navigation Link -->
+            <NuxtLink
+              :to="link.link"
+              class="font-medium py-2 px-3 rounded-md hover:bg-header-400/80 transition-colors duration-200"
+              :class="{ 'bg-header-400/80': activeDropdown === link.label }"
+            >
+              {{ link.label }}
+            </NuxtLink>
+
+            <!-- Dropdown Submenu -->
+            <transition
+              enter-active-class="transition duration-200 ease-out"
+              enter-from-class="transform -translate-y-2 opacity-0"
+              enter-to-class="transform translate-y-0 opacity-100"
+              leave-active-class="transition duration-150 ease-in"
+              leave-from-class="transform translate-y-0 opacity-100"
+              leave-to-class="transform -translate-y-2 opacity-0"
+            >
+              <ul
+                v-if="link.submenu && activeDropdown === link.label"
+                class="absolute top-full left-0 mt-2 z-50 rounded bg-white shadow-md border border-neutral-100 min-w-[152px] py-2"
+                @mouseenter="handleMouseEnter(link)"
+              >
+                <li v-for="sublink in link.submenu" :key="sublink.label">
+                  <SfListItem
+                    :tag="NuxtLink"
+                    :to="sublink.link"
+                    class="!text-black hover:!bg-white hover:!text-black"
+                    @click="activeDropdown = null"
+                  >
+                    {{ sublink.label }}
+                  </SfListItem>
+                </li>
+              </ul>
+            </transition>
+          </li>
+        </ul>
+      </nav>
       <nav class="hidden ml-4 md:flex md:flex-row md:flex-nowrap">
-        <template v-if="localeCodes.length > 1">
+        <!-- <template v-if="localeCodes.length > 1">
           <UiButton
             v-if="!isLanguageSelectOpen"
             class="group relative hover:!bg-header-400 active:!bg-header-400 mr-1 -ml-0.5 rounded-md cursor-pointer"
@@ -32,7 +81,7 @@
               <SfIconLanguage class="relative" />
             </template>
           </UiButton>
-        </template>
+        </template> -->
         <UiButton
           class="group relative hover:!bg-header-400 active:bg-header-400 mr-1 -ml-0.5 rounded-md"
           :tag="NuxtLink"
@@ -127,7 +176,7 @@
     </template>
 
     <div v-if="viewport.isLessThan('lg')">
-      <UiButton
+      <!-- <UiButton
         variant="tertiary"
         class="relative text-white hover:text-white active:text-white hover:bg-header-400 active:bg-header-400 rounded-md md:hidden"
         square
@@ -137,8 +186,8 @@
         @click="toggleLanguageSelect()"
       >
         <SfIconLanguage />
-      </UiButton>
-      <UiButton
+      </UiButton> -->
+      <!-- <UiButton
         variant="tertiary"
         class="relative text-white hover:text-white active:text-white hover:bg-header-400 active:bg-header-400 rounded-md md:hidden"
         square
@@ -146,7 +195,7 @@
         @click="searchModalOpen"
       >
         <SfIconSearch />
-      </UiButton>
+      </UiButton> -->
     </div>
   </MegaMenu>
   <LanguageSelector />
@@ -300,4 +349,37 @@ const navigateToLogin = () => {
     openAuthentication();
   }
 };
+
+// CUSTOM NAVIGATION LINKS
+const activeDropdown = ref<string | null>(null);
+let leaveTimeout: NodeJS.Timeout;
+
+const handleMouseEnter = (link: { submenu?: unknown; label: string }) => {
+  clearTimeout(leaveTimeout);
+  if (link.submenu) {
+    activeDropdown.value = link.label;
+  }
+};
+
+const handleMouseLeave = () => {
+  leaveTimeout = setTimeout(() => {
+    activeDropdown.value = null;
+  }, 200); // 200ms delay before closing
+};
+const navigationLinks = [
+  {
+    label: 'Produkte',
+    link: '/produkte',
+    submenu: [
+      { label: 'Alle Produkte', link: '/produkte' },
+      { label: 'Himmi', link: '/produkte/himmi' },
+      { label: 'Korn', link: '/produkte/korn' },
+      { label: 'Splitti', link: '/produkte/splitti' },
+      { label: 'Krauti', link: '/produkte/krauti' },
+    ],
+  },
+  { label: 'Events', link: '/events' },
+  { label: 'Über Uns', link: '/ueber-uns' },
+  { label: 'Kontakt', link: '/kontakt' },
+];
 </script>
