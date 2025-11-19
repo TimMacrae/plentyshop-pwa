@@ -14,6 +14,10 @@ export interface CustomImageTextBlockData {
     link: string;
   };
   bgColor?: string;
+  useGradient?: boolean;
+  gradientFrom?: string;
+  gradientTo?: string;
+  gradientPosition?: string | undefined;
 }
 
 export interface CustomImageTextBlockProps {

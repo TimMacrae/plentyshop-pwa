@@ -7,14 +7,14 @@
     <!-- Desktop: text left, image right -->
     <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
       <!-- 🖋️ Text block (left on desktop) -->
-      <div class="relative flex items-center px-8 py-16 lg:px-16 lg:py-24 order-2 lg:order-1">
+      <div class="relative flex items-center px-8 py-16 lg:px-16 lg:py-24 order-2 lg:order-1" :style="gradientStyle">
         <div class="space-y-6 max-w-2xl mx-auto">
           <!-- Title -->
           <h2
             v-if="data?.title?.text"
-            class="font-bold uppercase tracking-wider typography-headline-1"
-            style="font-size: clamp(4rem, 8vw, 7rem); line-height: 1"
-            :style="{ color: data.title.color || '#e60073' }"
+            class="font-bold uppercase typography-headline-1"
+            style="font-size: clamp(4rem, 8vw, 5rem); line-height: 1"
+            :style="{ color: data.title.color || '' }"
           >
             {{ data.title.text }}
           </h2>
@@ -22,8 +22,8 @@
           <!-- Subtitle -->
           <h3
             v-if="data?.subtitle?.text"
-            class="text-2xl lg:text-4xl font-bold"
-            :style="{ color: data.subtitle.color || '#ffffff' }"
+            class="text-1xl lg:text-3xl font-bold"
+            :style="{ color: data.subtitle.color || '' }"
           >
             {{ data.subtitle.text }}
           </h3>
@@ -32,7 +32,7 @@
           <p
             v-if="data?.description?.text"
             class="text-lg lg:text-xl leading-relaxed"
-            :style="{ color: data.description.color || '#ffffff' }"
+            :style="{ color: data.description.color || '' }"
           >
             {{ data.description.text }}
           </p>
@@ -43,8 +43,8 @@
               :to="data.cta.link || '#'"
               class="inline-block font-bold px-8 py-4 text-lg rounded-md transition-colors"
               :style="{
-                backgroundColor: data.cta.bgColor || '#e60073',
-                color: data.cta.color || '#ffffff',
+                backgroundColor: data.cta.bgColor || '',
+                color: data.cta.color || '',
               }"
             >
               {{ data.cta.text }}
@@ -54,7 +54,7 @@
       </div>
 
       <!-- 🖼️ Image block (right on desktop, top on mobile) -->
-      <div class="relative h-full min-h-[400px] lg:min-h-[700px] order-1 lg:order-2">
+      <div class="relative h-full min-h-[500px] lg:min-h-[700px] order-1 lg:order-2">
         <picture>
           <!-- Mobile -->
           <source
@@ -70,7 +70,7 @@
             width="1200"
             height="1400"
             loading="lazy"
-            class="absolute inset-0 w-full h-full object-cover"
+            class="absolute inset-0 w-full h-full object-cover object-top"
           />
         </picture>
 
@@ -83,9 +83,20 @@
 <script setup lang="ts">
 import type { CustomImageTextBlockReverseProps } from './types';
 
-defineProps<CustomImageTextBlockReverseProps>();
+const props = defineProps<CustomImageTextBlockReverseProps>();
 
 const { addModernImageExtension } = useModernImage();
+const gradientStyle = computed(() => {
+  if (props.data.useGradient) {
+    const fromColor = props.data.gradientFrom || 'transparent';
+    const toColor = props.data.gradientTo || 'transparent';
+    const position = props.data.gradientPosition?.split('-').join(' ') || 'top left';
+    return {
+      backgroundImage: `radial-gradient(ellipse at ${position}, ${fromColor} 0%, ${fromColor} 50%, ${toColor} 100%)`,
+    };
+  }
+  return {};
+});
 </script>
 
 <style scoped>

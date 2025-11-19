@@ -14,6 +14,10 @@ export interface CustomImageTextBlockReverseData {
     link: string;
   };
   bgColor?: string;
+  useGradient?: boolean;
+  gradientFrom?: string;
+  gradientTo?: string;
+  gradientPosition?: string | undefined;
 }
 
 export interface CustomImageTextBlockReverseProps {

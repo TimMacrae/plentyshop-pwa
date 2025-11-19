@@ -1,5 +1,5 @@
 <template>
-  <section class="relative min-h-[576px] lg:min-h-[700px] overflow-hidden">
+  <section class="relative aspect-[5/4] sm:aspect-video lg:aspect-[16/6] overflow-hidden">
     <!-- Responsive background images -->
     <picture>
       <source :srcset="addModernImageExtension(banner.image.wideScreen)" media="(min-width: 1536px)" />
@@ -8,7 +8,7 @@
       <img
         :src="addModernImageExtension(banner.image.mobile)"
         :alt="banner.image.alt || 'Hero background'"
-        class="absolute inset-0 w-full h-full object-cover"
+        class="absolute inset-0 w-full h-full object-cover object-top"
         loading="eager"
         fetchpriority="high"
       />
@@ -35,13 +35,13 @@
         </p>
 
         <!-- Title -->
-        <h1
+        <h2
           v-if="banner.text.title"
           class="text-4xl md:text-6xl font-extrabold mb-4 typography-headline-1"
           style="font-size: clamp(4rem, 8vw, 7rem)"
         >
           {{ banner.text.title }}
-        </h1>
+        </h2>
 
         <!-- Subtitle -->
         <p v-if="banner.text.subtitle" class="text-lg md:text-xl mb-4 opacity-90">
@@ -73,7 +73,6 @@ import type { CustomHeroProps } from './types';
 const { banner } = defineProps<CustomHeroProps>();
 
 const { addModernImageExtension } = useModernImage();
-console.log(banner);
 
 const positionClasses = computed(() => {
   // Horizontal: left / center / right
