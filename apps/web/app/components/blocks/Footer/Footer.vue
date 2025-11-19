@@ -38,9 +38,7 @@
           :key="i"
           class="max-w-[280px] break-words"
         >
-          <div class="ml-4 text-lg font-medium leading-7">
-            {{ column?.title }}
-          </div>
+          <div class="ml-4 text-lg font-medium leading-7">{{ column?.title }}</div>
           <div v-if="getColumnSwitches(column).length" class="text-sm">
             <ul>
               <SfListItem

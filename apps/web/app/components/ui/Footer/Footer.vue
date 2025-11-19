@@ -29,9 +29,7 @@
     <hr />
     <div class="bg-neutral-900" data-testid="section-bottom">
       <div class="text-sm py-10 md:py-6 px-10 text-right">
-        <p class="text-white/50">
-          {{ companyName }}
-        </p>
+        <p class="text-white/50">{{ companyName }}</p>
       </div>
     </div>
   </footer>
