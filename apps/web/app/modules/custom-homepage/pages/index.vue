@@ -1,20 +1,35 @@
 <template>
   <div class="custom-homepage">
-    <!-- Carousel Section -->
-    <!-- <div v-if="loading" class="w-full h-full flex items-center justify-center bg-neutral-100">
-      <SfLoaderCircular size="xl" />
-    </div> -->
+    <div v-if="bannerCampaignOne"><CustomHero :banner="bannerCampaignOne" /></div>
 
-    <div v-if="bannerCampaign"><CustomHero :banner="bannerCampaign" /></div>
+    <!-- Brand Promise Section -->
+    <div class="bg-black px-4 py-16 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="!text-3xl font-bold text-white sm:!text-5xl typography-headline-2 tracking-wider">
+          {{ customBrandPromiseContent.title }}
+        </h2>
+        <p class="mt-4 text-lg text-white tracking-wider">
+          {{ customBrandPromiseContent.text }}
+        </p>
+      </div>
+      <div class="mt-12 flex items-center justify-center gap-x-8">
+        <NuxtImg
+          v-for="logo in customBrandPromiseContent.logos"
+          :key="logo"
+          :src="logo"
+          :alt="logo"
+          height="200"
+          loading="lazy"
+          class="h-12 md:h-24 w-auto"
+        />
+      </div>
+    </div>
 
-    <!-- Featured Products Section -->
-
-    <div class="px-16 py-16 bg-black">
-      <h2 class="font-bold text-white mb-8 typography-headline-2" style="font-size: clamp(1rem, 8vw, 3rem)">
-        Produkte Kornfetti
-      </h2>
-
-      <ProductSlider v-if="productsList?.length" :items="productsList" />
+    <!-- Products Section -->
+    <div v-if="productListReduced.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
+        <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+      </div>
     </div>
 
     <!-- Image text section -->
@@ -22,16 +37,59 @@
       <CustomImageTextBlock :data="customImageTextBlock_himmiBombContent" />
     </div>
 
+    <!-- Image text section -->
+    <div v-if="customImageTextBlock_himmiBottleContent">
+      <CustomImageTextBlockReverse :data="customImageTextBlock_himmiBottleContent" />
+    </div>
+
+    <!-- Campaign section 2 -->
+    <div v-if="bannerCampaignTwo"><CustomHero :banner="bannerCampaignTwo" /></div>
+
     <!-- Products Section -->
-    <div v-if="productListReduced.length" class="custom-product-section py-32 xs:py-16 xs:px-8 bg-black">
+    <div v-if="productListReduced.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
         <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
       </div>
     </div>
 
     <!-- Image text section -->
-    <div v-if="customImageTextBlock_pinkRiotSquadContent">
-      <CustomImageTextBlockReverse :data="customImageTextBlock_pinkRiotSquadContent" />
+    <div v-if="customImageTextBlock_splittiBottleContent">
+      <CustomImageTextBlockReverse :data="customImageTextBlock_splittiBottleContent" />
+    </div>
+
+    <!-- Image text section -->
+    <div v-if="customImageTextBlock_krautiBottleContent">
+      <CustomImageTextBlock :data="customImageTextBlock_krautiBottleContent" />
+    </div>
+
+    <!-- Image text section -->
+    <div v-if="customImageTextBlock_kornBottleContent">
+      <CustomImageTextBlockReverse :data="customImageTextBlock_kornBottleContent" />
+    </div>
+
+    <!-- Campaign section 3 -->
+    <div v-if="bannerCampaignThree"><CustomHero :banner="bannerCampaignThree" /></div>
+
+    <!-- Products Section -->
+    <div v-if="productListReduced.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
+        <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+      </div>
+    </div>
+
+    <!-- Image text section -->
+    <div v-if="customImageTextBlock_eventsContent">
+      <CustomImageTextBlockReverse :data="customImageTextBlock_eventsContent" />
+    </div>
+
+    <!-- Image text section -->
+    <div v-if="customImageTextBlock_rezepteContent">
+      <CustomImageTextBlock :data="customImageTextBlock_rezepteContent" />
+    </div>
+
+    <!-- Image text section -->
+    <div v-if="customImageTextBlock_aboutUsContent">
+      <CustomImageTextBlockReverse :data="customImageTextBlock_aboutUsContent" />
     </div>
 
     <!-- Newsletter Section -->
@@ -90,7 +148,9 @@ import { useCustomBannerCampaign } from '../composables/useCustomBannerCampaign/
 import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
 import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/NewsletterSubscribe.vue';
 
-const bannerCampaign = useCustomBannerCampaign();
+const bannerCampaignOne = useCustomBannerCampaign('campaignOne');
+const bannerCampaignTwo = useCustomBannerCampaign('campaignTwo');
+const bannerCampaignThree = useCustomBannerCampaign('campaignThree');
 
 // Fetch products from category 40
 const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
@@ -99,7 +159,17 @@ const productsList = computed(() => productsData.value?.products || []);
 const productListReduced = computed(() => [...productsList.value.slice(2, 5), ...productsList.value.slice(6, 7)]);
 
 // Get custom content
-const { customImageTextBlock_himmiBombContent, customImageTextBlock_pinkRiotSquadContent } = useCustomContent();
+const {
+  customImageTextBlock_himmiBombContent,
+  customBrandPromiseContent,
+  customImageTextBlock_himmiBottleContent,
+  customImageTextBlock_splittiBottleContent,
+  customImageTextBlock_krautiBottleContent,
+  customImageTextBlock_kornBottleContent,
+  customImageTextBlock_eventsContent,
+  customImageTextBlock_rezepteContent,
+  customImageTextBlock_aboutUsContent,
+} = useCustomContent();
 const newsletterContent = {
   text: {
     bgColor: '#000',
@@ -137,8 +207,8 @@ onMounted(async () => {});
       border-top: none;
     }
     button {
-      background-color: #ff0080;
-      border-color: #ff0080;
+      background-color: #c51d60;
+      border-color: #c51d60;
       &:hover {
         background-color: #e60073;
         border-color: #e60073;
@@ -159,12 +229,19 @@ onMounted(async () => {});
       color: #fff;
     }
     button {
-      background-color: #ff0080;
-      border-color: #ff0080;
+      background-color: #c51d60;
+      border-color: #c51d60;
       &:hover {
         background-color: #e60073;
         border-color: #e60073;
       }
+    }
+    h2 {
+      font-family: 'kornfetti-font', sans-serif;
+      font-weight: 700;
+      font-size: 5rem;
+      line-height: 1.2;
+      letter-spacing: 0.3rem;
     }
   }
 }
