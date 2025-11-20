@@ -77,13 +77,14 @@
       </div>
 
       <!-- Right side - Content -->
-      <div class="relative flex items-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
+      <div class="relative w-full flex items-center justify-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
         <div class="custom-newsletter-section">
-          <NewsletterSubscribe
+          <!-- <NewsletterSubscribe
             :name="'NewsletterSubscribe'"
             :type="'NewsletterSubscribe'"
             :content="newsletterContent"
-          />
+          /> -->
+          <CustomEmailNewsletter :bgColor="'#000000'" :textColor="'#FFFFFF'" />
         </div>
       </div>
     </div>
@@ -93,46 +94,16 @@
 <script setup lang="ts">
 import { useCustomContent } from '../composables/useCustomContent';
 import { useCustomBannerCampaign } from '../composables/useCustomBannerCampaign/useCustomBannerCampaign';
-import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
-import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/NewsletterSubscribe.vue';
 
 const bannerCampaignOne = useCustomBannerCampaign('campaignOne');
-const bannerCampaignTwo = useCustomBannerCampaign('campaignTwo');
-const bannerCampaignThree = useCustomBannerCampaign('campaignThree');
-
-// Fetch products from category 40
-const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
-await fetchProducts({ categoryId: '40' });
-const productsList = computed(() => productsData.value?.products || []);
-const productListReduced = computed(() => [...productsList.value.slice(2, 5), ...productsList.value.slice(6, 7)]);
 
 // Get custom content
 const {
-  customImageTextBlock_himmiBombContent,
   customBrandPromiseContent,
-  customImageTextBlock_himmiBottleContent,
-  customImageTextBlock_splittiBottleContent,
-  customImageTextBlock_krautiBottleContent,
-  customImageTextBlock_kornBottleContent,
   customImageTextBlock_eventsContent,
   customImageTextBlock_rezepteContent,
   customImageTextBlock_aboutUsContent,
 } = useCustomContent();
-const newsletterContent = {
-  text: {
-    bgColor: '#000',
-    title: 'Join the Kornunity',
-    htmlDescription:
-      'Alle Mitglieder*innen erhalten einen 5 € Willkommens-Gutschein.<br/>Erfahren einmal im Monat von News rund um Kornfetti und erhalten exklusive Angebote.<br/>Kein Spam, nur Hochprozentiges!',
-  },
-  input: {
-    displayNameInput: true,
-    nameIsRequired: true,
-  },
-  button: {
-    label: 'ANMELDEN',
-  },
-};
 
 definePageMeta({
   layout: 'default',
