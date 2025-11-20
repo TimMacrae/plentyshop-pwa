@@ -101,7 +101,7 @@ definePageMeta({
 
 const infoBoxItems = [
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/100_Natuerlich.png',
+    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/100__Natu_rlich.png',
     imageAlt: '100% natürliche Zutaten',
     title: 'Alles natürlich!',
     description:
@@ -115,7 +115,7 @@ const infoBoxItems = [
       'Unser Maracuja-Vanille Likör entsteht komplett in Deutschland – mit viel Liebe, Sorgfalt und kurzen Wegen. Die Zutaten kommen aus der Region. Der Weizen im Alkohol? Zu 100 % aus deutschem Anbau. Produktion, Abfüllung und Verpackung finden hier im Land statt. Ehrlich, nachvollziehbar und ohne großen Klimabimbam.',
   },
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/30_euro_Icon-Kopie.png',
+    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/30_euro_Icon_Kopie.png',
     imageAlt: 'Ab 30 € free',
     title: 'Versandkostenfrei',
     description:
