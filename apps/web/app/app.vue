@@ -44,6 +44,7 @@
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
+      <CustomAgeVerificationOverlay v-if="!isAgeVerified" @verified="verifyAge" />
     </div>
   </div>
   <ClientOnly>
@@ -84,6 +85,14 @@ const keywords = ref(getMetaKeywords());
 const robots = ref(getRobots());
 const fav = ref(getFavicon());
 const themeColor = ref(getPrimaryColor());
+
+// CUSTOM AGE VERIFICATION LOGIC
+const isAgeVerified = useCookie<boolean>('is-age-verified', {
+  maxAge: 60 * 60 * 24 * 30,
+});
+const verifyAge = () => {
+  isAgeVerified.value = true;
+};
 
 watchEffect(() => {
   title.value = getMetaTitle();

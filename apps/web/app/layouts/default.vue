@@ -11,7 +11,9 @@
     <Cookiebar />
     <PreviewMode />
     <ClientOnly>
-      <FooterBlock v-if="!route.meta.isBlockified" />
+      <!-- CUSTOM FOOTER -->
+      <!-- <FooterBlock v-if="!route.meta.isBlockified" /> -->
+      <CustomFooter />
     </ClientOnly>
     <QuickCheckout v-if="isOpen" :product="product" />
   </div>
@@ -19,8 +21,8 @@
 
 <script setup lang="ts">
 import type { DefaultLayoutProps } from '~/layouts/types';
-import FooterBlock from '~/components/blocks/Footer/Footer.vue';
-
+// import FooterBlock from '~/components/blocks/Footer/Footer.vue';
+import CustomFooter from '~/components/CustomFooter/CustomFooter.vue';
 defineProps<DefaultLayoutProps>();
 
 const { setLogoMeta } = useStructuredData();

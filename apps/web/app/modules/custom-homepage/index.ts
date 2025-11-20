@@ -47,29 +47,49 @@ export default defineNuxtModule({
     // Add additional custom routes
     extendPages((pages) => {
       pages.push({
-        name: 'producktwelt',
-        path: '/producktwelt',
-        file: resolve('./pages/producktwelt/index.vue'),
+        name: 'produkte',
+        path: '/produkte',
+        file: resolve('./pages/produkte/index.vue'),
       });
       pages.push({
-        name: 'producktwelt-himmi',
-        path: '/producktwelt/himmi',
-        file: resolve('./pages/producktwelt/himmi.vue'),
+        name: 'produkte-himmi',
+        path: '/produkte/himmi',
+        file: resolve('./pages/produkte/himmi.vue'),
       });
       pages.push({
-        name: 'producktwelt-korn',
-        path: '/producktwelt/korn',
-        file: resolve('./pages/producktwelt/korn.vue'),
+        name: 'produkte-korn',
+        path: '/produkte/korn',
+        file: resolve('./pages/produkte/korn.vue'),
       });
       pages.push({
-        name: 'producktwelt-krauti',
-        path: '/producktwelt/krauti',
-        file: resolve('./pages/producktwelt/krauti.vue'),
+        name: 'produkte-krauti',
+        path: '/produkte/krauti',
+        file: resolve('./pages/produkte/krauti.vue'),
       });
       pages.push({
-        name: 'producktwelt-splitti',
-        path: '/producktwelt/splitti',
-        file: resolve('./pages/producktwelt/splitti.vue'),
+        name: 'produkte-splitti',
+        path: '/produkte/splitti',
+        file: resolve('./pages/produkte/splitti.vue'),
+      });
+      pages.push({
+        name: 'ueber-uns',
+        path: '/ueber-uns',
+        file: resolve('./pages/ueber-uns.vue'),
+      });
+      pages.push({
+        name: 'kontakt',
+        path: '/kontakt',
+        file: resolve('./pages/kontakt.vue'),
+      });
+      pages.push({
+        name: 'rezepte',
+        path: '/rezepte',
+        file: resolve('./pages/rezepte/index.vue'),
+      });
+      pages.push({
+        name: 'rezept-detail',
+        path: '/rezepte/:id',
+        file: resolve('./pages/rezepte/[id].vue'),
       });
     });
   },

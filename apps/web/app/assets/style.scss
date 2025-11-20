@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'kornfetti-font';
+  src: url('/fonts/Kornfetti_font_2023-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .scrollbar-hidden {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -90,4 +98,12 @@ apple-pay-button {
     display: block;
     vertical-align: middle;
   }
+}
+// CUSTOM LETTER SPACING
+* {
+  letter-spacing: 0.07em;
+}
+html,
+body {
+  background-color: #000;
 }

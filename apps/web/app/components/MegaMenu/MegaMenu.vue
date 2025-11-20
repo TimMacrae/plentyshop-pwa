@@ -1,7 +1,7 @@
 <template>
   <header ref="referenceRef" :class="headerClass" class="relative w-full md:sticky md:shadow-md z-10">
     <div
-      class="flex justify-between items-center flex-wrap md:flex-nowrap px-4 md:px-10 py-2 md:py-5 w-full border-0 border-neutral-200"
+      class="flex items-center flex-wrap md:flex-nowrap px-4 md:px-10 py-2 md:py-5 w-full border-0 border-neutral-200"
       :style="{ backgroundColor: headerBackgroundColor }"
       data-testid="navbar-top"
     >
@@ -21,7 +21,7 @@
         <NuxtLink
           :to="localePath(paths.home)"
           :aria-label="t('goToHomepage')"
-          class="flex shrink-0 w-full lg:w-48 items-center mr-auto text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          class="flex shrink-0 !w-8 lg:w-48 items-center mr-auto text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >
           <UiLogo />
         </NuxtLink>
@@ -33,7 +33,7 @@
     <div v-if="viewport.isGreaterOrEquals('lg')">
       <nav ref="floatingRef">
         <ul
-          class="flex flex-wrap px-6 py-2 bg-white border-b border-b-neutral-200 border-b-solid"
+          class="flex flex-wrap px-6 py-0 bg-black border-b border-b-black border-b-solid"
           @blur="
             (event: FocusEvent) => {
               if (!(event.currentTarget as Element).contains(event.relatedTarget as Element)) {
@@ -50,24 +50,23 @@
             :key="index"
             @mouseenter="onCategoryMouseEnter(menuNode)"
           >
-            <div
+            <!-- CUSTOM NAVIGATION COLOR CHANGES -->
+            <!-- <div
               ref="triggerReference"
               data-testid="category-button"
-              class="inline-flex items-center justify-center gap-2 font-medium text-base rounded-md py-2 px-4 group mr-2 !text-neutral-900 hover:bg-secondary-100 hover:!text-neutral-700 active:!bg-neutral-300 active:!text-neutral-900 cursor-pointer"
+              class="inline-flex items-center justify-center gap-2 font-medium text-base rounded-md py-2 px-4 group mr-2 !text-white hover:bg-black hover:!text-neutral-100 active:!bg-neutral-300 active:!text-neutral-900 cursor-pointer"
               @click="onCategoryTap(menuNode)"
             >
               <template v-if="menuNode.childCount > 0">
                 <span>{{ categoryTreeGetters.getName(menuNode) }}</span>
-                <SfIconChevronRight
-                  class="rotate-90 text-neutral-500 group-hover:text-neutral-700 group-active:text-neutral-900"
-                />
+                <SfIconChevronRight class="rotate-90 text-white group-hover:text-white group-active:text-white" />
               </template>
               <template v-else>
                 <NuxtLink :to="localePath(generateCategoryLink(menuNode))" class="flex items-center gap-2 w-full">
                   <span>{{ categoryTreeGetters.getName(menuNode) }}</span>
                 </NuxtLink>
               </template>
-            </div>
+            </div> -->
 
             <div
               v-if="
@@ -80,7 +79,7 @@
               :key="activeMenu.id"
               ref="megaMenuReference"
               :style="style"
-              class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-none z-40"
+              class="hidden md:grid gap-x-6 grid-cols-4 bg-black text-white shadow-lg p-6 left-0 right-0 outline-none z-40"
               tabindex="0"
               @mouseleave="onMouseLeave"
               @keydown.esc="focusTrigger(index)"
@@ -92,7 +91,7 @@
                       :tag="NuxtLink"
                       size="sm"
                       :href="localePath(generateCategoryLink(node))"
-                      class="typography-text-sm mb-2 hover:bg-secondary-100 rounded"
+                      class="typography-text-sm mb-2 rounded hover:!bg-black"
                     >
                       {{ categoryTreeGetters.getName(node) }}
                     </SfListItem>
