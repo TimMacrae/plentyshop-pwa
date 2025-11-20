@@ -114,21 +114,21 @@ definePageMeta({
 
 const infoBoxItems = [
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/100_Natuerlich.png',
+    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/100__Natu_rlich_korn.png',
     imageAlt: '100% natürliche Zutaten',
     title: 'Alles natürlich',
     description:
       'Unser Korn braucht keine Showeffekte. Nur sauber gebrannter Alkohol aus bestem Weizen und Wasser – fertig. Das Ergebnis: ein klarer, ehrlicher Korn, der genauso schmeckt, wie Korn schmecken soll. Pur, mild, schnörkellos und richtig gut.',
   },
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/made_in_germany.png',
+    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/made-in-germany-korn.png',
     imageAlt: 'Made in Germany',
     title: 'Regional hergestellt',
     description:
       'Kornfetti Korn ist zu 100 Prozent ein Kind der Heimat. Der Weizen kommt komplett aus deutschem Anbau, die Verarbeitung, das Brennen und die Abfüllung passieren ebenfalls hierzulande. Kurze Wege, volle Transparenz und Qualität, die man nicht erklären muss – man schmeckt sie.',
   },
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/30_euro_Icon-Kopie.png',
+    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/ab-30-euro-korn.png',
     imageAlt: 'Ab 30 € free',
     title: 'Versandkostenfrei',
     description:

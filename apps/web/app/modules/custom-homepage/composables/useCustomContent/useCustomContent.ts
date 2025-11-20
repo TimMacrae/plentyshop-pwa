@@ -27,9 +27,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_himmiBottleContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi-Kornfetti-Hamburg-Himmbeer-Likoer.jpg.avif',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_MiniHimmi_homepage_1000x1000.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi-Kornfetti-Hamburg-Himmbeer-Likoer.jpg.avif',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_MiniHimmi_homepage_500x500.png',
       alt: 'Himmi Flasche',
     },
     title: { text: 'Himmi', color: '#000' },
@@ -134,9 +134,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_himmiMoreContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_MiniHimmi_homepage_1000x1000.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_MiniHimmi_homepage_500x500.png',
       alt: 'Himmi more',
     },
     title: { text: 'HIMMI MORE', color: '#000' },
@@ -169,9 +169,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_eventsContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_event_homepage_1000x1000.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Event_homepage_500x500.png',
       alt: 'Kornfetti events',
     },
     title: { text: '"EVENTS"', color: '#000' },
