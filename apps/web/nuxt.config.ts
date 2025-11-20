@@ -360,6 +360,8 @@ export default defineNuxtConfig({
   pwa: {
     registerType: 'prompt',
     workbox: {
+      // CUSTOM Increase limit to 10MB to handle large font files
+      maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
       navigateFallback: null,
       globPatterns: ['**/*.{js,json,css,html,ico,svg,png,webp,ico,woff,woff2,ttf,eit,otf}', '_nuxt-plenty/icons/*'],
       globIgnores: ['manifest**.webmanifest'],
