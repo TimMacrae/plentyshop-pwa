@@ -2,7 +2,7 @@
   <footer data-testid="custom-footer" class="bg-black text-white font-sans">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-16">
       <!-- Footer Columns -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         <!-- Social Column -->
         <div class="flex flex-col items-center sm:items-start">
           <h3 class="font-bold text-lg uppercase tracking-wider typography-headline-2">{{ socialLinks.title }}</h3>
