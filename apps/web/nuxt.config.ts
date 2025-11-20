@@ -241,6 +241,8 @@ export default defineNuxtConfig({
       fetchDynamicTranslations: false,
       sessionLifetime: process.env.NUXT_PUBLIC_SESSION_LIFETIME || '3600',
       shippingTextCategoryId: process.env.NUXT_PUBLIC_SHIPPING_TEXT_CATEGORY_ID || '',
+      brevoFormActionUrl: process.env.NUXT_PUBLIC_BREVO_FORM_ACTION_URL || '',
+      recaptchaSiteKey: process.env.NUXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
     },
   },
   modules: [
