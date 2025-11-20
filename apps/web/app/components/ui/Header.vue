@@ -34,17 +34,15 @@
               <ul
                 v-if="link.submenu && activeDropdown === link.label"
                 class="absolute top-full left-0 mt-2 z-50 rounded bg-white shadow-md border border-neutral-100 min-w-[152px] py-2"
-                @mouseenter="handleMouseEnter(link)"
               >
                 <li v-for="sublink in link.submenu" :key="sublink.label">
-                  <SfListItem
-                    :tag="NuxtLink"
+                  <NuxtLink
                     :to="sublink.link"
-                    class="!text-black hover:!bg-white hover:!text-black"
+                    class="block w-full px-4 py-2 text-left text-black hover:bg-neutral-100 transition-colors duration-150"
                     @click="activeDropdown = null"
                   >
                     {{ sublink.label }}
-                  </SfListItem>
+                  </NuxtLink>
                 </li>
               </ul>
             </transition>
@@ -353,20 +351,27 @@ const navigateToLogin = () => {
 
 // CUSTOM NAVIGATION LINKS
 const activeDropdown = ref<string | null>(null);
-let leaveTimeout: NodeJS.Timeout;
+let leaveTimeout: NodeJS.Timeout | null = null;
 
 const handleMouseEnter = (link: { submenu?: unknown; label: string }) => {
-  clearTimeout(leaveTimeout);
+  if (leaveTimeout) {
+    clearTimeout(leaveTimeout);
+    leaveTimeout = null;
+  }
   if (link.submenu) {
     activeDropdown.value = link.label;
+  } else {
+    // If hovering a link without a submenu, close any active dropdown immediately.
+    activeDropdown.value = null;
   }
 };
 
 const handleMouseLeave = () => {
   leaveTimeout = setTimeout(() => {
     activeDropdown.value = null;
-  }, 200); // 200ms delay before closing
+  }, 200); // A 200ms delay gives the user time to move to the dropdown.
 };
+
 const navigationLinks = [
   {
     label: 'Produkte',
