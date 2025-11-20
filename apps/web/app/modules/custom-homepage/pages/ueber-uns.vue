@@ -25,58 +25,6 @@
       </div>
     </div>
 
-    <!-- Products Section -->
-    <div v-if="productListReduced.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
-      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-        <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
-      </div>
-    </div>
-
-    <!-- Image text section -->
-    <div v-if="customImageTextBlock_himmiBombContent">
-      <CustomImageTextBlock :data="customImageTextBlock_himmiBombContent" />
-    </div>
-
-    <!-- Image text section -->
-    <div v-if="customImageTextBlock_himmiBottleContent">
-      <CustomImageTextBlockReverse :data="customImageTextBlock_himmiBottleContent" />
-    </div>
-
-    <!-- Campaign section 2 -->
-    <div v-if="bannerCampaignTwo"><CustomHero :banner="bannerCampaignTwo" /></div>
-
-    <!-- Products Section -->
-    <div v-if="productListReduced.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
-      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-        <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
-      </div>
-    </div>
-
-    <!-- Image text section -->
-    <div v-if="customImageTextBlock_splittiBottleContent">
-      <CustomImageTextBlockReverse :data="customImageTextBlock_splittiBottleContent" />
-    </div>
-
-    <!-- Image text section -->
-    <div v-if="customImageTextBlock_krautiBottleContent">
-      <CustomImageTextBlock :data="customImageTextBlock_krautiBottleContent" />
-    </div>
-
-    <!-- Image text section -->
-    <div v-if="customImageTextBlock_kornBottleContent">
-      <CustomImageTextBlockReverse :data="customImageTextBlock_kornBottleContent" />
-    </div>
-
-    <!-- Campaign section 3 -->
-    <div v-if="bannerCampaignThree"><CustomHero :banner="bannerCampaignThree" /></div>
-
-    <!-- Products Section -->
-    <div v-if="productListReduced.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
-      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-        <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
-      </div>
-    </div>
-
     <!-- Image text section -->
     <div v-if="customImageTextBlock_eventsContent">
       <CustomImageTextBlockReverse :data="customImageTextBlock_eventsContent" />
@@ -129,14 +77,13 @@
       </div>
 
       <!-- Right side - Content -->
-      <div class="relative w-full flex items-center justify-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
+      <div class="relative flex items-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
         <div class="custom-newsletter-section">
-          <!-- <NewsletterSubscribe
+          <NewsletterSubscribe
             :name="'NewsletterSubscribe'"
             :type="'NewsletterSubscribe'"
             :content="newsletterContent"
-          /> -->
-          <CustomEmailNewsletter :bgColor="'#000000'" :textColor="'#FFFFFF'" />
+          />
         </div>
       </div>
     </div>
@@ -147,7 +94,7 @@
 import { useCustomContent } from '../composables/useCustomContent';
 import { useCustomBannerCampaign } from '../composables/useCustomBannerCampaign/useCustomBannerCampaign';
 import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
-// import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/NewsletterSubscribe.vue';
+import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/NewsletterSubscribe.vue';
 
 const bannerCampaignOne = useCustomBannerCampaign('campaignOne');
 const bannerCampaignTwo = useCustomBannerCampaign('campaignTwo');
@@ -171,21 +118,21 @@ const {
   customImageTextBlock_rezepteContent,
   customImageTextBlock_aboutUsContent,
 } = useCustomContent();
-// const newsletterContent = {
-//   text: {
-//     bgColor: '#000',
-//     title: 'Join the Kornunity',
-//     htmlDescription:
-//       'Alle Mitglieder*innen erhalten einen 5 € Willkommens-Gutschein.<br/>Erfahren einmal im Monat von News rund um Kornfetti und erhalten exklusive Angebote.<br/>Kein Spam, nur Hochprozentiges!',
-//   },
-//   input: {
-//     displayNameInput: true,
-//     nameIsRequired: true,
-//   },
-//   button: {
-//     label: 'ANMELDEN',
-//   },
-// };
+const newsletterContent = {
+  text: {
+    bgColor: '#000',
+    title: 'Join the Kornunity',
+    htmlDescription:
+      'Alle Mitglieder*innen erhalten einen 5 € Willkommens-Gutschein.<br/>Erfahren einmal im Monat von News rund um Kornfetti und erhalten exklusive Angebote.<br/>Kein Spam, nur Hochprozentiges!',
+  },
+  input: {
+    displayNameInput: true,
+    nameIsRequired: true,
+  },
+  button: {
+    label: 'ANMELDEN',
+  },
+};
 
 definePageMeta({
   layout: 'default',

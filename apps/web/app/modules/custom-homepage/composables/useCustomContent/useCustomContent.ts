@@ -17,7 +17,7 @@ export const useCustomContent = () => {
       text: 'Zur Himmi Bomb',
       color: '#fff',
       bgColor: '#000',
-      link: '/produkt/himmi',
+      link: '/spirituosen/himmi-0-7-l-inkl-2x-himmi-bomb-glas-spuelmaschinenfests-hochwertiges-acrylglas_249_1208',
     },
     bgColor: '',
     useGradient: true,
@@ -43,7 +43,7 @@ export const useCustomContent = () => {
       text: 'Zum Himmi',
       color: '#fff',
       bgColor: '#000',
-      link: '/produkt/himmi',
+      link: '/himmi-0-7-liter_209_1166',
     },
     bgColor: '',
     useGradient: true,
@@ -70,7 +70,7 @@ export const useCustomContent = () => {
       text: 'Zum Splitti',
       color: '#fff',
       bgColor: '#000',
-      link: '/produkt/splitti',
+      link: '/spliti-0-7-liter_252_1211',
     },
     bgColor: '',
     useGradient: true,
@@ -97,7 +97,7 @@ export const useCustomContent = () => {
       text: 'Zum Krauti',
       color: '#fff',
       bgColor: '#000',
-      link: '/produkt/krauti',
+      link: '/krauti-0-7-liter_212_1169',
     },
     bgColor: '',
     useGradient: true,
@@ -110,7 +110,7 @@ export const useCustomContent = () => {
       url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
       mobileUrl:
         'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
-      alt: 'Himmi Flasche',
+      alt: 'Korn Flasche',
     },
     title: { text: 'Korn', color: '#000' },
 
@@ -123,7 +123,7 @@ export const useCustomContent = () => {
       text: 'Zum Himmi',
       color: '#fff',
       bgColor: '#000',
-      link: '/produkt/korn',
+      link: '/kornfetti-0-7l_139_1074',
     },
     bgColor: '',
     useGradient: true,
@@ -137,7 +137,7 @@ export const useCustomContent = () => {
       url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
       mobileUrl:
         'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
-      alt: 'Himmi miniaturen',
+      alt: 'Himmi more',
     },
     title: { text: 'HIMMI MORE', color: '#000' },
     subtitle: { text: 'Himmi - Himbeer-Limetten Likör 15% vol.', color: '#fff' },
@@ -149,7 +149,7 @@ export const useCustomContent = () => {
       text: 'Zum Himmi',
       color: '#fff',
       bgColor: '#000',
-      link: '/products/himmi',
+      link: '/himmi-0-7-liter_209_1166',
     },
     useGradient: true,
     gradientFrom: '#C51D60',
@@ -172,7 +172,7 @@ export const useCustomContent = () => {
       url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
       mobileUrl:
         'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
-      alt: 'Himmi miniaturen',
+      alt: 'Kornfetti events',
     },
     title: { text: '"EVENTS"', color: '#000' },
     description: {
@@ -183,7 +183,7 @@ export const useCustomContent = () => {
       text: 'Jetzt probieren',
       color: '#fff',
       bgColor: '#000',
-      link: '/products/himmi',
+      link: '/events',
     },
     useGradient: true,
     gradientFrom: '#C51D60',
@@ -254,7 +254,7 @@ export const useCustomContent = () => {
       text: 'Zur Himmi Bomb',
       color: '#fff',
       bgColor: '#000',
-      link: '/produkt/himmi',
+      link: '/himmi-0-7-l-inkl-2x-himmi-bomb-glas-spuelmaschinenfests-hochwertiges-acrylglas_249_1208',
     },
     bgColor: '',
     useGradient: true,
@@ -296,21 +296,22 @@ export const useCustomContent = () => {
     },
     title: { text: 'MAGIC MARACUJA', color: '#000' },
 
-    subtitle: { text: 'Spliti - Maracuja-Vanille Likör 15% vol.', color: '#000' },
+    subtitle: { text: 'Spliti - Maracuja-Vanille Likör 15% vol.', color: '#fff' },
     description: {
       text: 'Spliti by Kornfetti schmeckt wie ein Kurzurlaub im Glas – sonnig, fruchtig und einfach zum Verlieben. Die Kombination aus reifer Maracuja und feiner Vanille bringt Tropenflair in jeden Moment und sorgt für gute Laune, ganz ohne Schirmchen. Unsere Zutaten? 100% ehrlich, 100% Geschmack. Spliti wird aus bestem Weizen aus deutschem Anbau gemacht und regional abgefüllt – das Design kommt straight aus Hamburg von Bobbie Serrano. Kornfetti-DNA? Ganz klar: wild, frisch, kompromisslos gut. Aber bei Spliti geht’s nicht nur um die Zutaten – sondern um das Feeling. Wir setzen auf natürliche Aromen, echte Handarbeit und den perfekten Mix aus Maracuja und Vanille. Kein künstlicher Kram, kein Zuckerbomber – einfach ehrlicher Sommergeschmack im Glas. Eisgekühlt als Shot serviert entfaltet er seinen vollen Geschmack – süß, wild und immer ein bisschen zu gut, um brav zu bleiben.',
-      color: '#000',
+      color: '#fff',
     },
     cta: {
       text: 'Zum Splitti',
       color: '#fff',
       bgColor: '#000',
-      link: '/produkt/splitti',
+      link: '/spliti-0-7-liter_252_1211',
     },
     bgColor: '',
     useGradient: true,
-    gradientFrom: '#FDE63D',
-    gradientTo: '#F38F36',
+    gradientFrom: '#F38F36',
+    gradientTo: '#FDE63D',
+    gradientPosition: 'top-right',
   };
 
   const customImageTextBlock_productKrauti_krautiBottleContent = {
@@ -322,21 +323,22 @@ export const useCustomContent = () => {
     },
     title: { text: 'KRAUTI LOVE', color: '#000' },
 
-    subtitle: { text: 'Krauti - Kräuterlikör 25% vol.', color: '#000' },
+    subtitle: { text: 'Krauti - Kräuterlikör 25% vol.', color: '#fff' },
     description: {
       text: 'Unser Krauti ist kein Likör für Langweiler. Er vereint über 40 erlesene Kräuter, Wurzeln und Gewürze zu einem kräftig-würzigen Geschmackserlebnis mit einem Hauch von Süße. Hergestellt mit 100% natürlichen Zutaten bringt Krauti den wilden Spirit der Nacht ins Glas – ehrlich, ungeschminkt und voller Charakter. Das Design von Streetartkünstler Bobbie Serrano spiegelt genau das wider: rough, bunt und rebellisch. Krauti ist der Wilde unter unseren Sorten: frech, herb, unverwechselbar. Handgemacht, mit ausgewählten Kräutern und ganz ohne künstliche Zusätze. Kein billiger Kräuter-Klon, sondern ehrliche Würze mit Charakter – kräftig, rund und so smooth, dass selbst dein Opa staunen würde. Eisgekühlt und pur – Krauti ist der treue Begleiter für alle, die lieber tanzen als als pirschen.',
-      color: '#000',
+      color: '#fff',
     },
     cta: {
       text: 'Zum Krauti',
       color: '#fff',
       bgColor: '#000',
-      link: '/produkt/krauti',
+      link: '/krauti-0-7-liter_212_1169',
     },
     bgColor: '',
     useGradient: true,
     gradientFrom: '#009AA9',
-    gradientTo: '#49BDCD',
+    gradientTo: '#65e1f2',
+    gradientPosition: 'top-right',
   };
 
   const customImageTextBlock_productKorn_kornBottleContent = {
@@ -357,7 +359,7 @@ export const useCustomContent = () => {
       text: 'Zum Korn',
       color: '#fff',
       bgColor: '#000',
-      link: '/produkt/korn',
+      link: '/kornfetti-0-7l_139_1074',
     },
     bgColor: '',
     useGradient: true,
@@ -371,7 +373,7 @@ export const useCustomContent = () => {
       url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
       mobileUrl:
         'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
-      alt: 'Himmi Flasche',
+      alt: 'Herstellung Korn',
     },
     title: { text: 'Herstellung', color: '#000' },
     description: {
@@ -390,7 +392,7 @@ export const useCustomContent = () => {
       url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
       mobileUrl:
         'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
-      alt: 'Himmi Flasche',
+      alt: 'Ausgezeichnet',
     },
     title: { text: 'Ausgezeichnet', color: '#000' },
     subtitle: { text: 'Kornfetti ist ein ausgezeichneter Korn - Da sind wir uns mit der DLG einig', color: '#fff' },
@@ -402,6 +404,26 @@ export const useCustomContent = () => {
     useGradient: true,
     gradientFrom: '#f3b26d',
     gradientTo: '#ffdbb4',
+    gradientPosition: 'top-right',
+  };
+
+  const customImageTextBlockKontakt_kontaktContent = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg-Schanze_01.jpg',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg-Schanze_01.jpg',
+      alt: 'Kontakt Bild',
+    },
+    title: { text: 'Kontaktiere die Kornfetti Crew', color: '#000' },
+    subtitle: { text: '', color: '#fff' },
+    description: {
+      text: 'Mail: korntakt@kornfetti.com </br>Tel: 040-22859089</br>Büroanschrift:</br>Kornfetti GmbH,</br>Schulterblatt 58,</br>20357 Hamburg',
+      color: '#fff',
+    },
+    bgColor: '',
+    useGradient: true,
+    gradientFrom: '#C51D60',
+    gradientTo: '#EF87B6',
     gradientPosition: 'top-right',
   };
 
@@ -423,5 +445,6 @@ export const useCustomContent = () => {
     customImageTextBlock_productKorn_kornBottleContent,
     customImageTextBlockproductKorn_herstellungContent,
     customImageTextBlockproductKorn_ausgezeichnetContent,
+    customImageTextBlockKontakt_kontaktContent,
   };
 };

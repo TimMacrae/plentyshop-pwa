@@ -1,6 +1,8 @@
 <template>
   <div class="max-w-screen-xl mx-auto px-4 md:px-8 py-8 md:py-16">
-    <h1 class="mb-4 typography-headline-1 text-3xl" style="font-size: clamp(2rem, 8vw, 3rem)">Unsere Produkte</h1>
+    <h1 class="mb-4 typography-headline-1 text-3xl sticky top-16" style="font-size: clamp(2rem, 8vw, 3rem)">
+      Unsere Produkte
+    </h1>
     <div class="md:hidden">
       <SfButton variant="tertiary" @click="isOpen = true" class="w-full">
         <template #prefix>
@@ -12,7 +14,7 @@
 
     <main class="max-w-screen-xl mx-auto py-4 flex">
       <!-- Filters Sidebar (Desktop) -->
-      <aside class="hidden md:block w-1/4 pr-8">
+      <aside class="hidden md:block w-1/4 pr-8 sticky top-32 self-start">
         <CustomFilters @update:filters="applyFilters" />
       </aside>
 
@@ -49,24 +51,31 @@
 import { ref } from 'vue';
 import { SfButton, SfDrawer, SfIconTune, SfIconClose, SfLoaderCircular } from '@storefront-ui/vue';
 import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
-import Filter from '~/components/CategoryFilters/Filter.vue';
 
-const { data, fetchProducts, loading } = useProducts('plp');
+const route = useRoute();
+const { data, fetchProducts, loading } = useProducts();
 const products = computed(() => data.value?.products ?? []);
 const isOpen = ref(false);
 
 const applyFilters = (filters: { categoryId: string; sort: string }) => {
   fetchProducts({
     categoryId: filters.categoryId,
-    // sorting: filters.sort,
   });
-  isOpen.value = false; // Close drawer after applying filters on mobile
+  isOpen.value = false;
 };
 
 // Initial fetch on component mount
 onMounted(() => {
-  // Fetch with default filters from the Filters component sorting: 'texts.name_asc'
-  fetchProducts({ categoryId: '40' });
+  const productId = route.query.categoryId as string | undefined;
+
+  if (productId) {
+    // If an ID is in the URL, fetch only that product.
+    // The `id` parameter /produkte?id=123
+    fetchProducts({ categoryId: productId });
+  } else {
+    // Otherwise, fetch with default category.
+    fetchProducts({ categoryId: '40' });
+  }
 });
 
 definePageMeta({

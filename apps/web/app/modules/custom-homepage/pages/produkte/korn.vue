@@ -8,7 +8,7 @@
       :textColor="'#fff'"
       :gradiantFrom="'#f3b26d'"
       :gradiantVia="'#f3b26d'"
-      :gradiantTo="'#f3b26d'"
+      :gradiantTo="'#ffdbb4'"
     />
 
     <!-- Products Section -->

@@ -50,7 +50,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '',
+        link: '/produkte?categoryId=41',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),
@@ -84,7 +84,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '',
+        link: '/spliti-0-7-liter_252_1211',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),
@@ -108,9 +108,9 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       text: {
         pretitle: '',
-        title: 'HIMMI BOMB',
-        subtitle: 'Die Himmi Bomb ist da!',
-        htmlDescription: 'Ein kleiner Kick..',
+        title: '',
+        subtitle: '',
+        htmlDescription: '',
         color: '#FFFFFF',
         bgcolor: '#000000',
         bgopacity: 0.1,
@@ -120,8 +120,45 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         textAlignment: 'center',
       },
       button: {
-        label: 'Jetzt bestellen',
-        link: '/produkte/himmi',
+        label: '',
+        link: '/spirituosen/himmi-0-7-l-inkl-2x-himmi-bomb-glas-spuelmaschinenfests-hochwertiges-acrylglas_249_1208',
+        variant: 'primary',
+      },
+      startDate: new Date('2024-01-01T00:00:00Z'),
+      endDate: new Date('2025-12-31T23:59:59Z'),
+    },
+  ],
+  bannerHimmi: [
+    {
+      id: 'fallback-himmi',
+      image: {
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Krauti_mobile_klein.png',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Krauti_web_klein.png',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Krauti_web_klein.png',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Krauti_web_klein.png',
+        alt: 'Krauti Flasche',
+        brightness: 1,
+      },
+      text: {
+        pretitle: '',
+        title: '',
+        subtitle: '',
+        htmlDescription: '',
+        color: '#FFFFFF',
+        bgcolor: '#000000',
+        bgopacity: 0.1,
+        background: true,
+        align: 'center',
+        justify: 'bottom',
+        textAlignment: 'center',
+      },
+      button: {
+        label: '',
+        link: '/himmi-0-7-liter_209_1166',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),
@@ -158,7 +195,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '/produkte/himmi',
+        link: '/krauti-0-7-liter_212_1169',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),
@@ -192,7 +229,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '/produkte/himmi',
+        link: '/spliti-0-7-liter_252_1211',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),
@@ -226,7 +263,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '/produkte/himmi',
+        link: '/kornfetti-0-7l_139_1074',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),

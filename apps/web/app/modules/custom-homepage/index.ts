@@ -71,6 +71,21 @@ export default defineNuxtModule({
         path: '/produkte/splitti',
         file: resolve('./pages/produkte/splitti.vue'),
       });
+      pages.push({
+        name: 'ueber-uns',
+        path: '/ueber-uns',
+        file: resolve('./pages/ueber-uns.vue'),
+      });
+      pages.push({
+        name: 'kontakt',
+        path: '/kontakt',
+        file: resolve('./pages/kontakt.vue'),
+      });
+      pages.push({
+        name: 'rezepte',
+        path: '/rezepte',
+        file: resolve('./pages/rezepte.vue'),
+      });
     });
   },
 });

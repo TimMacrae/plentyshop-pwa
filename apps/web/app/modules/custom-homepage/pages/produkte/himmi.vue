@@ -1,16 +1,6 @@
 <template>
   <main class="custom-himmi-page">
-    <section class="relative w-full overflow-hidden">
-      <!-- Background video -->
-      <video
-        class="w-full h-[70vh] md:h-[50vh] lg:h-[70vh] object-cover"
-        src="https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Pink-Riot-Squad-Trailer-Website-Low-Bitrate-Mobile.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-      />
-    </section>
+    <div v-if="bannerHimmi"><CustomHero :banner="bannerHimmi" /></div>
 
     <!-- Bottom USP bar -->
     <CustomUSP :gradiantFrom="'#C51D60'" :gradiantVia="'#C51D60'" :gradiantTo="'#EF87B6'" :textColor="'#FFFFFF'" />
@@ -68,6 +58,19 @@
       </div>
     </section>
 
+    <!-- Video Section -->
+    <section class="relative w-full overflow-hidden">
+      <!-- Background video -->
+      <video
+        class="w-full h-[50vh] md:h-[50vh] lg:h-[80vh] object-cover"
+        src="https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Pink-Riot-Squad-Trailer-Website-Low-Bitrate-Mobile.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+      />
+    </section>
+
     <!-- Image text section -->
     <div v-if="customImageTextBlock_productHimmi_pinkRiotSquadContent">
       <CustomImageTextBlockReverse :data="customImageTextBlock_productHimmi_pinkRiotSquadContent" />
@@ -99,7 +102,7 @@
 
           <!-- Default / fallback image -->
           <NuxtImg
-            src="https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Kornfetti_Pink_Riot_Squad.jpg"
+            :src="'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg'"
             :alt="'Image section background'"
             width="1200"
             height="1400"
@@ -110,13 +113,14 @@
       </div>
 
       <!-- Right side - Content -->
-      <div class="relative flex items-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
+      <div class="relative w-full flex items-center justify-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
         <div class="custom-newsletter-section">
-          <NewsletterSubscribe
+          <!-- <NewsletterSubscribe
             :name="'NewsletterSubscribe'"
             :type="'NewsletterSubscribe'"
             :content="newsletterContent"
-          />
+          /> -->
+          <CustomEmailNewsletter :bgColor="'#000000'" :textColor="'#FFFFFF'" />
         </div>
       </div>
     </div>
@@ -141,6 +145,8 @@
 import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
 import { useCustomContent } from '../../composables/useCustomContent';
 import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/NewsletterSubscribe.vue';
+import { useCustomBannerCampaign } from '../../composables/useCustomBannerCampaign/useCustomBannerCampaign';
+const bannerHimmi = useCustomBannerCampaign('bannerHimmi');
 
 // Fetch products from category 40
 const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
