@@ -33,9 +33,8 @@
             v-if="data?.description?.text"
             class="text-lg lg:text-xl leading-relaxed"
             :style="{ color: data.description.color || '' }"
-          >
-            {{ data.description.text }}
-          </p>
+            v-html="data.description.text"
+          ></p>
 
           <!-- CTA -->
           <div v-if="data?.cta?.text" class="pt-4">

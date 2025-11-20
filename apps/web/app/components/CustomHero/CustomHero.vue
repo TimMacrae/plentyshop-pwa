@@ -63,6 +63,13 @@
         </div>
       </div>
     </div>
+    <!-- Clickable Overlay Link -->
+    <NuxtLink
+      v-if="banner.button?.link"
+      :to="banner.button.link"
+      class="absolute inset-0 z-10"
+      :aria-label="banner.button.label || banner.text.title"
+    />
   </section>
 </template>
 

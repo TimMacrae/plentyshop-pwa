@@ -28,7 +28,7 @@ const wrapperStyle = computed(() => {
   if (props.gradiantFrom) {
     const via = props.gradiantVia ? `, ${props.gradiantVia}` : '';
     const to = props.gradiantTo ? `, ${props.gradiantTo}` : '';
-    styles.backgroundImage = `linear-gradient(to bottom, ${props.gradiantFrom}${via}${to})`;
+    styles.backgroundImage = `radial-gradient(ellipse at top left, ${props.gradiantFrom} 0% ${via} 50% ${to} 100%)`;
   } else {
     styles.backgroundColor = props.bgColor || '#000000';
   }
@@ -40,3 +40,5 @@ const iconBorderStyle = computed(() => ({
   borderColor: props.textColor ? `${props.textColor}80` : 'rgba(255, 255, 255, 0.8)',
 }));
 </script>
+
+<!-- ellipse at ${position}, ${fromColor} 0%, ${fromColor} 50%, ${toColor} 100%) -->
