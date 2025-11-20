@@ -266,6 +266,7 @@ import {
   SfIconFavorite,
   useDisclosure,
 } from '@storefront-ui/vue';
+import { label } from 'happy-dom/lib/PropertySymbol.js';
 import LanguageSelector from '~/components/LanguageSelector/LanguageSelector.vue';
 import { paths } from '~/utils/paths';
 
@@ -379,6 +380,7 @@ const navigationLinks = [
     ],
   },
   { label: 'Events', link: '/events' },
+  { label: 'Rezepte', link: '/rezepte' },
   { label: 'Über Uns', link: '/ueber-uns' },
   { label: 'Kontakt', link: '/kontakt' },
 ];

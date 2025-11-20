@@ -84,7 +84,12 @@ export default defineNuxtModule({
       pages.push({
         name: 'rezepte',
         path: '/rezepte',
-        file: resolve('./pages/rezepte.vue'),
+        file: resolve('./pages/rezepte/index.vue'),
+      });
+      pages.push({
+        name: 'rezept-detail',
+        path: '/rezepte/:id',
+        file: resolve('./pages/rezepte/[id].vue'),
       });
     });
   },
