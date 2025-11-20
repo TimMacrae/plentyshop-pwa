@@ -4,18 +4,18 @@
 
     <!-- Bottom USP bar -->
     <CustomUSP
-      :bgColor="'#FDE63D'"
+      :bgColor="'#F38F36'"
       :textColor="'#fff'"
-      :gradiantFrom="'#FDE63D'"
-      :gradiantVia="'#FDE63D'"
-      :gradiantTo="'#F38F36'"
+      :gradiantFrom="'#F38F36'"
+      :gradiantVia="'#F38F36'"
+      :gradiantTo="'#FDE63D'"
     />
 
     <!-- Products Section -->
     <section class="bg-black py-16 xs:py-16 md:py-32 xs:px-8">
       <h2
         class="typography-headline-1 text-white pb-12 text-center"
-        style="font-size: clamp(3rem, 8vw, 6rem); color: #fde63d"
+        style="font-size: clamp(3rem, 8vw, 6rem); color: #f38f36"
       >
         Splitti Produkte
       </h2>
@@ -63,7 +63,7 @@
     <section class="bg-black py-16 xs:py-16 md:py-32 xs:px-8">
       <h2
         class="typography-headline-1 text-white pb-12 text-center"
-        style="font-size: clamp(3rem, 8vw, 6rem); color: #fde63d"
+        style="font-size: clamp(3rem, 8vw, 6rem); color: #f38f36"
       >
         Unsere Produkte
       </h2>
@@ -136,11 +136,11 @@ const infoBoxItems = [
       border-top: none;
     }
     button {
-      background-color: #fde63d;
-      border-color: #fde63d;
+      background-color: #f38f36;
+      border-color: #f38f36;
       &:hover {
-        background-color: #e60073;
-        border-color: #e60073;
+        background-color: #fde63d;
+        border-color: #fde63d;
       }
     }
   }
