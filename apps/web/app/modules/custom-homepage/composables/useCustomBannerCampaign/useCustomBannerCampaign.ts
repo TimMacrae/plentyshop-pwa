@@ -28,7 +28,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
     {
       id: 'fallback-01',
       image: {
-        mobile: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_web2.png',
+        mobile: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_mobile.png',
         tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_web2.png',
         desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_web2.png',
         wideScreen: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_web2.png',
@@ -96,13 +96,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       id: 'fallback-01',
       image: {
         mobile:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
-        tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
-        desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Himmi_mobile.png',
+        tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
+        desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
         alt: 'Himmi Bomb',
         brightness: 0.85,
       },
@@ -133,13 +131,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       id: 'fallback-himmi',
       image: {
         mobile:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Krauti_mobile_klein.png',
-        tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Krauti_web_klein.png',
-        desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Krauti_web_klein.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Himmi_mobile.png',
+        tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
+        desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Krauti_web_klein.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
         alt: 'Krauti Flasche',
         brightness: 1,
       },
@@ -206,7 +202,8 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
     {
       id: 'fallback-splitti',
       image: {
-        mobile: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_mobile.png',
         tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
         desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
         wideScreen:
@@ -240,7 +237,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
     {
       id: 'fallback-splitti',
       image: {
-        mobile: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Korn_web.png',
+        mobile: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Korn_mobile.png',
         tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Korn_web.png',
         desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Korn_web.png',
         wideScreen:

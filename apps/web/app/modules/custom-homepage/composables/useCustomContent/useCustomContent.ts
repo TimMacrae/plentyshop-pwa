@@ -1,9 +1,9 @@
 export const useCustomContent = () => {
   const customImageTextBlock_himmiBombContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/HimmiBomb_Kornfetti_Himmbeer_Likoer.jpg',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/HimmiBomb_Insta_Anzeige_Profil2.jpg',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
       alt: 'Himmi Bomb',
     },
     title: { text: 'Die Himmi Bomb ist da!', color: '#000' },
@@ -240,9 +240,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_productHimmi_himmiBombContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/HimmiBomb_Kornfetti_Himmbeer_Likoer.jpg',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/HimmiBomb_Kornfetti_Himmbeer_Likoer.jpg',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
       alt: 'Himmi Flasche',
     },
     title: { text: 'Die Himmi Bomb', color: '#000' },
