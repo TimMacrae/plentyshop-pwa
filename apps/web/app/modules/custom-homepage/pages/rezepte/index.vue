@@ -4,7 +4,7 @@
     <!-- Recipe Grid Section -->
     <div class="bg-black py-16 sm:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="!text-6xl font-bold text-center text-[#C51D60] mb-12 typography-headline-1">Hammer Rezepte</h2>
+        <h2 class="!text-6xl font-bold text-center text-[#F38F36] mb-12 typography-headline-1">Hammer Rezepte</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div
             v-for="recipe in recipes"
@@ -29,7 +29,7 @@
               <p class="mt-1 text-sm flex-grow text-white">{{ recipe.subTitle }}</p>
 
               <div class="mt-6">
-                <SfButton :tag="NuxtLink" :to="recipe.link" class="!bg-[#C51D60] hover:!bg-[#a1174e] !text-white">
+                <SfButton :tag="NuxtLink" :to="recipe.link" class="!bg-[#F38F36] hover:!bg-[#FDE63D] !text-white">
                   Zum Rezept
                 </SfButton>
               </div>

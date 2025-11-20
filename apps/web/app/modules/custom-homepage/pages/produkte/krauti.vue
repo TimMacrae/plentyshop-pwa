@@ -102,21 +102,22 @@ definePageMeta({
 
 const infoBoxItems = [
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/100_Natuerlich.png',
+    image:
+      'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/100__Natu_rlich_Kopie_big.png',
     imageAlt: '100% natürliche Zutaten',
     title: 'Alles natürlich',
     description:
       'Keine Farbstoffe, keine Zusatzstoffe, kein Quatsch. Unser Kräuterlikör wird aus natürlichen Zutaten angesetzt und bekommt dadurch seinen ehrlichen, würzigen Geschmack ganz ohne künstlichen Schnickschnack.',
   },
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/made_in_germany.png',
+    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/made_in_germany_Kopie.png',
     imageAlt: 'Made in Germany',
     title: 'Regional hergestellt',
     description:
       'Krauti ist ein echtes Zuhause-Kind. Der Likör entsteht komplett in Deutschland, und viele der enthaltenen Kräuter stammen aus regionalem Anbau. Auch der Alkohol basiert auf Weizen aus deutschem Ursprung. Vom Ansetzen über die Reifung bis zur Abfüllung passiert alles hierzulande – präzise, sauber und mit Liebe zum Detail.',
   },
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/30_euro_Icon-Kopie.png',
+    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/30_euro_Icon_Kopie_2.png',
     imageAlt: 'Ab 30 € free',
     title: 'Versandkostenfrei',
     description:

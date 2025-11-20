@@ -54,9 +54,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_splittiBottleContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Spliti-0-7-Liter-2025.jpg.avif',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Splti_homepage_1000x10005.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Spliti-0-7-Liter-2025.jpg.avif',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Splti_homepage_500x5005.png',
       alt: 'Splitti Flasche',
     },
     title: { text: 'Splitti', color: '#000' },
@@ -81,9 +81,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_krautiBottleContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Krauti-Likoer-Kornfetti-Hamburg.jpg.avif',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_krauti_homepage_1000x10002.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Krauti-Likoer-Kornfetti-Hamburg.jpg.avif',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_krauti_homepage_500x5002.png',
       alt: 'Krauti Flasche',
     },
     title: { text: 'Krauti', color: '#000' },
@@ -107,9 +107,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_kornBottleContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_korn_homepage_1000x10004.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_korn_homepage_500x5004.png',
       alt: 'Korn Flasche',
     },
     title: { text: 'Korn', color: '#000' },
@@ -120,7 +120,7 @@ export const useCustomContent = () => {
       color: '#fff',
     },
     cta: {
-      text: 'Zum Himmi',
+      text: 'Zum Korn',
       color: '#fff',
       bgColor: '#000',
       link: '/kornfetti-0-7l_139_1074',
@@ -193,9 +193,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_rezepteContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Rezepte_Kornfetti_Desk.jpg',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Fako_homepage_1000x10003.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Rezepte_Kornfetti_Mobil.jpg',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Fako_homepage_1000x10003.png',
       alt: 'Himmi miniaturen',
     },
     title: { text: '"BUNTER! LAUTER! LECKERER!"', color: '#000' },
@@ -218,9 +218,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_aboutUsContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_aboutUShomepage_1000x10006.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Miniaturen_Korn-fetti.jpg',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/KornfettiaboutUS_homepage_500x5006.png',
       alt: 'Himmi miniaturen',
     },
     title: { text: 'UNSERE STORY', color: '#000' },
@@ -240,9 +240,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_productHimmi_himmiBombContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_himiBomb_homepage_1000x1000.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Bomb_trinken_Kornfetti_Hamburg.jpg',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_himmiBomb_homepage_500x500.png',
       alt: 'Himmi Flasche',
     },
     title: { text: 'Die Himmi Bomb', color: '#000' },
@@ -289,9 +289,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_productSplitti_splittiBottleContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Spliti-0-7-Liter-2025.jpg.avif',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Splti_homepage_1000x10005.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Spliti-0-7-Liter-2025.jpg.avif',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Splti_homepage_500x5005.png',
       alt: 'Splitti Flasche',
     },
     title: { text: 'MAGIC MARACUJA', color: '#000' },
@@ -316,9 +316,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_productKrauti_krautiBottleContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Krauti-Likoer-Kornfetti-Hamburg.jpg.avif',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_krauti_homepage_1000x10002.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Krauti-Likoer-Kornfetti-Hamburg.jpg.avif',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_krauti_homepage_500x5002.png',
       alt: 'Krauti Flasche',
     },
     title: { text: 'KRAUTI LOVE', color: '#000' },
