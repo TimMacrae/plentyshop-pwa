@@ -6,46 +6,32 @@
       <!-- CUSTOM NAV MENU  -->
       <nav class="flex-1 flex items-center justify-start">
         <ul class="flex items-center gap-x-6 text-white">
-          <li
-            v-for="link in navigationLinks"
-            :key="link.label"
-            class="relative"
-            @mouseenter="handleMouseEnter(link)"
-            @mouseleave="handleMouseLeave"
-          >
-            <!-- Main Navigation Link -->
+          <li v-for="link in navigationLinks" :key="link.label" class="relative group">
+            <!-- Main link -->
             <NuxtLink
               :to="link.link"
               class="font-medium py-2 px-3 rounded-md hover:bg-header-400/80 transition-colors duration-200"
-              :class="{ 'bg-header-400/80': activeDropdown === link.label }"
             >
               {{ link.label }}
             </NuxtLink>
 
-            <!-- Dropdown Submenu -->
-            <transition
-              enter-active-class="transition duration-200 ease-out"
-              enter-from-class="transform -translate-y-2 opacity-0"
-              enter-to-class="transform translate-y-0 opacity-100"
-              leave-active-class="transition duration-150 ease-in"
-              leave-from-class="transform translate-y-0 opacity-100"
-              leave-to-class="transform -translate-y-2 opacity-0"
+            <!-- Dropdown -->
+            <div
+              v-if="link.submenu"
+              class="absolute left-0 top-full z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-150"
             >
-              <ul
-                v-if="link.submenu && activeDropdown === link.label"
-                class="absolute top-full left-0 mt-2 z-50 rounded bg-white shadow-md border border-neutral-100 min-w-[152px] py-2"
-              >
+              <!-- Note: spacing is on the UL (mt-2), not on the wrapper -->
+              <ul class="mt-2 rounded bg-white shadow-md border border-neutral-100 min-w-[152px] py-2 z-50">
                 <li v-for="sublink in link.submenu" :key="sublink.label">
                   <NuxtLink
                     :to="sublink.link"
                     class="block w-full px-4 py-2 text-left text-black hover:bg-neutral-100 transition-colors duration-150"
-                    @click="activeDropdown = null"
                   >
                     {{ sublink.label }}
                   </NuxtLink>
                 </li>
               </ul>
-            </transition>
+            </div>
           </li>
         </ul>
       </nav>
