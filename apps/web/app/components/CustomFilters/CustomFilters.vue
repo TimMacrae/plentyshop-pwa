@@ -20,21 +20,6 @@
         </li>
       </ul>
     </SfAccordionItem>
-
-    <SfAccordionItem v-model="sortOpen">
-      <template #summary>
-        <div class="flex justify-between p-2 font-medium">
-          <p>Sortieren nach</p>
-          <SfIconChevronLeft :class="sortOpen ? 'rotate-90' : '-rotate-90'" />
-        </div>
-      </template>
-      <ul class="mt-2">
-        <li class="flex py-1" v-for="option in sortOptions" :key="option.value">
-          <SfRadio :id="option.value" name="sort-radio" v-model="selectedSort" :value="option.value" class="p-2" />
-          <label :for="option.value" class="ml-2 text-sm cursor-pointer">{{ option.label }}</label>
-        </li>
-      </ul>
-    </SfAccordionItem>
   </div>
 </template>
 
@@ -55,19 +40,10 @@ const categories = [
   { id: '53', name: 'Korn' },
 ];
 
-// Define sorting options
-const sortOptions = [
-  { label: 'Name: A-Z', value: 'texts.name_asc' },
-  { label: 'Name: Z-A', value: 'texts.name_desc' },
-  { label: 'Preis: Günstigste', value: 'sorting.price.avg_asc' },
-  { label: 'Preis: Teuerste', value: 'sorting.price.avg_desc' },
-];
-
 const selectedCategory = ref(categories[0]?.id ?? '40');
-const selectedSort = ref(sortOptions[0]?.value ?? 'texts.name_asc');
 
 // Watch for changes and emit the combined filter values
-watch([selectedCategory, selectedSort], ([categoryId, sort]) => {
-  emit('update:filters', { categoryId, sort });
+watch([selectedCategory], ([categoryId]) => {
+  emit('update:filters', { categoryId });
 });
 </script>
