@@ -36,8 +36,6 @@
             class="absolute inset-0 w-full h-full object-cover object-top"
           />
         </picture>
-
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/50 lg:to-black/30" />
       </div>
 
       <!-- Right side - Content -->
