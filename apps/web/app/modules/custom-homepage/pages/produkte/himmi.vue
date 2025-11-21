@@ -13,9 +13,9 @@
       >
         Natürlich beliebt
       </h2>
-      <div v-if="products59.length" class="custom-product-section">
+      <div v-if="products54.length" class="custom-product-section">
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <ProductCard v-for="(product, index) in products59" :key="index" :product="product" />
+          <ProductCard v-for="(product, index) in products54" :key="index" :product="product" />
         </div>
       </div>
     </section>
@@ -115,11 +115,6 @@
       <!-- Right side - Content -->
       <div class="relative w-full flex items-center justify-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
         <div class="custom-newsletter-section">
-          <!-- <NewsletterSubscribe
-            :name="'NewsletterSubscribe'"
-            :type="'NewsletterSubscribe'"
-            :content="newsletterContent"
-          /> -->
           <CustomEmailNewsletter :bgColor="'#000000'" :textColor="'#FFFFFF'" />
         </div>
       </div>
@@ -144,14 +139,13 @@
 <script setup lang="ts">
 import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
 import { useCustomContent } from '../../composables/useCustomContent';
-import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/NewsletterSubscribe.vue';
 import { useCustomBannerCampaign } from '../../composables/useCustomBannerCampaign/useCustomBannerCampaign';
 const bannerHimmi = useCustomBannerCampaign('bannerHimmi');
 
-// Fetch products from category 59
-const { fetchProducts: fetch59, data: data59 } = useProducts('products-59');
-await fetch59({ categoryId: '59' });
-const products59 = computed(() => data59.value?.products.slice(0, 4) || []);
+// Fetch products from category 54
+const { fetchProducts: fetch54, data: data54 } = useProducts('products-54');
+await fetch54({ categoryId: '54' });
+const products54 = computed(() => data54.value?.products?.slice(0, 4) || []);
 
 // Fetch products from category 83
 const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
@@ -192,22 +186,6 @@ const infoBoxItems = [
       'Bereits ab 30 EURO liefern wir versandkostenfrei zu euch. Das ist schon ab der vierten Flasche. Es lohnt sich auch, gemeinsam zu bestellen. 😉',
   },
 ];
-
-const newsletterContent = {
-  text: {
-    bgColor: '#000',
-    title: 'Join the Kornunity',
-    htmlDescription:
-      'Alle Mitglieder*innen erhalten einen 5 € Willkommens-Gutschein.<br/>Erfahren einmal im Monat von News rund um Kornfetti und erhalten exklusive Angebote.<br/>Kein Spam, nur Hochprozentiges!',
-  },
-  input: {
-    displayNameInput: true,
-    nameIsRequired: true,
-  },
-  button: {
-    label: 'ANMELDEN',
-  },
-};
 </script>
 
 <style>
