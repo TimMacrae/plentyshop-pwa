@@ -66,7 +66,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
         wideScreen:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
-        alt: 'Himmi Bomb',
+        alt: 'Splitti',
         brightness: 1,
       },
       text: {
@@ -84,7 +84,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '/spliti-0-7-liter_252_1211',
+        link: '/produkte/splitti',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),
@@ -101,8 +101,8 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
         wideScreen:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
-        alt: 'Himmi Bomb',
-        brightness: 0.85,
+        alt: 'Himmi',
+        brightness: 1,
       },
       text: {
         pretitle: '',
@@ -119,7 +119,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '/spirituosen/himmi-0-7-l-inkl-2x-himmi-bomb-glas-spuelmaschinenfests-hochwertiges-acrylglas_249_1208',
+        link: '/produkte/himmi',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),

@@ -3,11 +3,12 @@
     <div v-if="bannerCampaignOne"><CustomHero :banner="bannerCampaignOne" /></div>
 
     <!-- Brand Promise Section -->
-    <div class="bg-black px-4 py-16 sm:px-6 lg:px-8">
+    <div class="bg-black px-4 pt-16 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="!text-3xl font-bold text-white sm:!text-5xl typography-headline-2 tracking-wider">
+        <h2 class="!text-3xl font-bold text-white sm:!text-7xl typography-headline-2 tracking-wider">
           {{ customBrandPromiseContent.title }}
         </h2>
+        <h3 class="text-white text-1xl lg:text-2xl font-bold" v-html="customBrandPromiseContent.subTitle"></h3>
         <p class="mt-4 text-lg text-white tracking-wider">
           {{ customBrandPromiseContent.text }}
         </p>
