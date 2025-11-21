@@ -74,7 +74,7 @@ onMounted(() => {
     fetchProducts({ categoryId: productId });
   } else {
     // Otherwise, fetch with default category.
-    fetchProducts({ categoryId: '40' });
+    fetchProducts({ categoryId: '82' });
   }
 });
 

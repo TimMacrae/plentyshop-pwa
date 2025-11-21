@@ -13,9 +13,9 @@
       >
         Natürlich beliebt
       </h2>
-      <div v-if="productListReduced.length" class="custom-product-section">
+      <div v-if="products59.length" class="custom-product-section">
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+          <ProductCard v-for="(product, index) in products59" :key="index" :product="product" />
         </div>
       </div>
     </section>
@@ -132,9 +132,9 @@
       >
         Unsere Produkte
       </h2>
-      <div v-if="productListReduced.length" class="custom-product-section">
+      <div v-if="products83.length" class="custom-product-section">
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+          <ProductCard v-for="(product, index) in products83" :key="index" :product="product" />
         </div>
       </div>
     </section>
@@ -148,15 +148,15 @@ import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/Newslet
 import { useCustomBannerCampaign } from '../../composables/useCustomBannerCampaign/useCustomBannerCampaign';
 const bannerHimmi = useCustomBannerCampaign('bannerHimmi');
 
-// Fetch products from category 40
-const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
-await fetchProducts({ categoryId: '40' });
-const productsList = computed(() => productsData.value?.products || []);
-const productListReduced = computed(() => [
-  ...productsList.value.slice(1, 2),
-  ...productsList.value.slice(4, 6),
-  ...productsList.value.slice(8, 9),
-]);
+// Fetch products from category 59
+const { fetchProducts: fetch59, data: data59 } = useProducts('products-59');
+await fetch59({ categoryId: '59' });
+const products59 = computed(() => data59.value?.products.slice(0, 4) || []);
+
+// Fetch products from category 83
+const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
+await fetch83({ categoryId: '83' });
+const products83 = computed(() => data83.value?.products || []);
 
 const {
   customImageTextBlock_productHimmi_pinkRiotSquadContent,

@@ -19,9 +19,9 @@
       >
         Splitti Produkte
       </h2>
-      <div v-if="productListReduced.length" class="custom-product-section">
+      <div v-if="products55.length" class="custom-product-section">
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+          <ProductCard v-for="(product, index) in products55" :key="index" :product="product" />
         </div>
       </div>
     </section>
@@ -67,9 +67,9 @@
       >
         Unsere Produkte
       </h2>
-      <div v-if="productListReduced.length" class="custom-product-section">
+      <div v-if="products83.length" class="custom-product-section">
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+          <ProductCard v-for="(product, index) in products83" :key="index" :product="product" />
         </div>
       </div>
     </section>
@@ -82,15 +82,15 @@ import { useCustomContent } from '../../composables/useCustomContent';
 import { useCustomBannerCampaign } from '../../composables/useCustomBannerCampaign/useCustomBannerCampaign';
 const bannerSplitti = useCustomBannerCampaign('bannerSplitti');
 
-// Fetch products from category 40
-const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
-await fetchProducts({ categoryId: '40' });
-const productsList = computed(() => productsData.value?.products || []);
-const productListReduced = computed(() => [
-  ...productsList.value.slice(1, 2),
-  ...productsList.value.slice(4, 6),
-  ...productsList.value.slice(8, 9),
-]);
+// Fetch products from category 55
+const { fetchProducts: fetch55, data: data55 } = useProducts('products-55');
+await fetch55({ categoryId: '55' });
+const products55 = computed(() => data55.value?.products.slice(0, 4) || []);
+
+// Fetch products from category 83
+const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
+await fetch83({ categoryId: '83' });
+const products83 = computed(() => data83.value?.products || []);
 
 const { customImageTextBlock_productSplitti_splittiBottleContent } = useCustomContent();
 
@@ -108,7 +108,7 @@ const infoBoxItems = [
       'Keine Farbstoffe, keine Geschmacksverstärker, kein Schickimicki. Unser Spliti wird aus echten Zutaten gemacht – natürlich, frisch und ohne Gedöns. So entsteht ein Geschmack, der nicht künstlich knallt, sondern richtig gut ist. Einfach probieren und Fruchtlikör mal so erleben, wie er eigentlich schmecken sollte.',
   },
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/made_in_germany.png',
+    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/made_in_germany_splitti.png',
     imageAlt: 'Made in Germany',
     title: 'Regional hergestellt',
     description:
