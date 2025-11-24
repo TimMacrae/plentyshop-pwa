@@ -1,5 +1,11 @@
 <template>
   <div class="bg-black text-white py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+      <NuxtLink to="/rezepte" class="text-[#F38F36] hover:underline inline-block mb-4">
+        &larr; Zurück zur Rezeptübersicht
+      </NuxtLink>
+    </div>
+
     <div v-if="recipe" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <!-- Image Column -->
@@ -39,7 +45,7 @@
     </div>
     <div v-else class="text-center">
       <h1 class="text-2xl font-bold">Rezept nicht gefunden</h1>
-      <NuxtLink to="/rezepte" class="text-[#C51D60] hover:underline mt-4 inline-block">Zurück zur Übersicht</NuxtLink>
+      <NuxtLink to="/rezepte" class="text-[#F38F36] hover:underline mt-4 inline-block">Zurück zur Übersicht</NuxtLink>
     </div>
   </div>
 </template>

@@ -5,7 +5,7 @@
     :style="{ backgroundColor: bgColor, color: textColor }"
   >
     <div class="max-w-xl mx-auto text-center">
-      <h2 v-if="title" class="font-bold text-3xl sm:text-4xl">{{ title }}</h2>
+      <h2 v-if="title" class="font-bold text-3xl sm:text-4xl text-[#e6007e]">{{ title }}</h2>
       <p v-if="subtitle" class="mt-4 text-lg opacity-90" v-html="subtitle"></p>
       <div class="flex justify-center items-center">
         <iframe
@@ -22,20 +22,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
-import { SfInput, SfButton, SfLoaderCircular } from '@storefront-ui/vue';
 import type { CustomEmailNewsletterProps } from './types';
-
-const runtimeConfig = useRuntimeConfig();
-const formActionUrl = runtimeConfig.public.brevoFormActionUrl;
-const recaptchaSiteKey = runtimeConfig.public.recaptchaSiteKey;
 
 const {
   title = 'Join the Kornunity',
   subtitle = 'Alle Mitglieder*innen erhalten einen 5 € Willkommens-Gutschein.<br/>Erfahren einmal im Monat von News rund um Kornfetti und erhalten exklusive Angebote.<br/>Kein Spam, nur Hochprozentiges!',
   bgColor = '#000000',
   textColor = '#FFFFFF',
-  btnBgColor = '#C51D60',
+  btnBgColor = '#e6007e',
   btnTextColor = '#FFF',
 } = defineProps<CustomEmailNewsletterProps>();
 </script>
