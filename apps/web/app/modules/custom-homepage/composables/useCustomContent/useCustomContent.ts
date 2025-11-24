@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 export const useCustomContent = () => {
   const customImageTextBlock_himmiBombContent = {
     image: {
@@ -428,6 +429,159 @@ export const useCustomContent = () => {
     gradientPosition: 'top-right',
   };
 
+  const customImageTextBlockAboutUs_block2019Content = {
+    image: {
+      url: '',
+      mobileUrl: '',
+      alt: 'Kontakt Bild',
+    },
+    title: { text: '2019', color: '#E6007E' },
+    subtitle: { text: 'Der Anfang: Ein Korn mit Gesicht', color: '#fff' },
+    description: {
+      text: 'Alles startet 2019 mit einer einfachen, aber lauten Idee: Korn kann cool sein.<br>Die erste Kornfetti-Flasche, illustriert vom Hamburger Streetart Künstler Bobby Serrano – ein Symbol für den ersten Schritt, die erste Liebe, den ersten Moment an der Bar.</br></br>Kein Plan aber leicht ein sitzen – aber mit voller Motivation und viel Herz in die Kornfetti Zukunft.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+  };
+
+  const customImageTextBlockAboutUs_block2020Content = {
+    image: {
+      url: '',
+      mobileUrl: '',
+      alt: 'Kontakt Bild',
+    },
+    title: { text: '2020', color: '#E6007E' },
+    subtitle: { text: 'Neues Design, neue Crew und wir werden lauter', color: '#fff' },
+    description: {
+      text: '2020 wird klar: Party macht man nicht allein.<br>Das Design bekommt ein komplettes Update – nicht mehr nur eine Person, sondern eine ganze Crew auf der Flasche. Kornfetti steht ab jetzt für:</br><bold>Gemeinsam trinken. Gemeinsam feiern. Gemeinsam eskalieren.</bold></br></br>Im selben Jahr landen wir auf unserem ersten Festival überhaupt:</br>dem legendären Mofa-Rennen im Kliemannsland.</br>Ein chaotischer, wilder, perfekter Start in die Festivalwelt.</br></br>Während Corona unterstützen wir Künstler, die keine Ausstellungen machen konnten.</br>Wir kaufen ihnen Werke ab und verkaufen sie in unserem Shop weiter:</br>die Kornfetti Gallery – ein absolutes Herzensprojekt und die erste Doppelseite in der Mopo.</br>Eine Aktion, auf die wir bis heute stolz sind.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2021Content = {
+    image: {
+      url: '',
+      mobileUrl: '',
+      alt: '2021 Bild',
+    },
+    title: { text: '2021', color: '#E6007E' },
+    subtitle: { text: 'Ein schwieriges Jahr, das uns stärker gemacht hat', color: '#fff' },
+    description: {
+      text:
+        '2021 war für uns – wie für die ganze Branche – ein hartes Jahr.</br>' +
+        'Corona hat Clubs geschlossen, Partys gestoppt und das Nachtleben auf Pause gedrückt.</br></br>' +
+        'Aber genau in dieser Zeit haben wir gelernt, was Kornfetti wirklich ist:</br>' +
+        'Zusammenhalt, Mut und Aufbruch.</br></br>' +
+        'Trotz aller Herausforderungen sind wir stärker denn je aus diesem Jahr gegangen.</br>' +
+        'Unser Team ist gewachsen, wir haben unser erstes eigenes Büro bezogen,</br>' +
+        'und die Aufbruchsstimmung war vom ersten Tag an intensiver, klarer und elektrisierender als zuvor.</br></br>' +
+        '2021 wurde damit nicht nur ein Krisenjahr –</br>' +
+        'sondern das Jahr, in dem wir unseren Kern gefunden haben.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2022Content = {
+    image: {
+      url: '',
+      mobileUrl: '',
+      alt: '2022 Bild',
+    },
+    title: { text: '2022', color: '#E6007E' },
+    subtitle: { text: 'Die Liköre: HIMI & KRAUTI', color: '#fff' },
+    description: {
+      text:
+        'Der Korn schmeckt zu gut, um nicht weitergedacht zu werden.</br>' +
+        '2022 launchen wir unsere ersten Liköre:</br>' +
+        'Himi – Himbeere & Limette</br>' +
+        'Krauti – unsere Kräuter-Variante</br>' +
+        'Damit wird Kornfetti offiziell zur Shot-Marke.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2023Content = {
+    image: {
+      url: '',
+      mobileUrl: '',
+      alt: '2023 Bild',
+    },
+    title: { text: '2023', color: '#E6007E' },
+    subtitle: { text: 'Wachstum im Norden: Clubs, Festivals & Handel', color: '#fff' },
+    description: {
+      text:
+        '2023 wird unser erstes großes Wachstumsjahr.</br>' +
+        'Wir expandieren im gesamten Norden und wachsen besonders stark im Club-Bereich – immer näher dran an den Tresen, an denen Kornfetti zuhause ist.</br></br>' +
+        'Dazu kommen neue große Festivals, die uns in die Party-Szene katapultieren, und auch im Handel legen wir zu:</br>' +
+        'Wir schaffen Listungen bei Famila, Leckerland und Kaufland.</br></br>' +
+        '2023 ist das Jahr, in dem wir uns als Marke weiterfinden, unsere Learnings schärfen und klar erkennen:</br>' +
+        'Unser Weg ist der Shot.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2024Content = {
+    image: {
+      url: '',
+      mobileUrl: '',
+      alt: '2024 Bild',
+    },
+    title: { text: '2024', color: '#E6007E' },
+    subtitle: { text: 'Das Kornfetti Riot Squad: Ein Shot für starke Frauen', color: '#fff' },
+    description: {
+      text:
+        '2024 steht ganz im Zeichen des Kornfetti Riot Squad.</br>' +
+        'Wir rücken unseren Himmi bewusst in den Fokus – mit einer klaren Haltung:</br></br>' +
+        'An der Bar fehlt ein Shot für Frauen.</br>' +
+        'Für starke, selbstständige, selbstbewusste Frauen.</br></br>' +
+        'Darum gründen wir das Pink Riot Squad:</br>' +
+        'Eine Bewegung, die zeigt, dass Shots nicht nur laut und wild sind, sondern auch empowernd, mutig und stolz sein können.</br>' +
+        'Ein Statement, das sagt:</br>' +
+        'Dieser Drink gehört uns. Dieser Moment gehört uns.</br></br>' +
+        '2024 wird damit zu dem Jahr, in dem eine neue Seite von Kornfetti entsteht –</br>' +
+        'lauter, diverser, moderner und mit einem klaren Purpose.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2025Content = {
+    image: {
+      url: '',
+      mobileUrl: '',
+      alt: '2025 Bild',
+    },
+    title: { text: '2025', color: '#E6007E' },
+    subtitle: { text: 'Das Jahr der großen Schritte: HIMI BOMB, SPLITI & der Sprung nach Köln', color: '#fff' },
+    description: {
+      text:
+        '2025 wird für Kornfetti ein Meilensteinjahr.</br>' +
+        'Mit der HIMI BOMB starten wir unser erstes eigenes Trinkritual – mit eigenen Bechern, eigener Bewegung und einem klaren Ziel: ein unverwechselbares Tresenritual, das überall in Deutschland gefeiert wird.</br></br>' +
+        'Parallel bringen wir SPLITI auf den Markt – unseren Maracuja-Vanille-Shot, der nächste Smash Hit, der sofort zum Publikumsliebling wird.</br></br>' +
+        'Und während unsere Produkte stärker denn je werden, machen wir auch geografisch den nächsten großen Move:</br>' +
+        'Wir wachsen über den Norden hinaus und expandieren erstmals nach Köln, mitten hinein in Karneval, Clubs, Bars und Partykultur.</br></br>' +
+        '2025 steht für:</br>' +
+        'Innovation, neue Rituale und den nächsten Schritt zur Nr. 1 Shot-Marke Deutschlands.</br></br>' +
+        'Damit wird unsere Mission klarer denn je:</br></br>' +
+        '<bold>Unsere Zukunft – Der Supershot von Deutschland</bold></br></br>' +
+        'Vom Kölner Karneval über die Berge im Après-Ski bis zur Strandparty am Meer:</br>' +
+        'Kornfetti soll der Shot werden, den man überall kennt.</br></br>' +
+        'Bunt. Laut. Lecker.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
   return {
     customImageTextBlock_himmiBombContent,
     customImageTextBlock_himmiBottleContent,
@@ -447,5 +601,12 @@ export const useCustomContent = () => {
     customImageTextBlockproductKorn_herstellungContent,
     customImageTextBlockproductKorn_ausgezeichnetContent,
     customImageTextBlockKontakt_kontaktContent,
+    customImageTextBlockAboutUs_block2019Content,
+    customImageTextBlockAboutUs_block2020Content,
+    customImageTextBlockAboutUs_block2021Content,
+    customImageTextBlockAboutUs_block2022Content,
+    customImageTextBlockAboutUs_block2023Content,
+    customImageTextBlockAboutUs_block2024Content,
+    customImageTextBlockAboutUs_block2025Content,
   };
 };
