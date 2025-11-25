@@ -38,14 +38,16 @@
     <!-- Newsletter Section -->
     <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
       <!-- Left side - Content -->
-      <div class="relative w-full flex items-center justify-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
+      <div
+        class="relative w-full flex items-center justify-center px-8 py-16 lg:px-16 lg:py-24 bg-black order-2 lg:order-1"
+      >
         <div class="custom-newsletter-section">
           <CustomEmailNewsletter :bgColor="'#000000'" :textColor="'#FFFFFF'" />
         </div>
       </div>
 
       <!-- Right side - Full Cover Image -->
-      <div class="relative h-full min-h-[400px] lg:min-h-[700px]">
+      <div class="relative h-full min-h-[400px] lg:min-h-[700px] order-1 lg:order-2">
         <picture>
           <!-- Desktop -->
           <!-- <source
