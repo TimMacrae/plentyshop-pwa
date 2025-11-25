@@ -3,11 +3,12 @@
     <div v-if="bannerCampaignOne"><CustomHero :banner="bannerCampaignOne" /></div>
 
     <!-- Brand Promise Section -->
-    <div class="bg-black px-4 py-16 sm:px-6 lg:px-8">
+    <div class="bg-black px-4 pt-16 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="!text-3xl font-bold text-white sm:!text-5xl typography-headline-2 tracking-wider">
+        <h2 class="!text-3xl font-bold text-white sm:!text-7xl typography-headline-2 tracking-wider">
           {{ customBrandPromiseContent.title }}
         </h2>
+        <h3 class="text-white text-1xl lg:text-2xl font-bold" v-html="customBrandPromiseContent.subTitle"></h3>
         <p class="mt-4 text-lg text-white tracking-wider">
           {{ customBrandPromiseContent.text }}
         </p>
@@ -26,9 +27,9 @@
     </div>
 
     <!-- Products Section -->
-    <div v-if="productListReduced.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
+    <div v-if="products82.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-        <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+        <ProductCard v-for="(product, index) in products82" :key="index" :product="product" />
       </div>
     </div>
 
@@ -46,9 +47,9 @@
     <div v-if="bannerCampaignTwo"><CustomHero :banner="bannerCampaignTwo" /></div>
 
     <!-- Products Section -->
-    <div v-if="productListReduced.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
+    <div v-if="products83.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-        <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+        <ProductCard v-for="(product, index) in products83" :key="index" :product="product" />
       </div>
     </div>
 
@@ -71,9 +72,9 @@
     <div v-if="bannerCampaignThree"><CustomHero :banner="bannerCampaignThree" /></div>
 
     <!-- Products Section -->
-    <div v-if="productListReduced.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
+    <div v-if="products41.length" class="custom-product-section py-16 xs:py-16 md:py-32 xs:px-8 bg-black">
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-        <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+        <ProductCard v-for="(product, index) in products41" :key="index" :product="product" />
       </div>
     </div>
 
@@ -147,17 +148,31 @@
 import { useCustomContent } from '../composables/useCustomContent';
 import { useCustomBannerCampaign } from '../composables/useCustomBannerCampaign/useCustomBannerCampaign';
 import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
-// import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/NewsletterSubscribe.vue';
 
 const bannerCampaignOne = useCustomBannerCampaign('campaignOne');
 const bannerCampaignTwo = useCustomBannerCampaign('campaignTwo');
 const bannerCampaignThree = useCustomBannerCampaign('campaignThree');
 
 // Fetch products from category 40
-const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
-await fetchProducts({ categoryId: '40' });
-const productsList = computed(() => productsData.value?.products || []);
-const productListReduced = computed(() => [...productsList.value.slice(2, 5), ...productsList.value.slice(6, 7)]);
+// const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
+// await fetchProducts({ categoryId: '40' });
+// const productsList = computed(() => productsData.value?.products || []);
+// const productListReduced = computed(() => [...productsList.value.slice(2, 5), ...productsList.value.slice(6, 7)]);
+
+// Fetch products from category 82
+const { fetchProducts: fetch82, data: data82 } = useProducts('products-82');
+await fetch82({ categoryId: '82' });
+const products82 = computed(() => data82.value?.products.slice(0, 4) || []);
+
+// Fetch products from category 83
+const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
+await fetch83({ categoryId: '83' });
+const products83 = computed(() => data83.value?.products || []);
+
+// Fetch products from category 41
+const { fetchProducts: fetch41, data: data41 } = useProducts('products-41');
+await fetch41({ categoryId: '41' });
+const products41 = computed(() => data41.value?.products || []);
 
 // Get custom content
 const {
@@ -171,21 +186,6 @@ const {
   customImageTextBlock_rezepteContent,
   customImageTextBlock_aboutUsContent,
 } = useCustomContent();
-// const newsletterContent = {
-//   text: {
-//     bgColor: '#000',
-//     title: 'Join the Kornunity',
-//     htmlDescription:
-//       'Alle Mitglieder*innen erhalten einen 5 € Willkommens-Gutschein.<br/>Erfahren einmal im Monat von News rund um Kornfetti und erhalten exklusive Angebote.<br/>Kein Spam, nur Hochprozentiges!',
-//   },
-//   input: {
-//     displayNameInput: true,
-//     nameIsRequired: true,
-//   },
-//   button: {
-//     label: 'ANMELDEN',
-//   },
-// };
 
 definePageMeta({
   layout: 'default',
@@ -208,11 +208,11 @@ onMounted(async () => {});
       border-top: none;
     }
     button {
-      background-color: #c51d60;
-      border-color: #c51d60;
+      background-color: #e6007e;
+      border-color: #e6007e;
       &:hover {
-        background-color: #e60073;
-        border-color: #e60073;
+        background-color: #c51d60;
+        border-color: #c51d60;
       }
     }
   }
@@ -230,11 +230,11 @@ onMounted(async () => {});
       color: #fff;
     }
     button {
-      background-color: #c51d60;
-      border-color: #c51d60;
+      background-color: #e6007e;
+      border-color: #e6007e;
       &:hover {
-        background-color: #e60073;
-        border-color: #e60073;
+        background-color: #c51d60;
+        border-color: #c51d60;
       }
     }
     h2 {

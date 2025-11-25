@@ -1,6 +1,6 @@
 <template>
   <footer data-testid="custom-footer" class="bg-black text-white font-sans">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-16">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-16 border-t border-neutral-700">
       <!-- Footer Columns -->
       <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         <!-- Social Column -->
@@ -20,7 +20,7 @@
             </a>
           </div>
           <NuxtImg
-            src="https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Kornfetti/Logo/kornfetti_logo_claim_weiss.png"
+            src="https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Logo_2025_TT.png"
             alt="Kornfetti Logo"
             class="mt-8 h-12 w-auto"
             loading="lazy"
@@ -46,7 +46,7 @@
       </div>
 
       <!-- Copyright -->
-      <div class="mt-16 pt-8 border-t border-neutral-800 text-center text-neutral-500">
+      <div class="mt-16 pt-8 border-t border-neutral-700 text-center text-neutral-500">
         <p class="text-xs">&copy; Copyright {{ new Date().getFullYear() }} | Alle Rechte vorbehalten.</p>
       </div>
     </div>

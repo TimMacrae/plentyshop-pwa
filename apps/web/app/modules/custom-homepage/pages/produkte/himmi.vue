@@ -7,15 +7,9 @@
 
     <!-- Products Section -->
     <section class="bg-black py-16 xs:py-16 md:py-32 xs:px-8">
-      <h2
-        class="typography-headline-1 text-white mb-12 text-center"
-        style="font-size: clamp(3rem, 8vw, 6rem); color: #c51d60"
-      >
-        Natürlich beliebt
-      </h2>
-      <div v-if="productListReduced.length" class="custom-product-section">
+      <div v-if="products54.length" class="custom-product-section">
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+          <ProductCard v-for="(product, index) in products54" :key="index" :product="product" />
         </div>
       </div>
     </section>
@@ -115,11 +109,6 @@
       <!-- Right side - Content -->
       <div class="relative w-full flex items-center justify-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
         <div class="custom-newsletter-section">
-          <!-- <NewsletterSubscribe
-            :name="'NewsletterSubscribe'"
-            :type="'NewsletterSubscribe'"
-            :content="newsletterContent"
-          /> -->
           <CustomEmailNewsletter :bgColor="'#000000'" :textColor="'#FFFFFF'" />
         </div>
       </div>
@@ -128,13 +117,13 @@
     <section class="bg-black py-16 xs:py-16 md:py-32 xs:px-8">
       <h2
         class="typography-headline-1 text-white pb-12 text-center"
-        style="font-size: clamp(3rem, 8vw, 6rem); color: #c51d60"
+        style="font-size: clamp(3rem, 8vw, 6rem); color: #e6007e"
       >
-        Unsere Produkte
+        Unsere super Shots!
       </h2>
-      <div v-if="productListReduced.length" class="custom-product-section">
+      <div v-if="products83.length" class="custom-product-section">
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+          <ProductCard v-for="(product, index) in products83" :key="index" :product="product" />
         </div>
       </div>
     </section>
@@ -144,19 +133,18 @@
 <script setup lang="ts">
 import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
 import { useCustomContent } from '../../composables/useCustomContent';
-import NewsletterSubscribe from '~/components/blocks/NewsletterSubscribe/NewsletterSubscribe.vue';
 import { useCustomBannerCampaign } from '../../composables/useCustomBannerCampaign/useCustomBannerCampaign';
 const bannerHimmi = useCustomBannerCampaign('bannerHimmi');
 
-// Fetch products from category 40
-const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
-await fetchProducts({ categoryId: '40' });
-const productsList = computed(() => productsData.value?.products || []);
-const productListReduced = computed(() => [
-  ...productsList.value.slice(1, 2),
-  ...productsList.value.slice(4, 6),
-  ...productsList.value.slice(8, 9),
-]);
+// Fetch products from category 54
+const { fetchProducts: fetch54, data: data54 } = useProducts('products-54');
+await fetch54({ categoryId: '54' });
+const products54 = computed(() => data54.value?.products?.slice(0, 4) || []);
+
+// Fetch products from category 83
+const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
+await fetch83({ categoryId: '83' });
+const products83 = computed(() => data83.value?.products || []);
 
 const {
   customImageTextBlock_productHimmi_pinkRiotSquadContent,
@@ -192,22 +180,6 @@ const infoBoxItems = [
       'Bereits ab 30 EURO liefern wir versandkostenfrei zu euch. Das ist schon ab der vierten Flasche. Es lohnt sich auch, gemeinsam zu bestellen. 😉',
   },
 ];
-
-const newsletterContent = {
-  text: {
-    bgColor: '#000',
-    title: 'Join the Kornunity',
-    htmlDescription:
-      'Alle Mitglieder*innen erhalten einen 5 € Willkommens-Gutschein.<br/>Erfahren einmal im Monat von News rund um Kornfetti und erhalten exklusive Angebote.<br/>Kein Spam, nur Hochprozentiges!',
-  },
-  input: {
-    displayNameInput: true,
-    nameIsRequired: true,
-  },
-  button: {
-    label: 'ANMELDEN',
-  },
-};
 </script>
 
 <style>
@@ -222,11 +194,11 @@ const newsletterContent = {
       border-top: none;
     }
     button {
-      background-color: #c51d60;
-      border-color: #c51d60;
+      background-color: #e6007e;
+      border-color: #e6007e;
       &:hover {
-        background-color: #e60073;
-        border-color: #e60073;
+        background-color: #c51d60;
+        border-color: #c51d60;
       }
     }
   }
@@ -244,11 +216,11 @@ const newsletterContent = {
       color: #fff;
     }
     button {
-      background-color: #c51d60;
-      border-color: #c51d60;
+      background-color: #e6007e;
+      border-color: #e6007e;
       &:hover {
-        background-color: #e60073;
-        border-color: #e60073;
+        background-color: #c51d60;
+        border-color: #c51d60;
       }
     }
     h2 {

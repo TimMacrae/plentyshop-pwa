@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 export const useCustomContent = () => {
   const customImageTextBlock_himmiBombContent = {
     image: {
@@ -32,7 +33,7 @@ export const useCustomContent = () => {
         'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_MiniHimmi_homepage_500x500.png',
       alt: 'Himmi Flasche',
     },
-    title: { text: 'Himmi', color: '#000' },
+    title: { text: 'Himmi', color: '#E6007E' },
 
     subtitle: { text: 'Himbeer-Limetten-Likör 15% Vol.', color: '#fff' },
     description: {
@@ -42,13 +43,13 @@ export const useCustomContent = () => {
     cta: {
       text: 'Zum Himmi',
       color: '#fff',
-      bgColor: '#000',
-      link: '/himmi-0-7-liter_209_1166',
+      bgColor: '#E6007E',
+      link: '/produkte/himmi',
     },
     bgColor: '',
     useGradient: true,
-    gradientFrom: '#C51D60',
-    gradientTo: '#EF87B6',
+    gradientFrom: '#000',
+    gradientTo: '#000',
     gradientPosition: 'top-right',
   };
 
@@ -70,7 +71,7 @@ export const useCustomContent = () => {
       text: 'Zum Splitti',
       color: '#fff',
       bgColor: '#000',
-      link: '/spliti-0-7-liter_252_1211',
+      link: '/produkte/splitti',
     },
     bgColor: '',
     useGradient: true,
@@ -97,7 +98,7 @@ export const useCustomContent = () => {
       text: 'Zum Krauti',
       color: '#fff',
       bgColor: '#000',
-      link: '/krauti-0-7-liter_212_1169',
+      link: '/produkte/krauti',
     },
     bgColor: '',
     useGradient: true,
@@ -123,7 +124,7 @@ export const useCustomContent = () => {
       text: 'Zum Korn',
       color: '#fff',
       bgColor: '#000',
-      link: '/kornfetti-0-7l_139_1074',
+      link: '/produkte/korn',
     },
     bgColor: '',
     useGradient: true,
@@ -158,7 +159,8 @@ export const useCustomContent = () => {
   };
 
   const customBrandPromiseContent = {
-    title: 'BELIEBT BEIM BREITEN PUBLIKUM',
+    title: 'Kornfetti - Der SuperShot',
+    subTitle: 'Vom Karneval über Après-Ski bis zur Strandparty.<br> Bunt. Laut. Lecker.',
     text: 'Bei Kornfetti trifft Qualität auf Haltung. Unser Korn wird zu 100 % aus deutschem Weizen hergestellt – regional, ehrlich und ohne Kompromisse. Auch unsere Liköre entstehen ausschließlich aus natürlichen Zutaten und bringen den vollen Geschmack ohne künstliches Gedöns. So entsteht echte Kornfetti-Qualität: klar, ehrlich und mit liebe gemacht.',
     logos: [
       'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/100Natuerlich-green.png',
@@ -180,7 +182,7 @@ export const useCustomContent = () => {
       color: '#fff',
     },
     cta: {
-      text: 'Jetzt probieren',
+      text: 'Zu den Events',
       color: '#fff',
       bgColor: '#000',
       link: '/events',
@@ -211,8 +213,8 @@ export const useCustomContent = () => {
       link: '/rezepte',
     },
     useGradient: true,
-    gradientFrom: '#C51D60',
-    gradientTo: '#EF87B6',
+    gradientFrom: '#f3b26d',
+    gradientTo: '#ffdbb4',
     gradientPosition: 'top-left',
   };
 
@@ -223,7 +225,7 @@ export const useCustomContent = () => {
         'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/KornfettiaboutUS_homepage_500x5006.png',
       alt: 'Himmi miniaturen',
     },
-    title: { text: 'UNSERE STORY', color: '#000' },
+    title: { text: 'UNSERE STORY', color: '#E6007E' },
     subtitle: { text: 'KURZ UND KNALLIG', color: '#fff' },
     description: {
       text: 'Alles begann 2019 mit einer echten Schnapsidee. Heute heißt sie Kornfetti – und läuft besser als jede Thekenrunde.Unsere Mission war klar: ein neuer Korn, der für mehr steht als nur Prozent. Für Qualität, Regionalität und vor allem: Spaß im Glas. 2022 kamen dann unsere ersten Liköre an den Start – Himmi und Krauti – und seitdem ist richtig Rambazamba. 2025 kam dann mit Spliti die nächste Sorte dazu – Maracuja-Vanille, sommerlich, wild und genau das, was in der Runde noch gefehlt hat. Mittlerweile gibt’s uns in über 400 Supermärkten, über 150 Bars und auf unzähligen Festivals. Zuhause sind wir im Schanzenviertel in Hamburg – da, wo der Geschmack rebellisch wird und Kornfetti täglich neue Ideen ausbrütet. Und das war erst der Anfang – die nächste Runde geht auf uns! Eure Kornfetti Crew.',
@@ -232,10 +234,10 @@ export const useCustomContent = () => {
     cta: {
       text: 'Zu Über Uns',
       color: '#fff',
-      bgColor: '#000',
+      bgColor: '#E6007E',
       link: '/ueber-uns',
     },
-    bgColor: '#C51D60',
+    bgColor: '#000',
   };
 
   const customImageTextBlock_productHimmi_himmiBombContent = {
@@ -343,9 +345,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlock_productKorn_kornBottleContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Korn_homepage_1000x10009.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Korn_preis_homepage_5000x5000.png',
       alt: 'Himmi Flasche',
     },
     title: { text: 'KORNFETTI', color: '#000' },
@@ -370,9 +372,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlockproductKorn_herstellungContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Korn_weizen_homepage_1000x100010.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Korn_weizen_homepage_5000x5000.png',
       alt: 'Herstellung Korn',
     },
     title: { text: 'Herstellung', color: '#000' },
@@ -389,9 +391,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlockproductKorn_ausgezeichnetContent = {
     image: {
-      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_Preis_homepage_1000x100011.png',
       mobileUrl:
-        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti-Korn-Hamburg.jpg.avif',
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_KornPreis_homepage_500x500.png',
       alt: 'Ausgezeichnet',
     },
     title: { text: 'Ausgezeichnet', color: '#000' },
@@ -417,7 +419,7 @@ export const useCustomContent = () => {
     title: { text: 'Kontaktiere die Kornfetti Crew', color: '#000' },
     subtitle: { text: '', color: '#fff' },
     description: {
-      text: 'Mail: korntakt@kornfetti.com </br>Tel: 040-22859089</br>Büroanschrift:</br>Kornfetti GmbH,</br>Schulterblatt 58,</br>20357 Hamburg',
+      text: 'Kornfetti GmbH,</br>Schulterblatt 58,</br>20357 Hamburg</br></br>Mail: korntakt[a]kornfetti.com </br>Tel: 040-22859089',
       color: '#fff',
     },
     bgColor: '',
@@ -425,6 +427,178 @@ export const useCustomContent = () => {
     gradientFrom: '#C51D60',
     gradientTo: '#EF87B6',
     gradientPosition: 'top-right',
+  };
+
+  const customImageTextBlockAboutUs_block2019Content = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x1000_2019.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x500_2019.png',
+      alt: 'Kontakt Bild',
+    },
+    title: { text: '2019', color: '#E6007E' },
+    subtitle: { text: 'Der Anfang: Ein Korn mit Gesicht', color: '#fff' },
+    description: {
+      text:
+        'Alles startet 2019 mit einer einfachen, aber lauten Idee: Korn kann cool sein.<br>' +
+        'Die erste Kornfetti-Flasche, illustriert vom Hamburger Streetart Künstler Bobby Serrano – ein Symbol für den ersten Schritt, die erste Liebe, den ersten Moment an der Bar.</br></br>' +
+        'Kein Plan aber leicht ein sitzen – aber mit voller Motivation und viel Herz in die Kornfetti Zukunft.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+  };
+
+  const customImageTextBlockAboutUs_block2020Content = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10002_2020.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5002_2020.png',
+      alt: 'Kontakt Bild',
+    },
+    title: { text: '2020', color: '#E6007E' },
+    subtitle: { text: 'Neues Design, neue Crew und wir werden lauter', color: '#fff' },
+    description: {
+      text:
+        '2020 wird klar: Party macht man nicht allein.<br>Das Design bekommt ein komplettes Update – nicht mehr nur eine Person, sondern eine ganze Crew auf der Flasche. Kornfetti steht ab jetzt für:</br>' +
+        '<bold>Gemeinsam trinken. Gemeinsam feiern. Gemeinsam eskalieren.</bold></br></br>' +
+        'Im selben Jahr landen wir auf unserem ersten Festival überhaupt:</br>' +
+        'dem legendären Mofa-Rennen im Kliemannsland.</br>' +
+        'Ein chaotischer, wilder, perfekter Start in die Festivalwelt.</br></br>' +
+        'Während Corona unterstützen wir Künstler, die keine Ausstellungen machen konnten.</br>' +
+        'Wir kaufen ihnen Werke ab und verkaufen sie in unserem Shop weiter:</br>' +
+        'die Kornfetti Gallery – ein absolutes Herzensprojekt und die erste Doppelseite in der Mopo.</br>' +
+        'Eine Aktion, auf die wir bis heute stolz sind.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2021Content = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10003_2021.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5003_2021.png',
+      alt: '2021 Bild',
+    },
+    title: { text: '2021', color: '#E6007E' },
+    subtitle: { text: 'Ein schwieriges Jahr, das uns stärker gemacht hat', color: '#fff' },
+    description: {
+      text:
+        '2021 war für uns – wie für die ganze Branche – ein hartes Jahr.</br>' +
+        'Corona hat Clubs geschlossen, Partys gestoppt und das Nachtleben auf Pause gedrückt.</br></br>' +
+        'Aber genau in dieser Zeit haben wir gelernt, was Kornfetti wirklich ist:</br>' +
+        'Zusammenhalt, Mut und Aufbruch.</br></br>' +
+        'Trotz aller Herausforderungen sind wir stärker denn je aus diesem Jahr gegangen.</br>' +
+        'Unser Team ist gewachsen, wir haben unser erstes eigenes Büro bezogen,</br>' +
+        'und die Aufbruchsstimmung war vom ersten Tag an intensiver, klarer und elektrisierender als zuvor.</br></br>' +
+        '2021 wurde damit nicht nur ein Krisenjahr –</br>' +
+        'sondern das Jahr, in dem wir unseren Kern gefunden haben.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2022Content = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10004_2022.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5004_2022.png',
+      alt: '2022 Bild',
+    },
+    title: { text: '2022', color: '#E6007E' },
+    subtitle: { text: 'Die Liköre: HIMI & KRAUTI', color: '#fff' },
+    description: {
+      text:
+        'Der Korn schmeckt zu gut, um nicht weitergedacht zu werden.</br>' +
+        '2022 launchen wir unsere ersten Liköre:</br>' +
+        'Himi – Himbeere & Limette</br>' +
+        'Krauti – unsere Kräuter-Variante</br>' +
+        'Damit wird Kornfetti offiziell zur Shot-Marke.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2023Content = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10005_2023.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5005_2023.png',
+      alt: '2023 Bild',
+    },
+    title: { text: '2023', color: '#E6007E' },
+    subtitle: { text: 'Wachstum im Norden: Clubs, Festivals & Handel', color: '#fff' },
+    description: {
+      text:
+        '2023 wird unser erstes großes Wachstumsjahr.</br>' +
+        'Wir expandieren im gesamten Norden und wachsen besonders stark im Club-Bereich – immer näher dran an den Tresen, an denen Kornfetti zuhause ist.</br></br>' +
+        'Dazu kommen neue große Festivals, die uns in die Party-Szene katapultieren, und auch im Handel legen wir zu:</br>' +
+        'Wir schaffen Listungen bei Famila, Leckerland und Kaufland.</br></br>' +
+        '2023 ist das Jahr, in dem wir uns als Marke weiterfinden, unsere Learnings schärfen und klar erkennen:</br>' +
+        'Unser Weg ist der Shot.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2024Content = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10006_2024.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5006_2024.png',
+      alt: '2024 Bild',
+    },
+    title: { text: '2024', color: '#E6007E' },
+    subtitle: { text: 'Das Kornfetti Riot Squad: Ein Shot für starke Frauen', color: '#fff' },
+    description: {
+      text:
+        '2024 steht ganz im Zeichen des Kornfetti Riot Squad.</br>' +
+        'Wir rücken unseren Himmi bewusst in den Fokus – mit einer klaren Haltung:</br></br>' +
+        'An der Bar fehlt ein Shot für Frauen.</br>' +
+        'Für starke, selbstständige, selbstbewusste Frauen.</br></br>' +
+        'Darum gründen wir das Pink Riot Squad:</br>' +
+        'Eine Bewegung, die zeigt, dass Shots nicht nur laut und wild sind, sondern auch empowernd, mutig und stolz sein können.</br>' +
+        'Ein Statement, das sagt:</br>' +
+        'Dieser Drink gehört uns. Dieser Moment gehört uns.</br></br>' +
+        '2024 wird damit zu dem Jahr, in dem eine neue Seite von Kornfetti entsteht –</br>' +
+        'lauter, diverser, moderner und mit einem klaren Purpose.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
+  };
+
+  const customImageTextBlockAboutUs_block2025Content = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10007_2025.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5007_2025.png',
+      alt: '2025 Bild',
+    },
+    title: { text: '2025', color: '#E6007E' },
+    subtitle: { text: 'Das Jahr der großen Schritte: HIMI BOMB, SPLITI & der Sprung nach Köln', color: '#fff' },
+    description: {
+      text:
+        '2025 wird für Kornfetti ein Meilensteinjahr.</br>' +
+        'Mit der HIMI BOMB starten wir unser erstes eigenes Trinkritual – mit eigenen Bechern, eigener Bewegung und einem klaren Ziel: ein unverwechselbares Tresenritual, das überall in Deutschland gefeiert wird.</br></br>' +
+        'Parallel bringen wir SPLITI auf den Markt – unseren Maracuja-Vanille-Shot, der nächste Smash Hit, der sofort zum Publikumsliebling wird.</br></br>' +
+        'Und während unsere Produkte stärker denn je werden, machen wir auch geografisch den nächsten großen Move:</br>' +
+        'Wir wachsen über den Norden hinaus und expandieren erstmals nach Köln, mitten hinein in Karneval, Clubs, Bars und Partykultur.</br></br>' +
+        '2025 steht für:</br>' +
+        'Innovation, neue Rituale und den nächsten Schritt zur Nr. 1 Shot-Marke Deutschlands.</br></br>' +
+        'Damit wird unsere Mission klarer denn je:</br></br>' +
+        '<bold>Unsere Zukunft – Der Supershot von Deutschland</bold></br></br>' +
+        'Vom Kölner Karneval über die Berge im Après-Ski bis zur Strandparty am Meer:</br>' +
+        'Kornfetti soll der Shot werden, den man überall kennt.</br></br>' +
+        'Bunt. Laut. Lecker.',
+      color: '#fff',
+    },
+    bgColor: '#000',
+    useGradient: false,
   };
 
   return {
@@ -446,5 +620,12 @@ export const useCustomContent = () => {
     customImageTextBlockproductKorn_herstellungContent,
     customImageTextBlockproductKorn_ausgezeichnetContent,
     customImageTextBlockKontakt_kontaktContent,
+    customImageTextBlockAboutUs_block2019Content,
+    customImageTextBlockAboutUs_block2020Content,
+    customImageTextBlockAboutUs_block2021Content,
+    customImageTextBlockAboutUs_block2022Content,
+    customImageTextBlockAboutUs_block2023Content,
+    customImageTextBlockAboutUs_block2024Content,
+    customImageTextBlockAboutUs_block2025Content,
   };
 };

@@ -1,5 +1,5 @@
 <template>
-  <section class="relative aspect-[5/4] sm:aspect-video lg:aspect-[16/6] overflow-hidden">
+  <section class="relative aspect-[5/4] sm:aspect-video lg:aspect-[16/6] xl:aspect-[14/5] overflow-hidden">
     <a :href="banner.button?.link || '#'" class="block">
       <picture>
         <source :srcset="addModernImageExtension(banner.image.wideScreen)" media="(min-width: 1536px)" />

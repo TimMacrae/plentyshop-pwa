@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-homepage">
+  <div class="custom-kontakt-page">
     <!-- Image text section -->
     <div v-if="customImageTextBlockKontakt_kontaktContent">
       <CustomImageTextBlockReverse :data="customImageTextBlockKontakt_kontaktContent" />
@@ -72,7 +72,7 @@ onMounted(async () => {});
 </script>
 
 <style>
-.custom-homepage {
+.custom-kontakt-page {
   [data-testid='product-card'] {
     background-color: #000;
     border: 1px solid #000;
@@ -83,11 +83,11 @@ onMounted(async () => {});
       border-top: none;
     }
     button {
-      background-color: #c51d60;
-      border-color: #c51d60;
+      background-color: #e6007e;
+      border-color: #e6007e;
       &:hover {
-        background-color: #e60073;
-        border-color: #e60073;
+        background-color: #c51d60;
+        border-color: #c51d60;
       }
     }
   }
@@ -105,11 +105,11 @@ onMounted(async () => {});
       color: #fff;
     }
     button {
-      background-color: #c51d60;
-      border-color: #c51d60;
+      background-color: #e6007e;
+      border-color: #e6007e;
       &:hover {
-        background-color: #e60073;
-        border-color: #e60073;
+        background-color: #c51d60;
+        border-color: #c51d60;
       }
     }
     h2 {

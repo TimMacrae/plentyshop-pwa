@@ -36,8 +36,6 @@
             class="absolute inset-0 w-full h-full object-cover object-top"
           />
         </picture>
-
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/50 lg:to-black/30" />
       </div>
 
       <!-- Right side - Content -->
@@ -67,9 +65,8 @@
             v-if="data?.description?.text"
             class="text-lg lg:text-xl leading-relaxed"
             :style="{ color: data.description.color || '' }"
-          >
-            {{ data.description.text }}
-          </p>
+            v-html="data.description.text"
+          ></p>
 
           <!-- CTA -->
           <div v-if="data?.cta?.text" class="pt-4">

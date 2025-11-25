@@ -1,49 +1,53 @@
 <template>
-  <div class="custom-homepage">
-    <div v-if="bannerCampaignOne"><CustomHero :banner="bannerCampaignOne" /></div>
-
-    <!-- Brand Promise Section -->
-    <div class="bg-black px-4 py-16 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="!text-3xl font-bold text-white sm:!text-5xl typography-headline-2 tracking-wider">
-          {{ customBrandPromiseContent.title }}
-        </h2>
-        <p class="mt-4 text-lg text-white tracking-wider">
-          {{ customBrandPromiseContent.text }}
-        </p>
-      </div>
-      <div class="mt-12 flex items-center justify-center gap-x-8">
-        <NuxtImg
-          v-for="logo in customBrandPromiseContent.logos"
-          :key="logo"
-          :src="logo"
-          :alt="logo"
-          height="200"
-          loading="lazy"
-          class="h-12 md:h-24 w-auto"
-        />
-      </div>
+  <div class="custom-about-us-page">
+    <!-- Image text section -->
+    <div v-if="customImageTextBlockAboutUs_block2019Content">
+      <CustomImageTextBlock :data="customImageTextBlockAboutUs_block2019Content" />
     </div>
 
     <!-- Image text section -->
-    <div v-if="customImageTextBlock_eventsContent">
-      <CustomImageTextBlockReverse :data="customImageTextBlock_eventsContent" />
+    <div v-if="customImageTextBlockAboutUs_block2020Content">
+      <CustomImageTextBlockReverse :data="customImageTextBlockAboutUs_block2020Content" />
     </div>
 
     <!-- Image text section -->
-    <div v-if="customImageTextBlock_rezepteContent">
-      <CustomImageTextBlock :data="customImageTextBlock_rezepteContent" />
+    <div v-if="customImageTextBlockAboutUs_block2021Content">
+      <CustomImageTextBlock :data="customImageTextBlockAboutUs_block2021Content" />
     </div>
 
     <!-- Image text section -->
-    <div v-if="customImageTextBlock_aboutUsContent">
-      <CustomImageTextBlockReverse :data="customImageTextBlock_aboutUsContent" />
+    <div v-if="customImageTextBlockAboutUs_block2022Content">
+      <CustomImageTextBlockReverse :data="customImageTextBlockAboutUs_block2022Content" />
+    </div>
+
+    <!-- Image text section -->
+    <div v-if="customImageTextBlockAboutUs_block2023Content">
+      <CustomImageTextBlock :data="customImageTextBlockAboutUs_block2023Content" />
+    </div>
+
+    <!-- Image text section -->
+    <div v-if="customImageTextBlockAboutUs_block2024Content">
+      <CustomImageTextBlockReverse :data="customImageTextBlockAboutUs_block2024Content" />
+    </div>
+
+    <!-- Image text section -->
+    <div v-if="customImageTextBlockAboutUs_block2025Content">
+      <CustomImageTextBlock :data="customImageTextBlockAboutUs_block2025Content" />
     </div>
 
     <!-- Newsletter Section -->
     <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
-      <!-- Left side - Full Cover Image -->
-      <div class="relative h-full min-h-[400px] lg:min-h-[700px]">
+      <!-- Left side - Content -->
+      <div
+        class="relative w-full flex items-center justify-center px-8 py-16 lg:px-16 lg:py-24 bg-black order-2 lg:order-1"
+      >
+        <div class="custom-newsletter-section">
+          <CustomEmailNewsletter :bgColor="'#000000'" :textColor="'#FFFFFF'" />
+        </div>
+      </div>
+
+      <!-- Right side - Full Cover Image -->
+      <div class="relative h-full min-h-[400px] lg:min-h-[700px] order-1 lg:order-2">
         <picture>
           <!-- Desktop -->
           <!-- <source
@@ -75,18 +79,6 @@
           />
         </picture>
       </div>
-
-      <!-- Right side - Content -->
-      <div class="relative w-full flex items-center justify-center px-8 py-16 lg:px-16 lg:py-24 bg-black">
-        <div class="custom-newsletter-section">
-          <!-- <NewsletterSubscribe
-            :name="'NewsletterSubscribe'"
-            :type="'NewsletterSubscribe'"
-            :content="newsletterContent"
-          /> -->
-          <CustomEmailNewsletter :bgColor="'#000000'" :textColor="'#FFFFFF'" />
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -99,10 +91,13 @@ const bannerCampaignOne = useCustomBannerCampaign('campaignOne');
 
 // Get custom content
 const {
-  customBrandPromiseContent,
-  customImageTextBlock_eventsContent,
-  customImageTextBlock_rezepteContent,
-  customImageTextBlock_aboutUsContent,
+  customImageTextBlockAboutUs_block2019Content,
+  customImageTextBlockAboutUs_block2020Content,
+  customImageTextBlockAboutUs_block2021Content,
+  customImageTextBlockAboutUs_block2022Content,
+  customImageTextBlockAboutUs_block2023Content,
+  customImageTextBlockAboutUs_block2024Content,
+  customImageTextBlockAboutUs_block2025Content,
 } = useCustomContent();
 
 definePageMeta({
@@ -115,32 +110,7 @@ onMounted(async () => {});
 </script>
 
 <style>
-.custom-homepage {
-  [data-testid='product-card'] {
-    background-color: #000;
-    border: 1px solid #000;
-    a,
-    span,
-    div {
-      color: #fff;
-      border-top: none;
-    }
-    button {
-      background-color: #c51d60;
-      border-color: #c51d60;
-      &:hover {
-        background-color: #e60073;
-        border-color: #e60073;
-      }
-    }
-  }
-  .custom-product-section {
-    [data-testid='product-card'] {
-      div {
-        align-items: center;
-      }
-    }
-  }
+.custom-about-us-page {
   .custom-newsletter-section {
     color: #fff;
     label,
@@ -148,11 +118,11 @@ onMounted(async () => {});
       color: #fff;
     }
     button {
-      background-color: #c51d60;
-      border-color: #c51d60;
+      background-color: #e6007e;
+      border-color: #e6007e;
       &:hover {
-        background-color: #e60073;
-        border-color: #e60073;
+        background-color: #c51d60;
+        border-color: #c51d60;
       }
     }
     h2 {

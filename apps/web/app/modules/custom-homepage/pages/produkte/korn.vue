@@ -13,15 +13,9 @@
 
     <!-- Products Section -->
     <section class="bg-black py-16 xs:py-16 md:py-32 xs:px-8">
-      <h2
-        class="typography-headline-1 text-white pb-12 text-center"
-        style="font-size: clamp(3rem, 8vw, 6rem); color: #f3b26d"
-      >
-        Korn Produkte
-      </h2>
-      <div v-if="productListReduced.length" class="custom-product-section">
+      <div v-if="products53.length" class="custom-product-section">
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+          <ProductCard v-for="(product, index) in products53" :key="index" :product="product" />
         </div>
       </div>
     </section>
@@ -73,11 +67,11 @@
         class="typography-headline-1 text-white pb-12 text-center"
         style="font-size: clamp(3rem, 8vw, 6rem); color: #f3b26d"
       >
-        Unsere Produkte
+        Unsere super Shots!
       </h2>
-      <div v-if="productListReduced.length" class="custom-product-section">
+      <div v-if="products83.length" class="custom-product-section">
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <ProductCard v-for="(product, index) in productListReduced" :key="index" :product="product" />
+          <ProductCard v-for="(product, index) in products83" :key="index" :product="product" />
         </div>
       </div>
     </section>
@@ -91,15 +85,15 @@ const bannerKorn = useCustomBannerCampaign('bannerKorn');
 import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
 import { useCustomContent } from '../../composables/useCustomContent';
 
-// Fetch products from category 40
-const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');
-await fetchProducts({ categoryId: '40' });
-const productsList = computed(() => productsData.value?.products || []);
-const productListReduced = computed(() => [
-  ...productsList.value.slice(1, 2),
-  ...productsList.value.slice(4, 6),
-  ...productsList.value.slice(8, 9),
-]);
+// Fetch products from category 53
+const { fetchProducts: fetch53, data: data53 } = useProducts('products-53');
+await fetch53({ categoryId: '53' });
+const products53 = computed(() => data53.value?.products.slice(0, 4) || []);
+
+// Fetch products from category 83
+const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
+await fetch83({ categoryId: '83' });
+const products83 = computed(() => data83.value?.products || []);
 
 const {
   customImageTextBlock_productKorn_kornBottleContent,

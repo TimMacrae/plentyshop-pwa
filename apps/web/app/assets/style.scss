@@ -65,7 +65,7 @@ apple-pay-button {
 }
 
 .no-preflight {
-  * {
+  :not(iframe) {
     all: revert;
   }
 
