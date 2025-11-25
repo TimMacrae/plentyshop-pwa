@@ -431,14 +431,18 @@ export const useCustomContent = () => {
 
   const customImageTextBlockAboutUs_block2019Content = {
     image: {
-      url: '',
-      mobileUrl: '',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x1000_2019.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x500_2019.png',
       alt: 'Kontakt Bild',
     },
     title: { text: '2019', color: '#E6007E' },
     subtitle: { text: 'Der Anfang: Ein Korn mit Gesicht', color: '#fff' },
     description: {
-      text: 'Alles startet 2019 mit einer einfachen, aber lauten Idee: Korn kann cool sein.<br>Die erste Kornfetti-Flasche, illustriert vom Hamburger Streetart Künstler Bobby Serrano – ein Symbol für den ersten Schritt, die erste Liebe, den ersten Moment an der Bar.</br></br>Kein Plan aber leicht ein sitzen – aber mit voller Motivation und viel Herz in die Kornfetti Zukunft.',
+      text:
+        'Alles startet 2019 mit einer einfachen, aber lauten Idee: Korn kann cool sein.<br>' +
+        'Die erste Kornfetti-Flasche, illustriert vom Hamburger Streetart Künstler Bobby Serrano – ein Symbol für den ersten Schritt, die erste Liebe, den ersten Moment an der Bar.</br></br>' +
+        'Kein Plan aber leicht ein sitzen – aber mit voller Motivation und viel Herz in die Kornfetti Zukunft.',
       color: '#fff',
     },
     bgColor: '#000',
@@ -446,14 +450,24 @@ export const useCustomContent = () => {
 
   const customImageTextBlockAboutUs_block2020Content = {
     image: {
-      url: '',
-      mobileUrl: '',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10002_2020.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5002_2020.png',
       alt: 'Kontakt Bild',
     },
     title: { text: '2020', color: '#E6007E' },
     subtitle: { text: 'Neues Design, neue Crew und wir werden lauter', color: '#fff' },
     description: {
-      text: '2020 wird klar: Party macht man nicht allein.<br>Das Design bekommt ein komplettes Update – nicht mehr nur eine Person, sondern eine ganze Crew auf der Flasche. Kornfetti steht ab jetzt für:</br><bold>Gemeinsam trinken. Gemeinsam feiern. Gemeinsam eskalieren.</bold></br></br>Im selben Jahr landen wir auf unserem ersten Festival überhaupt:</br>dem legendären Mofa-Rennen im Kliemannsland.</br>Ein chaotischer, wilder, perfekter Start in die Festivalwelt.</br></br>Während Corona unterstützen wir Künstler, die keine Ausstellungen machen konnten.</br>Wir kaufen ihnen Werke ab und verkaufen sie in unserem Shop weiter:</br>die Kornfetti Gallery – ein absolutes Herzensprojekt und die erste Doppelseite in der Mopo.</br>Eine Aktion, auf die wir bis heute stolz sind.',
+      text:
+        '2020 wird klar: Party macht man nicht allein.<br>Das Design bekommt ein komplettes Update – nicht mehr nur eine Person, sondern eine ganze Crew auf der Flasche. Kornfetti steht ab jetzt für:</br>' +
+        '<bold>Gemeinsam trinken. Gemeinsam feiern. Gemeinsam eskalieren.</bold></br></br>' +
+        'Im selben Jahr landen wir auf unserem ersten Festival überhaupt:</br>' +
+        'dem legendären Mofa-Rennen im Kliemannsland.</br>' +
+        'Ein chaotischer, wilder, perfekter Start in die Festivalwelt.</br></br>' +
+        'Während Corona unterstützen wir Künstler, die keine Ausstellungen machen konnten.</br>' +
+        'Wir kaufen ihnen Werke ab und verkaufen sie in unserem Shop weiter:</br>' +
+        'die Kornfetti Gallery – ein absolutes Herzensprojekt und die erste Doppelseite in der Mopo.</br>' +
+        'Eine Aktion, auf die wir bis heute stolz sind.',
       color: '#fff',
     },
     bgColor: '#000',
@@ -462,8 +476,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlockAboutUs_block2021Content = {
     image: {
-      url: '',
-      mobileUrl: '',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10003_2021.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5003_2021.png',
       alt: '2021 Bild',
     },
     title: { text: '2021', color: '#E6007E' },
@@ -487,8 +502,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlockAboutUs_block2022Content = {
     image: {
-      url: '',
-      mobileUrl: '',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10004_2022.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5004_2022.png',
       alt: '2022 Bild',
     },
     title: { text: '2022', color: '#E6007E' },
@@ -508,8 +524,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlockAboutUs_block2023Content = {
     image: {
-      url: '',
-      mobileUrl: '',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10005_2023.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5005_2023.png',
       alt: '2023 Bild',
     },
     title: { text: '2023', color: '#E6007E' },
@@ -530,8 +547,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlockAboutUs_block2024Content = {
     image: {
-      url: '',
-      mobileUrl: '',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10006_2024.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5006_2024.png',
       alt: '2024 Bild',
     },
     title: { text: '2024', color: '#E6007E' },
@@ -556,8 +574,9 @@ export const useCustomContent = () => {
 
   const customImageTextBlockAboutUs_block2025Content = {
     image: {
-      url: '',
-      mobileUrl: '',
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_1000x10007_2025.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_U_berUNS_500x5007_2025.png',
       alt: '2025 Bild',
     },
     title: { text: '2025', color: '#E6007E' },
