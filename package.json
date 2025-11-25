@@ -109,22 +109,5 @@
       "path": "cz-conventional-changelog",
       "disableScopeLowerCase": true
     }
-  },
-  "optionalDependencies": {
-    "@oxc-parser/binding-linux-x64-gnu": "^0.99.0",
-    "@oxc-transform/binding-linux-x64-gnu": "^0.99.0",
-    "@parcel/watcher-android-arm64": "^2.5.1",
-    "@parcel/watcher-darwin-x64": "^2.5.1",
-    "@parcel/watcher-freebsd-x64": "^2.5.1",
-    "@parcel/watcher-linux-arm-glibc": "^2.5.1",
-    "@parcel/watcher-linux-arm-musl": "^2.5.1",
-    "@parcel/watcher-linux-arm64-glibc": "^2.5.1",
-    "@parcel/watcher-linux-arm64-musl": "^2.5.1",
-    "@parcel/watcher-linux-x64-glibc": "^2.5.1",
-    "@parcel/watcher-linux-x64-musl": "^2.5.1",
-    "@parcel/watcher-win32-arm64": "^2.5.1",
-    "@parcel/watcher-win32-ia32": "^2.5.1",
-    "@parcel/watcher-win32-x64": "^2.5.1",
-    "@rollup/rollup-linux-x64-gnu": "^4.53.3"
   }
 }
