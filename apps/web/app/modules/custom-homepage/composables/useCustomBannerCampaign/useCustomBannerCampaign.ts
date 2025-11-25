@@ -28,6 +28,41 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
     {
       id: 'fallback-01',
       image: {
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_fallback_mobile.png',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_fallback_web.png',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_fallback_web.png',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_fallback_web.png',
+        alt: 'Kornfetti Banner',
+        brightness: 1,
+      },
+      text: {
+        pretitle: '',
+        title: '',
+        subtitle: '',
+        htmlDescription: '',
+        color: '#FFFFFF',
+        bgcolor: '#000000',
+        bgopacity: 0.1,
+        background: true,
+        align: 'center',
+        justify: 'bottom',
+        textAlignment: 'center',
+      },
+      button: {
+        label: '',
+        link: '/produkte',
+        variant: 'primary',
+      },
+      startDate: new Date('2024-01-01T00:00:00Z'),
+      endDate: new Date('2024-12-31T23:59:59Z'),
+    },
+    {
+      id: 'blackfriday-2025',
+      image: {
         mobile: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_mobile.png',
         tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_web2.png',
         desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_web2.png',
@@ -53,8 +88,43 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         link: '/produkte?categoryId=41',
         variant: 'primary',
       },
-      startDate: new Date('2024-01-01T00:00:00Z'),
-      endDate: new Date('2025-12-31T23:59:59Z'),
+      startDate: new Date('2025-11-25T00:00:00Z'),
+      endDate: new Date('2025-11-30T23:59:59Z'),
+    },
+    {
+      id: 'weihnachten-2025',
+      image: {
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_mobile.png',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_web.png',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_web.png',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_web.png',
+        alt: 'weihnachten',
+        brightness: 1,
+      },
+      text: {
+        pretitle: '',
+        title: '',
+        subtitle: '',
+        htmlDescription: '',
+        color: '#FFFFFF',
+        bgcolor: '#000000',
+        bgopacity: 0.1,
+        background: true,
+        align: 'center',
+        justify: 'bottom',
+        textAlignment: 'center',
+      },
+      button: {
+        label: '',
+        link: '/produkte?categoryId=87',
+        variant: 'primary',
+      },
+      startDate: new Date('2025-11-26T00:00:00Z'),
+      endDate: new Date('2025-11-30T23:59:59Z'),
     },
   ],
   campaignTwo: [
