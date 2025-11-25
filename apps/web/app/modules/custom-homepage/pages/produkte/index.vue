@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-screen-xl mx-auto px-4 md:px-8 py-8 md:py-16">
-    <h1 class="mb-4 typography-headline-1 text-3xl sticky top-16" style="font-size: clamp(2rem, 8vw, 3rem)">
+    <h1 class="mb-4 typography-headline-1 text-3xl top-16 sticky" style="font-size: clamp(2rem, 8vw, 3rem)">
       Unsere Produkte
     </h1>
     <div class="md:hidden">
@@ -14,7 +14,7 @@
 
     <main class="max-w-screen-xl mx-auto py-4 flex">
       <!-- Filters Sidebar (Desktop) -->
-      <aside class="hidden md:block w-1/4 pr-8 sticky top-32 self-start">
+      <aside class="hidden md:block w-1/4 pr-8 self-start sticky top-28">
         <CustomFilters @update:filters="applyFilters" />
       </aside>
 
