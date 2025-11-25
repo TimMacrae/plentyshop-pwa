@@ -111,6 +111,7 @@
     }
   },
   "optionalDependencies": {
+    "@oxc-parser/binding-linux-x64-gnu": "^0.99.0",
     "@parcel/watcher-android-arm64": "^2.5.1",
     "@parcel/watcher-darwin-x64": "^2.5.1",
     "@parcel/watcher-freebsd-x64": "^2.5.1",
