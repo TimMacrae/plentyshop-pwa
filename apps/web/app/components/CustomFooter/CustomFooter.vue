@@ -97,15 +97,15 @@ const footerLinkColumns = [
       { name: 'Händleranfrage', path: 'mailto:korntakt@kornfetti.com', isExternal: true },
       { name: 'Kornfetti in deiner Bar', path: 'mailto:korntakt@kornfetti.com', isExternal: true },
       { name: 'Versandkosten', path: '/versandkosten' },
-      { name: 'Widerruf', path: '/widerrufsrecht' },
+      { name: 'Widerruf', path: '/cancellation-rights' },
     ],
   },
   {
     title: 'Rechtliches',
     links: [
-      { name: 'Impressum', path: '/impressum' },
-      { name: 'Datenschutz', path: '/datenschutz' },
-      { name: 'AGB', path: '/agb' },
+      { name: 'Impressum', path: '/legal-disclosure' },
+      { name: 'Datenschutz', path: '/privacy-policy' },
+      { name: 'AGB', path: '/gtc' },
     ],
   },
 ];
