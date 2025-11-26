@@ -127,12 +127,12 @@
     </div>
 
     <template v-else>
-      <div v-if="isOpen" class="fixed z-[50] inset-0 bg-neutral-500 bg-opacity-50" />
+      <div v-if="isOpen" class="fixed z-[80] inset-0 bg-neutral-500 bg-opacity-50" />
       <SfDrawer
         ref="drawerReference"
         v-model="isOpen"
         placement="left"
-        class="right-12 max-w-96 bg-white overflow-y-auto z-[1000]"
+        class="right-12 max-w-96 bg-black overflow-y-auto z-[1000]"
       >
         <nav>
           <div class="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">
@@ -163,8 +163,8 @@
                   size="lg"
                   :tag="NuxtLink"
                   :href="localePath(menuItem.link)"
-                  class="hover:bg-secondary-100 text-2xl font-medium !pb-0"
-                  :class="menuItem.label === 'Korn' || menuItem.label === 'Kontakt' ? 'border-b-2 !pb-6' : ''"
+                  class="hover:bg-secondary-100 text-[1.35rem] font-medium !pb-0 !pt-3 text-white"
+                  :class="menuItem.label === 'Korn' || menuItem.label === 'Kontakt' ? 'border-b-[1px] !pb-6' : ''"
                   @click="close()"
                 >
                   {{ menuItem.label }}
@@ -225,7 +225,7 @@
                 :aria-label="social.name"
                 class="text-[#e6007e] ml-4"
               >
-                <component :is="social.icon" class="h-12 w-12" />
+                <component :is="social.icon" class="h-10 w-10" />
               </a>
             </div>
             <template v-for="menuItem in customMobileSubMenu" :key="menuItem.label">
@@ -234,7 +234,7 @@
                   size="lg"
                   :tag="NuxtLink"
                   :href="localePath(menuItem.link)"
-                  class="hover:bg-secondary-100 text-2xl font-medium !pb-0"
+                  class="hover:bg-secondary-100 text-[1.35rem] font-medium !pb-0 !pt-3 text-white"
                   :class="menuItem.label === 'Korn' ? 'border-b-2 !pb-4' : ''"
                   @click="close()"
                 >
