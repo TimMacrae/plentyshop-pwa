@@ -67,9 +67,9 @@ export default defineNuxtModule({
         file: resolve('./pages/produkte/krauti.vue'),
       });
       pages.push({
-        name: 'produkte-splitti',
-        path: '/produkte/splitti',
-        file: resolve('./pages/produkte/splitti.vue'),
+        name: 'produkte-spliti',
+        path: '/produkte/spliti',
+        file: resolve('./pages/produkte/spliti.vue'),
       });
       pages.push({
         name: 'ueber-uns',
