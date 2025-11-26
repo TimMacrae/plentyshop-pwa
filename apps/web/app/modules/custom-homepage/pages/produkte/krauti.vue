@@ -57,7 +57,7 @@
     <section class="bg-black py-16 xs:py-16 md:py-32 xs:px-8">
       <h2
         class="typography-headline-1 text-white pb-12 text-center"
-        style="font-size: clamp(3rem, 8vw, 6rem); color: #009aa9"
+        style="font-size: clamp(4rem, 8vw, 5rem); line-height: 1; color: #009aa9"
       >
         Unsere super Shots!
       </h2>
