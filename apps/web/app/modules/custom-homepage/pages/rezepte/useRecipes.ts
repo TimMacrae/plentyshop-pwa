@@ -27,11 +27,11 @@ export const useRecipes = () => {
       title: 'Himmi Kräutergarten',
       subTitle: 'Basilikum, Himbeeren',
       link: '/rezepte/3',
-      zutaten: '8 cl Himmi<br>Basilikum Limonate<br>Himbeeren<br>Basilikum',
+      zutaten: '8 cl Himmi<br>Basilikum Limonade<br>Himbeeren<br>Basilikum',
       zubereitung:
         '1. Den Himmi in eine Longdrink Glas füllen und Eis hinzugeben<br><br>2. Mit Basilikum Limonade auffüllen<br><br>3. Mit Himbeeren und einer Hand voll Basilikum dekorieren',
       dasBrauchstDu: 'Longdrinkglas',
-      image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/rezepte/Himmi_Kra_utergarten.jpeg',
+      image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/rezepte/Himmi_Basilikum_Kornfetti_Rezept_Korn.jpeg',
     },
     {
       id: 4,
@@ -190,7 +190,7 @@ export const useRecipes = () => {
       zubereitung:
         '1. Kornfetti in Glas geben<br><br>2. Früchte zugeben und muddeln<br><br>3. Schuss Zitrone zugeben<br><br>4. Eiswürfel dazu geben<br><br>5. Cranberrysaft zugeben<br><br>6. Mit Sodawasser auffüllen und Süßigkeiten garnieren',
       dasBrauchstDu: 'Muddler, Tumbler Glas',
-      image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/rezepte/Kornfetti_Kolispri.jpeg',
+      image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/rezepte/Kornfetti_Bunte_Tu_te.jpeg',
     },
     {
       id: 18,
