@@ -17,7 +17,6 @@
         >
           <SfIconMenu />
         </UiButton>
-
         <NuxtLink
           :to="localePath(paths.home)"
           :aria-label="t('goToHomepage')"
@@ -157,8 +156,21 @@
                 </div>
               </SfListItem>
             </li>
-            <template v-for="node in activeMenu.children" :key="node.id">
-              <li v-if="node.childCount === 0">
+            <template v-for="menuItem in customMobileMenu" :key="menuItem.label">
+              <!-- CUSTOM MOBILE MENU -->
+              <li>
+                <SfListItem
+                  size="lg"
+                  :tag="NuxtLink"
+                  :href="localePath(menuItem.link)"
+                  class="hover:bg-secondary-100 text-2xl font-medium !pb-0"
+                  :class="menuItem.label === 'Korn' || menuItem.label === 'Kontakt' ? 'border-b-2 !pb-6' : ''"
+                  @click="close()"
+                >
+                  {{ menuItem.label }}
+                </SfListItem>
+              </li>
+              <!-- <li v-if="node.childCount === 0">
                 <SfListItem
                   size="lg"
                   :tag="NuxtLink"
@@ -186,6 +198,48 @@
                     </div>
                   </div>
                 </SfListItem>
+              </li> -->
+            </template>
+            <!-- CUSTOM MOBILE SUB MENU -->
+            <!-- <template v-for="socialItem in customSocialLinks" :key="socialItem.name">
+              <li>
+                <SfListItem
+                  size="lg"
+                  :tag="NuxtLink"
+                  :href="localePath(socialItem.url)"
+                  class="hover:bg-secondary-100 text-2xl font-medium !pb-1"
+                  :class="socialItem.name === 'Korn' ? 'border-b-2 !pb-4' : ''"
+                  @click="close()"
+                >
+                  {{ socialItem.icon }}
+                </SfListItem>
+              </li>
+            </template> -->
+            <div class="flex items-center gap-4 mt-6">
+              <a
+                v-for="social in customSocialLinks"
+                :key="social.name"
+                :href="social.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                :aria-label="social.name"
+                class="text-[#e6007e] ml-4"
+              >
+                <component :is="social.icon" class="h-12 w-12" />
+              </a>
+            </div>
+            <template v-for="menuItem in customMobileSubMenu" :key="menuItem.label">
+              <li>
+                <SfListItem
+                  size="lg"
+                  :tag="NuxtLink"
+                  :href="localePath(menuItem.link)"
+                  class="hover:bg-secondary-100 text-2xl font-medium !pb-0"
+                  :class="menuItem.label === 'Korn' ? 'border-b-2 !pb-4' : ''"
+                  @click="close()"
+                >
+                  {{ menuItem.label }}
+                </SfListItem>
               </li>
             </template>
           </ul>
@@ -200,8 +254,8 @@ import {
   SfIconClose,
   SfDrawer,
   SfListItem,
-  SfIconChevronRight,
-  SfCounter,
+  // SfIconChevronRight,
+  // SfCounter,
   SfIconArrowBack,
   SfIconMenu,
   useTrapFocus,
@@ -336,4 +390,61 @@ useTrapFocus(
 );
 
 useTrapFocus(drawerReference, trapFocusOptions);
+
+const customMobileMenu = [
+  {
+    label: 'Shop',
+    link: '/produkte',
+  },
+  {
+    label: 'Himmi',
+    link: '/produkte/himmi',
+  },
+  {
+    label: 'Spliti',
+    link: '/produkte/spliti',
+  },
+  {
+    label: 'Krauti',
+    link: '/produkte/krauti',
+  },
+  {
+    label: 'Korn',
+    link: '/produkte/korn',
+  },
+  {
+    label: 'Events',
+    link: '/events',
+  },
+  {
+    label: 'Über uns',
+    link: '/ueber-uns',
+  },
+  {
+    label: 'Kontakt',
+    link: '/kontakt',
+  },
+];
+
+const customSocialLinks = [
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/Kornfetti/',
+    icon: resolveComponent('CustomFooterIconsIconFacebook'),
+  },
+  {
+    name: 'YouTube',
+    url: 'https://www.youtube.com/channel/UCMJ4iKjINOUAz6svI4RUJkA',
+    icon: resolveComponent('CustomFooterIconsIconYoutube'),
+  },
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/kornfetti.korn/?hl=de/',
+    icon: resolveComponent('CustomFooterIconsIconInstagram'),
+  },
+];
+const customMobileSubMenu = [
+  { label: 'Impressum', link: '/legal-disclosure' },
+  { label: 'Datenschutz', link: '/privacy-policy' },
+];
 </script>
