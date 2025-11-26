@@ -136,7 +136,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
         wideScreen:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
-        alt: 'Splitti',
+        alt: 'Spliti',
         brightness: 1,
       },
       text: {
@@ -154,7 +154,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '/produkte/splitti',
+        link: '/produkte/spliti',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),
@@ -268,9 +268,9 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       endDate: new Date('2025-12-31T23:59:59Z'),
     },
   ],
-  bannerSplitti: [
+  bannerSpliti: [
     {
-      id: 'fallback-splitti',
+      id: 'fallback-spliti',
       image: {
         mobile:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_mobile.png',
@@ -305,7 +305,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
   ],
   bannerKorn: [
     {
-      id: 'fallback-splitti',
+      id: 'fallback-spliti',
       image: {
         mobile: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Korn_mobile.png',
         tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Korn_web.png',
