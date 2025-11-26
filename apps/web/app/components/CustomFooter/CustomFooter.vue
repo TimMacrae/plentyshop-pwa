@@ -96,7 +96,7 @@ const footerLinkColumns = [
       { name: 'Kontakt', path: '/kontakt' },
       { name: 'Händleranfrage', path: 'mailto:korntakt@kornfetti.com', isExternal: true },
       { name: 'Kornfetti in deiner Bar', path: 'mailto:korntakt@kornfetti.com', isExternal: true },
-      { name: 'Versandkosten', path: '/versandkosten' },
+      { name: 'Versandkosten', path: '/shipping' },
       { name: 'Widerruf', path: '/cancellation-rights' },
     ],
   },
