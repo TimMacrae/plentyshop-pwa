@@ -1,5 +1,9 @@
 <template>
-  <nav class="w-full fixed bottom-0 left-0 flex flex-row items-stretch md:hidden" data-testid="navbar-bottom">
+  <!-- CUSTOM NAVBAR BOTTOM BOARDER -->
+  <nav
+    class="w-full fixed bottom-0 left-0 flex flex-row items-stretch md:hidden border-t-[1px] border-white"
+    data-testid="navbar-bottom"
+  >
     <UiButton
       v-for="{ label, icon, link } in items"
       :key="label"
