@@ -360,15 +360,16 @@ const handleMouseLeave = () => {
 const navigationLinks = [
   {
     label: 'Produkte',
-    link: '/produkte',
+    link: '',
     submenu: [
       { label: 'Alle Produkte', link: '/produkte' },
       { label: 'Himmi', link: '/produkte/himmi' },
       { label: 'Korn', link: '/produkte/korn' },
-      { label: 'Splitti', link: '/produkte/splitti' },
+      { label: 'Spliti', link: '/produkte/spliti' },
       { label: 'Krauti', link: '/produkte/krauti' },
     ],
   },
+  { label: 'Shop', link: '/produkte' },
   { label: 'Events', link: '/events' },
   { label: 'Rezepte', link: '/rezepte' },
   { label: 'Über Uns', link: '/ueber-uns' },
