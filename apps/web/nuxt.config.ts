@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     asyncContext: true,
   },
   appConfig: {
-    titleSuffix: process.env.NAME || 'PlentyONE Shop',
+    titleSuffix: process.env.NAME || 'Der SuperShot',
     fallbackCurrency: 'GBP',
   },
   imports: {
@@ -111,13 +111,12 @@ export default defineNuxtConfig({
       showConfigurationDrawer: process.env.SHOW_CONFIGURATION_DRAWER === '1',
       defaultItemsPerPage: Number(process.env.DEFAULT_FEEDBACK_ITEMS_PER_PAGE ?? 10),
       favicon: process.env.NUXT_PUBLIC_FAVICON || '/_nuxt-plenty/favicon.ico',
-      ogTitle: process.env.NUXT_PUBLIC_OG_TITLE || process.env.OG_TITLE || 'PlentyONE Shop',
+      ogTitle: process.env.NUXT_PUBLIC_OG_TITLE || process.env.OG_TITLE || 'Kornfetti',
       ogImg: process.env.NUXT_PUBLIC_OG_IMG || process.env.OG_IMG || '/_nuxt-plenty/images/logo.svg',
       ogType: process.env.NUXT_PUBLIC_OG_TYPE || process.env.OG_TYPE || 'website',
-      metaTitle: process.env.NUXT_PUBLIC_META_TITLE || process.env.METATITLE || 'PlentyONE Shop',
-      metaDescription:
-        process.env.NUXT_PUBLIC_META_DESCRIPTION || process.env.METADESC || 'Demo shop for PlentyONE Shop',
-      metaKeywords: process.env.NUXT_PUBLIC_META_KEYWORDS || process.env.METAKEYWORDS || 'PlentyONE, plentyshop, pwa',
+      metaTitle: process.env.NUXT_PUBLIC_META_TITLE || process.env.METATITLE || 'Kornfetti',
+      metaDescription: process.env.NUXT_PUBLIC_META_DESCRIPTION || process.env.METADESC || 'Demo shop for Kornfetti',
+      metaKeywords: process.env.NUXT_PUBLIC_META_KEYWORDS || process.env.METAKEYWORDS || 'Kornfetti, Kornfetti shop',
       passwordMinLength: Number(process.env.PASSWORD_MIN_LENGTH ?? 8),
       passwordMaxLength: Number(process.env.PASSWORD_MAX_LENGTH ?? 64),
       robots: process.env.NUXT_PUBLIC_ROBOTS || 'all',
@@ -181,7 +180,7 @@ export default defineNuxtConfig({
         process.env.LOGO ||
         'https://cdn02.plentymarkets.com/mevofvd5omld/frontend/Logo/logo.svg',
       homepageCategoryId: Number(process.env.HOMEPAGE) ?? null,
-      storename: process.env.NAME || 'PlentyONE GmbH',
+      storename: process.env.NAME || 'Kornfetti GmbH',
       noCache: process.env.NO_CACHE || '',
       configId: process.env.CONFIG_ID || '',
       isHero: true,
@@ -412,9 +411,9 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
     },
     manifest: {
-      name: process.env.NUXT_PUBLIC_OG_TITLE || process.env.OG_TITLE || 'PlentyONE Shop',
-      short_name: process.env.NUXT_PUBLIC_OG_TITLE || process.env.OG_TITLE || 'PlentyONE Shop',
-      description: process.env.NUXT_PUBLIC_META_DESCRIPTION || process.env.METADESC || 'PlentyONE Shop',
+      name: process.env.NUXT_PUBLIC_OG_TITLE || process.env.OG_TITLE || 'Kornfetti Shop',
+      short_name: process.env.NUXT_PUBLIC_OG_TITLE || process.env.OG_TITLE || 'Kornfetti Shop',
+      description: process.env.NUXT_PUBLIC_META_DESCRIPTION || process.env.METADESC || 'Kornfetti Shop',
       theme_color: process.env.NUXT_PUBLIC_PRIMARY_COLOR || '#062633',
       background_color: '#ffffff',
       display: 'standalone',
