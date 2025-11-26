@@ -56,7 +56,7 @@
     <section class="relative w-full overflow-hidden">
       <!-- Background video -->
       <video
-        class="w-full h-[50vh] md:h-[50vh] lg:h-[80vh] object-cover"
+        class="w-full h-[50vh] md:h-[80vh] lg:h-[90vh] object-cover"
         src="https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Pink-Riot-Squad-Trailer-Website-Low-Bitrate-Mobile.mp4"
         autoplay
         muted
@@ -64,11 +64,6 @@
         playsinline
       />
     </section>
-
-    <!-- Image text section -->
-    <div v-if="customImageTextBlock_productHimmi_pinkRiotSquadContent">
-      <CustomImageTextBlockReverse :data="customImageTextBlock_productHimmi_pinkRiotSquadContent" />
-    </div>
 
     <!-- Newsletter Section -->
     <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
@@ -117,7 +112,7 @@
     <section class="bg-black py-16 xs:py-16 md:py-32 xs:px-8">
       <h2
         class="typography-headline-1 text-white pb-12 text-center"
-        style="font-size: clamp(3rem, 8vw, 6rem); color: #e6007e"
+        style="font-size: clamp(4rem, 8vw, 5rem); line-height: 1; color: #e6007e"
       >
         Unsere super Shots!
       </h2>
@@ -146,11 +141,8 @@ const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
 await fetch83({ categoryId: '83' });
 const products83 = computed(() => data83.value?.products || []);
 
-const {
-  customImageTextBlock_productHimmi_pinkRiotSquadContent,
-  customImageTextBlock_himmiMoreContent,
-  customImageTextBlock_productHimmi_himmiBombContent,
-} = useCustomContent();
+const { customImageTextBlock_himmiMoreContent, customImageTextBlock_productHimmi_himmiBombContent } =
+  useCustomContent();
 
 definePageMeta({
   layout: 'default',
@@ -166,7 +158,7 @@ const infoBoxItems = [
       '„Keine Farbstoffe, keine Geschmacksverstärker, kein Schickimicki!“ Unser Himbeer-Limetten Likör wird ausschließlich aus natürlichen Zutaten hergestellt und bietet somit höchste Qualität in bester Form. Einfach mal probieren und den Geschmack von Fruchtlikör ganz neu erleben!',
   },
   {
-    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/made_in_germany.png',
+    image: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/made_in_germany_himmi.png',
     imageAlt: 'Made in Germany',
     title: 'Regional hergestellt',
     description:
