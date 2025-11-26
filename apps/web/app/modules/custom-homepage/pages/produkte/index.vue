@@ -1,12 +1,12 @@
 <template>
   <div class="max-w-screen-xl mx-auto px-4 md:px-8 py-8 md:py-16">
     <h1
-      class="mb-4 typography-headline-1 text-3xl top-0 pt-4 sticky bg-white z-50 xs:text-center"
+      class="mb-4 typography-headline-1 text-3xl pt-4 bg-white xs:text-center md:text-left"
       style="font-size: clamp(2rem, 8vw, 3rem)"
     >
       Unsere Produkte
     </h1>
-    <div class="md:hidden sticky top-12 bg-white z-50">
+    <div class="md:hidden bg-white z-9">
       <SfButton variant="tertiary" @click="isOpen = true" class="w-full">
         <template #prefix>
           <SfIconTune />
@@ -36,7 +36,7 @@
     </main>
 
     <!-- Filters Drawer (Mobile) -->
-    <SfDrawer v-model="isOpen" placement="left" class="md:hidden bg-white">
+    <SfDrawer v-model="isOpen" placement="left" class="md:hidden bg-white z-50">
       <header class="flex items-center justify-between p-4 border-b border-neutral-200">
         <h2 class="font-bold typography-headline-4">Filter & Sortieren</h2>
         <SfButton variant="tertiary" @click="isOpen = false" class="!p-2">
@@ -59,6 +59,7 @@ const route = useRoute();
 const { data, fetchProducts, loading } = useProducts();
 const products = computed(() => data.value?.products ?? []);
 const isOpen = ref(false);
+const showScrollToTop = ref(false);
 
 const applyFilters = (filters: { categoryId: string; sort: string }) => {
   fetchProducts({
@@ -67,8 +68,20 @@ const applyFilters = (filters: { categoryId: string; sort: string }) => {
   isOpen.value = false;
 };
 
+const handleScroll = () => {
+  showScrollToTop.value = window.scrollY > 400;
+};
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 // Initial fetch on component mount
 onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
   const productId = route.query.categoryId as string | undefined;
 
   if (productId) {
@@ -79,6 +92,10 @@ onMounted(() => {
     // Otherwise, fetch with default category.
     fetchProducts({ categoryId: '40' });
   }
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
 });
 
 definePageMeta({
