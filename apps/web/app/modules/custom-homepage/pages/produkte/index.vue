@@ -1,9 +1,12 @@
 <template>
   <div class="max-w-screen-xl mx-auto px-4 md:px-8 py-8 md:py-16">
-    <h1 class="mb-4 typography-headline-1 text-3xl top-16 sticky" style="font-size: clamp(2rem, 8vw, 3rem)">
+    <h1
+      class="mb-4 typography-headline-1 text-3xl top-0 pt-4 sticky bg-white z-50 xs:text-center"
+      style="font-size: clamp(2rem, 8vw, 3rem)"
+    >
       Unsere Produkte
     </h1>
-    <div class="md:hidden">
+    <div class="md:hidden sticky top-12 bg-white z-50">
       <SfButton variant="tertiary" @click="isOpen = true" class="w-full">
         <template #prefix>
           <SfIconTune />
@@ -33,7 +36,7 @@
     </main>
 
     <!-- Filters Drawer (Mobile) -->
-    <SfDrawer v-model="isOpen" placement="left" class="md:hidden">
+    <SfDrawer v-model="isOpen" placement="left" class="md:hidden bg-white">
       <header class="flex items-center justify-between p-4 border-b border-neutral-200">
         <h2 class="font-bold typography-headline-4">Filter & Sortieren</h2>
         <SfButton variant="tertiary" @click="isOpen = false" class="!p-2">
