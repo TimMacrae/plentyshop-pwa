@@ -1,14 +1,15 @@
 <template>
   <footer
     v-if="resolvedContent"
-    class="pt-10"
+    class=""
     :style="{
       backgroundColor: resolvedContent.colors?.background,
       color: resolvedContent.colors?.text,
     }"
     data-testid="footer"
   >
-    <div class="px-4 md:px-6 pb-10 max-w-screen-3xl mx-auto">
+    <!-- CUSTOM DISABLE BLOCK FOOTER -->
+    <!-- <div class="px-4 md:px-6 pb-10 max-w-screen-3xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
         <div v-if="getColumnSwitches(resolvedContent.column1).length" class="max-w-[280px] break-words">
           <div class="ml-4 text-lg font-medium leading-7">
@@ -81,7 +82,7 @@
         }"
         v-html="resolvedContent.footnote"
       />
-    </div>
+    </div> -->
   </footer>
 </template>
 
