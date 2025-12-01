@@ -59,7 +59,7 @@ const route = useRoute();
 const { data, fetchProducts, loading } = useProducts();
 const products = computed(() => data.value?.products ?? []);
 const isOpen = ref(false);
-const showScrollToTop = ref(false);
+// const showScrollToTop = ref(false);
 
 const applyFilters = (filters: { categoryId: string; sort: string }) => {
   fetchProducts({
@@ -68,35 +68,28 @@ const applyFilters = (filters: { categoryId: string; sort: string }) => {
   isOpen.value = false;
 };
 
-const handleScroll = () => {
-  showScrollToTop.value = window.scrollY > 400;
-};
+// const handleScroll = () => {
+//   showScrollToTop.value = window.scrollY > 400;
+// };
 
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-};
+// Fetch data on server/client before page is rendered
+const initialCategoryId = route.query.categoryId as string | undefined;
+await fetchProducts({ categoryId: initialCategoryId ?? '40' });
 
 // Initial fetch on component mount
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-  const productId = route.query.categoryId as string | undefined;
+// onMounted(() => {
+//   window.addEventListener('scroll', handleScroll);
+//   const productId = route.query.categoryId as string | undefined;
 
-  if (productId) {
-    // If an ID is in the URL, fetch only that product.
-    // The `id` parameter /produkte?id=123
-    fetchProducts({ categoryId: productId });
-  } else {
-    // Otherwise, fetch with default category.
-    fetchProducts({ categoryId: '40' });
-  }
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
+//   if (productId) {
+//     // If an ID is in the URL, fetch only that product.
+//     // The `id` parameter /produkte?id=123
+//     fetchProducts({ categoryId: productId });
+//   } else {
+//     // Otherwise, fetch with default category.
+//     fetchProducts({ categoryId: '40' });
+//   }
+// });
 
 definePageMeta({
   pageType: 'category',
