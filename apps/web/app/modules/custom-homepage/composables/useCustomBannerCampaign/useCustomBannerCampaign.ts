@@ -124,7 +124,42 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         variant: 'primary',
       },
       startDate: new Date('2025-11-26T00:00:00Z'),
-      endDate: new Date('2025-11-30T23:59:59Z'),
+      endDate: new Date('2025-12-06T23:59:59Z'),
+    },
+    {
+      id: 'sylvester-2025',
+      image: {
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_mobile.png',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_web.png',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_web.png',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_web.png',
+        alt: 'sylvester',
+        brightness: 1,
+      },
+      text: {
+        pretitle: '',
+        title: '',
+        subtitle: '',
+        htmlDescription: '',
+        color: '#FFFFFF',
+        bgcolor: '#000000',
+        bgopacity: 0.1,
+        background: true,
+        align: 'center',
+        justify: 'bottom',
+        textAlignment: 'center',
+      },
+      button: {
+        label: '',
+        link: '/produkte?categoryId=87',
+        variant: 'primary',
+      },
+      startDate: new Date('2025-12-07T00:00:00Z'),
+      endDate: new Date('2026-12-31T23:59:59Z'),
     },
   ],
   campaignTwo: [
