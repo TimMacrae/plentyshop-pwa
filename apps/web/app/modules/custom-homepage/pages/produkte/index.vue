@@ -68,28 +68,9 @@ const applyFilters = (filters: { categoryId: string; sort: string }) => {
   isOpen.value = false;
 };
 
-// const handleScroll = () => {
-//   showScrollToTop.value = window.scrollY > 400;
-// };
-
 // Fetch data on server/client before page is rendered
 const initialCategoryId = route.query.categoryId as string | undefined;
 await fetchProducts({ categoryId: initialCategoryId ?? '40' });
-
-// Initial fetch on component mount
-// onMounted(() => {
-//   window.addEventListener('scroll', handleScroll);
-//   const productId = route.query.categoryId as string | undefined;
-
-//   if (productId) {
-//     // If an ID is in the URL, fetch only that product.
-//     // The `id` parameter /produkte?id=123
-//     fetchProducts({ categoryId: productId });
-//   } else {
-//     // Otherwise, fetch with default category.
-//     fetchProducts({ categoryId: '40' });
-//   }
-// });
 
 definePageMeta({
   pageType: 'category',
