@@ -162,7 +162,7 @@ const bannerCampaignThree = useCustomBannerCampaign('campaignThree');
 // Fetch products from category 82
 const { fetchProducts: fetch82, data: data82 } = useProducts('products-82');
 await fetch82({ categoryId: '82' });
-const products82 = computed(() => data82.value?.products.slice(0, 4) || []);
+const products82 = computed(() => data82.value?.products?.slice(0, 4) || []);
 
 // Fetch products from category 83
 const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
