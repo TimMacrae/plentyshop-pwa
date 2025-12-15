@@ -17,7 +17,7 @@ export default {
           Provider: 'CookieBar.essentials.cookies.payPal.provider',
           Status: 'CookieBar.essentials.cookies.payPal.status',
           PrivacyPolicy: '/PrivacyPolicy',
-          Lifespan: 'Session',
+          Lifespan: '1 days',
           accepted: true,
         },
         {
@@ -25,7 +25,7 @@ export default {
           Provider: 'CookieBar.essentials.cookies.plentyId.provider',
           Status: 'CookieBar.essentials.cookies.plentyId.status',
           PrivacyPolicy: '/PrivacyPolicy',
-          Lifespan: 'Session',
+          Lifespan: '1 days',
           accepted: true,
         },
         {
@@ -49,6 +49,7 @@ export default {
     {
       id: 1,
       name: 'CookieBar.externalMedia.label',
+      accepted: false,
       showMore: false,
       description: 'CookieBar.externalMedia.description',
       cookies: [],
@@ -56,6 +57,7 @@ export default {
     {
       id: 2,
       name: 'CookieBar.functional.label',
+      accepted: false,
       showMore: false,
       description: 'CookieBar.functional.description',
       cookies: [],
@@ -63,9 +65,20 @@ export default {
     {
       id: 3,
       name: 'CookieBar.marketing.label',
+      accepted: true,
       showMore: false,
       description: 'CookieBar.marketing.description',
-      cookies: [],
+      cookies: [
+        {
+          name: 'CookieBar.marketing.cookies.googleAnalytics.name',
+          Provider: 'Google',
+          Status: 'CookieBar.marketing.cookies.googleAnalytics.status',
+          PrivacyPolicy: 'https://policies.google.com/privacy',
+          Lifespan: '730 days',
+          cookieNames: ['_ga', '_ga_*', '_gid'],
+          accepted: false,
+        },
+      ],
     },
   ],
 } as CookieGroupFromNuxtConfig;
