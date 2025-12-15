@@ -1,5 +1,5 @@
 export default defineNuxtPlugin(() => {
-  const GA_ID = 'G-S9E456KPLB';
+  const GA_ID = 'G-L06RFCXZDR';
   const COOKIE_NAME = 'CookieBar.marketing.cookies.googleAnalytics.name';
 
   const { consent } = useCookieConsent(COOKIE_NAME);
