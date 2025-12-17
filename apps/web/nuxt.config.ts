@@ -231,8 +231,7 @@ export default defineNuxtConfig({
   modules: [
     '@plentymarkets/shop-core',
     '@plentymarkets/shop-module-mollie',
-    // CUSTOM Disable Google Tag Manager module for now due to issues with tracking
-    // '@plentymarkets/shop-module-gtag',
+    '@plentymarkets/shop-module-gtag',
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/image',
