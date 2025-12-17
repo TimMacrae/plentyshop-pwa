@@ -65,7 +65,17 @@ export default {
       name: 'CookieBar.marketing.label',
       showMore: false,
       description: 'CookieBar.marketing.description',
-      cookies: [],
+      cookies: [
+        {
+          name: 'CookieBar.marketing.cookies.googleAnalytics.name',
+          Provider: 'Google',
+          Status: 'Active',
+          PrivacyPolicy: '/PrivacyPolicy',
+          Lifespan: '100 days',
+          accepted: false,
+          script: ['https://www.googletagmanager.com/gtag/js?id=G-L06RFCXZDR'], // External script URL
+        },
+      ],
     },
   ],
 } as CookieGroupFromNuxtConfig;
