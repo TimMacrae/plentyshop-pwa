@@ -167,7 +167,7 @@ const products82 = computed(() => data82.value?.products?.slice(0, 4) || []);
 // Fetch products from category 83
 const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
 await fetch83({ categoryId: '83' });
-const products83 = computed(() => data83.value?.products || []);
+const products83 = computed(() => data83.value?.products?.slice(0, 4) || []);
 
 // Fetch products from category 41
 const { fetchProducts: fetch41, data: data41 } = useProducts('products-41');
