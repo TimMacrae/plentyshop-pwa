@@ -159,7 +159,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         variant: 'primary',
       },
       startDate: new Date('2025-12-07T00:00:00Z'),
-      endDate: new Date('2026-12-31T23:59:59Z'),
+      endDate: new Date('2025-12-31T23:59:59Z'),
     },
   ],
   campaignTwo: [
