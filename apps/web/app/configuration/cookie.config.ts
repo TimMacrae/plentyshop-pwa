@@ -73,7 +73,10 @@ export default {
           PrivacyPolicy: '/PrivacyPolicy',
           Lifespan: '100 days',
           accepted: false,
-          script: ['https://www.googletagmanager.com/gtag/js?id=G-L06RFCXZDR'], // External script URL
+          script: [
+            'https://www.googletagmanager.com/gtag/js?id=G-L06RFCXZDR',
+            'https://www.googletagmanager.com/gtag/js?id=AW-600197642',
+          ], // External script URL
         },
       ],
     },
