@@ -37,7 +37,7 @@ const wrapperStyle = computed(() => {
 });
 
 const iconBorderStyle = computed(() => ({
-  borderColor: props.textColor ? `${props.textColor}80` : 'rgba(255, 255, 255, 0.8)',
+  borderColor: `${props.textColor ? `${props.textColor}80` : 'rgba(255, 255, 255, 0.8)'} !important`,
 }));
 </script>
 
