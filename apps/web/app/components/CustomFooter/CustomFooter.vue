@@ -59,7 +59,7 @@ import type { CustomFooterProps } from './types';
 defineProps<CustomFooterProps>();
 
 const socialLinks = {
-  title: 'Las uns Freunde sein',
+  title: 'Lass uns Freunde sein',
   links: [
     {
       name: 'Facebook',
