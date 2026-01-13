@@ -61,13 +61,17 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       endDate: new Date('2024-12-31T23:59:59Z'),
     },
     {
-      id: 'blackfriday-2025',
+      id: 'karneval-2026',
       image: {
-        mobile: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_mobile.png',
-        tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_web2.png',
-        desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_web2.png',
-        wideScreen: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_BF_web2.png',
-        alt: 'Black friday',
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_karneval_mobile.png',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_karneval_web.png',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_karneval_web.png',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_karneval_web.png',
+        alt: 'Karneval',
         brightness: 1,
       },
       text: {
@@ -85,11 +89,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '/produkte?categoryId=41',
+        link: '/produkte',
         variant: 'primary',
       },
-      startDate: new Date('2025-11-25T00:00:00Z'),
-      endDate: new Date('2025-11-30T23:59:59Z'),
+      startDate: new Date('2026-01-12T00:00:00Z'),
+      endDate: new Date('2026-01-18T23:59:59Z'),
     },
     {
       id: 'weihnachten-2025',
