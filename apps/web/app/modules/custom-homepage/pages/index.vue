@@ -1,6 +1,8 @@
 <template>
   <div class="custom-homepage">
     <div v-if="bannerCampaignOne"><CustomHero :banner="bannerCampaignOne" /></div>
+    <!-- Bottom USP bar -->
+    <CustomUSP :gradiantFrom="'#C51D60'" :gradiantVia="'#C51D60'" :gradiantTo="'#EF87B6'" :textColor="'#000000'" />
 
     <!-- Brand Promise Section -->
     <div class="bg-black px-4 pt-16 sm:px-6 lg:px-8">
