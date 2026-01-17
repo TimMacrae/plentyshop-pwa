@@ -96,7 +96,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       endDate: new Date('2026-01-18T23:59:59Z'),
     },
     {
-      id: 'weihnachten-2025',
+      id: 'apris-ski-2026',
       image: {
         mobile:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_mobile.png',
@@ -106,7 +106,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_web.png',
         wideScreen:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_web.png',
-        alt: 'weihnachten',
+        alt: 'apris-ski',
         brightness: 1,
       },
       text: {
@@ -127,11 +127,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         link: '/produkte?categoryId=87',
         variant: 'primary',
       },
-      startDate: new Date('2025-11-26T00:00:00Z'),
-      endDate: new Date('2025-12-06T23:59:59Z'),
+      startDate: new Date('2026-02-19T00:00:00Z'),
+      endDate: new Date('2026-03-15T23:59:59Z'),
     },
     {
-      id: 'sylvester-2025',
+      id: 'ostern-2026',
       image: {
         mobile:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_mobile.png',
@@ -141,7 +141,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_web.png',
         wideScreen:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_web.png',
-        alt: 'sylvester',
+        alt: 'ostern',
         brightness: 1,
       },
       text: {
@@ -162,8 +162,8 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         link: '/produkte?categoryId=87',
         variant: 'primary',
       },
-      startDate: new Date('2025-12-07T00:00:00Z'),
-      endDate: new Date('2025-12-31T23:59:59Z'),
+      startDate: new Date('2026-03-16T00:00:00Z'),
+      endDate: new Date('2026-04-06T23:59:59Z'),
     },
   ],
   campaignTwo: [
