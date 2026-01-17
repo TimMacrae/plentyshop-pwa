@@ -99,13 +99,13 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       id: 'apris-ski-2026',
       image: {
         mobile:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_mobile.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_apris_ski_mobile.png',
         tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_apris_ski_web.png',
         desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_apris_ski_web.png',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_weihnachten_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_apris_ski_web.png',
         alt: 'apris-ski',
         brightness: 1,
       },
@@ -134,13 +134,13 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       id: 'ostern-2026',
       image: {
         mobile:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_mobile.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_ostern_mobile.png',
         tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_ostern_web.png',
         desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_ostern_web.png',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_sylvester_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_ostern_web.png',
         alt: 'ostern',
         brightness: 1,
       },
