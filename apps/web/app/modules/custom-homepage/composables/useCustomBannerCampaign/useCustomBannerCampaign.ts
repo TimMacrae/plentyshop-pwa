@@ -93,7 +93,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         variant: 'primary',
       },
       startDate: new Date('2026-01-12T00:00:00Z'),
-      endDate: new Date('2026-01-18T23:59:59Z'),
+      endDate: new Date('2026-02-18T23:59:59Z'),
     },
     {
       id: 'apris-ski-2026',
