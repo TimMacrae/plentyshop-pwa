@@ -417,6 +417,10 @@ const customMobileMenu = [
     link: '/events',
   },
   {
+    label: 'Rezepte',
+    link: '/rezepte',
+  },
+  {
     label: 'Über uns',
     link: '/ueber-uns',
   },
