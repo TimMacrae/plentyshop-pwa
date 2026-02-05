@@ -64,13 +64,14 @@ const isOpen = ref(false);
 const applyFilters = (filters: { categoryId: string; sort: string }) => {
   fetchProducts({
     categoryId: filters.categoryId,
+    itemsPerPage: 100,
   });
   isOpen.value = false;
 };
 
 // Fetch data on server/client before page is rendered
 const initialCategoryId = route.query.categoryId as string | undefined;
-await fetchProducts({ categoryId: initialCategoryId ?? '40' });
+await fetchProducts({ categoryId: initialCategoryId ?? '40', itemsPerPage: 100 });
 
 definePageMeta({
   pageType: 'category',
