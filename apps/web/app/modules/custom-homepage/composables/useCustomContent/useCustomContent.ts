@@ -159,9 +159,9 @@ export const useCustomContent = () => {
   };
 
   const customBrandPromiseContent = {
-    title: 'Kornfetti - Der SuperShot',
+    title: 'Kornfetti<br>Der SuperShot<br>',
     subTitle: 'Von Karneval über Après-Ski bis zur Strandparty.<br> Bunt. Laut. Lecker.',
-    text: 'Bei Kornfetti trifft Qualität auf Haltung. Unser Korn wird zu 100 % aus deutschem Weizen hergestellt – regional, ehrlich und ohne Kompromisse. Auch unsere Liköre entstehen ausschließlich aus natürlichen Zutaten und bringen den vollen Geschmack ohne künstliches Gedöns. So entsteht echte Kornfetti-Qualität: klar, ehrlich und mit liebe gemacht.',
+    text: 'Bei Kornfetti trifft Qualität auf Haltung. Unser Korn wird zu 100 % aus deutschem Weizen hergestellt – regional, ehrlich und ohne Kompromisse. Auch unsere Liköre entstehen ausschließlich aus natürlichen Zutaten und bringen den vollen Geschmack ohne künstliches Gedöns. So entsteht echte Kornfetti-Qualität: klar, ehrlich und MIT LIEBE GEMACHT.',
     logos: [
       'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/100Natuerlich-green.png',
       'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/DLG_gold.png',
