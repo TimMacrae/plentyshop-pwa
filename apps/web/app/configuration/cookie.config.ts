@@ -78,6 +78,15 @@ export default {
             'https://www.googletagmanager.com/gtag/js?id=AW-600197642',
           ], // External script URL
         },
+        {
+          name: 'CookieBar.marketing.cookies.facebookPixel.name',
+          Provider: 'Meta (Facebook)',
+          Status: 'Active',
+          PrivacyPolicy: '/PrivacyPolicy',
+          Lifespan: '90 days',
+          accepted: false,
+          script: ['https://connect.facebook.net/en_US/fbevents.js'],
+        },
       ],
     },
   ],
