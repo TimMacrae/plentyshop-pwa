@@ -128,7 +128,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         variant: 'primary',
       },
       startDate: new Date('2026-02-19T00:00:00Z'),
-      endDate: new Date('2026-03-15T23:59:59Z'),
+      endDate: new Date('2026-03-12T23:59:59Z'),
     },
     {
       id: 'ostern-2026',
@@ -162,7 +162,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         link: '/produkte?categoryId=87',
         variant: 'primary',
       },
-      startDate: new Date('2026-03-16T00:00:00Z'),
+      startDate: new Date('2026-03-13T00:00:00Z'),
       endDate: new Date('2026-04-06T23:59:59Z'),
     },
   ],
