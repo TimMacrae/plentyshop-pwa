@@ -132,6 +132,32 @@ export const useCustomContent = () => {
     gradientTo: '#ffdbb4',
     gradientPosition: 'top-right',
   };
+  const customImageTextBlock_corniBottleContent = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Homepage_1000x1000_01.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Homepage_1000x1000_01.png',
+      alt: 'Korn Flasche',
+    },
+    title: { text: 'CORNI', color: '#000' },
+
+    subtitle: { text: 'Cornflakes Likör 15% vol.', color: '#fff' },
+    description: {
+      text: 'Corni ist das flüssige Frühstück für lange Nächte. Natürliche Aromen von gerösteten Cornflakes treffen auf Sojamilch und eine milde Kornbasis und ergeben einen goldenen, leicht honigsüßen Geschmack, der an die Kindheit erinnert. Smooth, verspielt und komplett ohne tierische Milch.',
+      color: '#fff',
+    },
+    cta: {
+      text: 'Zum Corni',
+      color: '#fff',
+      bgColor: '#000',
+      link: '/produkte/corni',
+    },
+    bgColor: '',
+    useGradient: true,
+    gradientFrom: '#FBB816',
+    gradientTo: '#ffffff',
+    gradientPosition: 'top-left',
+  };
 
   const customImageTextBlock_himmiMoreContent = {
     image: {
@@ -368,6 +394,60 @@ export const useCustomContent = () => {
     gradientFrom: '#f3b26d',
     gradientTo: '#ffdbb4',
     gradientPosition: 'top-right',
+  };
+
+  const customImageTextBlock_productCorni_corniBottleContent = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Homepage_1000x1000_01.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Homepage_1000x1000_01.png',
+      alt: 'Korn Flasche',
+    },
+    title: { text: 'CORNI', color: '#000' },
+
+    subtitle: { text: 'Cornflakes Likör 15% vol.', color: '#fff' },
+    description: {
+      text: 'Unser Corni ist das flüssige Frühstück für lange Nächte. Süß, crunchy im Kopf und überraschend smooth im Abgang. Der erste Schluck schmeckt nach Kindheit am Küchentisch, der zweite nach Party um drei Uhr morgens. Geröstete Cornflakes treffen auf Sojamilch und eine milde Kornbasis, die zu diesem goldenen, leicht honigsüßen Geschmack verschmelzen, den man eigentlich nur als letzten Schluck aus der Schüssel kennt. Nur eben erwachsen. Und mit 15 Prozent. Und ganz ohne tierischer Milch.',
+      color: '#fff',
+    },
+    cta: {
+      text: 'Zum Corni',
+      color: '#fff',
+      bgColor: '#000',
+      link: '/corni-16x20ml-glas_273_1232',
+    },
+    bgColor: '',
+    useGradient: true,
+    gradientFrom: '#FBB816',
+    gradientTo: '#ffffff',
+    gradientPosition: 'top-right',
+  };
+
+  const customImageTextBlock_productCorni02_corniBottleContent = {
+    image: {
+      url: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Homepage_1000x1000_012.png',
+      mobileUrl:
+        'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Homepage_1000x1000_012.png',
+      alt: 'Korn Flasche',
+    },
+    title: { text: '100% VEGAN', color: '#000' },
+
+    subtitle: { text: '', color: '#fff' },
+    description: {
+      text: 'Unsere Zutaten stammen aus kontrolliertem Anbau, das Design kommt wie immer direkt aus Hamburg von Bobbie Serano. Regional abgefüllt, kompromisslos in der Idee und 100 Prozent Kornfetti im Charakter: verspielt, laut, ein bisschen drüber. Bei Corni geht es nicht um künstliche Aromenshow. Wir arbeiten mit natürlichen Getreidenoten, feiner Süße und Soja statt Laktose. Keine Cornflakes Illusion, sondern ehrlicher Geschmack mit sanfter Wärme im Finish. So weich, dass du kurz vergisst, dass es ein Shot ist. Das Ergebnis: Ein Likör, der Nostalgie und Party in einem Glas vereint. Eisgekühlt und pur als SuperShot genießen. Corni knallt nicht. Corni knuspert.',
+      color: '#fff',
+    },
+    cta: {
+      text: 'Zum Corni',
+      color: '#fff',
+      bgColor: '#000',
+      link: '/corni-16x20ml-glas_273_1232',
+    },
+    bgColor: '',
+    useGradient: true,
+    gradientFrom: '#FBB816',
+    gradientTo: '#ffffff',
+    gradientPosition: 'top-left',
   };
 
   const customImageTextBlockproductKorn_herstellungContent = {
@@ -608,6 +688,7 @@ export const useCustomContent = () => {
     customImageTextBlock_krautiBottleContent,
     customImageTextBlock_kornBottleContent,
     customImageTextBlock_himmiMoreContent,
+    customImageTextBlock_corniBottleContent,
     customBrandPromiseContent,
     customImageTextBlock_eventsContent,
     customImageTextBlock_rezepteContent,
@@ -617,6 +698,8 @@ export const useCustomContent = () => {
     customImageTextBlock_productSpliti_splitiBottleContent,
     customImageTextBlock_productKrauti_krautiBottleContent,
     customImageTextBlock_productKorn_kornBottleContent,
+    customImageTextBlock_productCorni_corniBottleContent,
+    customImageTextBlock_productCorni02_corniBottleContent,
     customImageTextBlockproductKorn_herstellungContent,
     customImageTextBlockproductKorn_ausgezeichnetContent,
     customImageTextBlockKontakt_kontaktContent,

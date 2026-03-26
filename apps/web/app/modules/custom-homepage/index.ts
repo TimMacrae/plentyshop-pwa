@@ -72,6 +72,11 @@ export default defineNuxtModule({
         file: resolve('./pages/produkte/spliti.vue'),
       });
       pages.push({
+        name: 'produkte-corni',
+        path: '/produkte/corni',
+        file: resolve('./pages/produkte/corni.vue'),
+      });
+      pages.push({
         name: 'ueber-uns',
         path: '/ueber-uns',
         file: resolve('./pages/ueber-uns.vue'),

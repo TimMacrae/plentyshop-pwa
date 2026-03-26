@@ -366,6 +366,7 @@ const navigationLinks = [
       { label: 'Himmi', link: '/produkte/himmi' },
       { label: 'Korn', link: '/produkte/korn' },
       { label: 'Spliti', link: '/produkte/spliti' },
+      { label: 'Corni', link: '/produkte/corni' },
       { label: 'Krauti', link: '/produkte/krauti' },
     ],
   },

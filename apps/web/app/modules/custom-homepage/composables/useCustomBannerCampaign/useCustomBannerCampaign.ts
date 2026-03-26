@@ -96,17 +96,17 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       endDate: new Date('2026-02-18T23:59:59Z'),
     },
     {
-      id: 'apris-ski-2026',
+      id: 'corni',
       image: {
         mobile:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_apris_ski_mobile.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_campaign_kornfetti_corni_mobile.png',
         tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_apris_ski_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_campaign_kornfetti_corni_web.png',
         desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_apris_ski_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_campaign_kornfetti_corni_web.png',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_kornfetti_apris_ski_web.png',
-        alt: 'apris-ski',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_campaign_kornfetti_corni_web.png',
+        alt: 'corni',
         brightness: 1,
       },
       text: {
@@ -124,11 +124,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '/produkte?categoryId=87',
+        link: '/produkte?categoryId=92',
         variant: 'primary',
       },
-      startDate: new Date('2026-02-19T00:00:00Z'),
-      endDate: new Date('2026-03-12T23:59:59Z'),
+      startDate: new Date('2026-04-07T00:00:00Z'),
+      endDate: new Date('2026-12-12T23:59:59Z'),
     },
     {
       id: 'ostern-2026',
@@ -336,6 +336,43 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       button: {
         label: '',
         link: '/spliti-0-7-liter_252_1211',
+        variant: 'primary',
+      },
+      startDate: new Date('2024-01-01T00:00:00Z'),
+      endDate: new Date('2025-12-31T23:59:59Z'),
+    },
+  ],
+  bannerCorni: [
+    {
+      id: 'fallback-corni',
+      image: {
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_mobile.png',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_web.png',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_web.png',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_web.png',
+        alt: 'Corni Flasche',
+        brightness: 1,
+      },
+      text: {
+        pretitle: '',
+        title: '',
+        subtitle: '',
+        htmlDescription: '',
+        color: '#FFFFFF',
+        bgcolor: '#000000',
+        bgopacity: 0.1,
+        background: true,
+        align: 'center',
+        justify: 'bottom',
+        textAlignment: 'center',
+      },
+      button: {
+        label: '',
+        link: '/corni-0-7-liter_252_1211',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),

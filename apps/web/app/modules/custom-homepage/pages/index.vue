@@ -57,6 +57,11 @@
     </div>
 
     <!-- Image text section -->
+    <div v-if="customImageTextBlock_corniBottleContent">
+      <CustomImageTextBlock :data="customImageTextBlock_corniBottleContent" />
+    </div>
+
+    <!-- Image text section -->
     <div v-if="customImageTextBlock_splitiBottleContent">
       <CustomImageTextBlockReverse :data="customImageTextBlock_splitiBottleContent" />
     </div>
@@ -188,6 +193,7 @@ const {
   customImageTextBlock_eventsContent,
   customImageTextBlock_rezepteContent,
   customImageTextBlock_aboutUsContent,
+  customImageTextBlock_corniBottleContent,
 } = useCustomContent();
 
 definePageMeta({

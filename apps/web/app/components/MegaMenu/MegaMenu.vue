@@ -405,6 +405,10 @@ const customMobileMenu = [
     link: '/produkte/spliti',
   },
   {
+    label: 'Corni',
+    link: '/produkte/corni',
+  },
+  {
     label: 'Krauti',
     link: '/produkte/krauti',
   },
