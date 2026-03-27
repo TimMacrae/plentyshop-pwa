@@ -99,13 +99,13 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       id: 'corni',
       image: {
         mobile:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_campaign_kornfetti_corni_mobile.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_mobile.png',
         tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_campaign_kornfetti_corni_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_web.png',
         desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_campaign_kornfetti_corni_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_web.png',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/banner_campaign_kornfetti_corni_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_web.png',
         alt: 'corni',
         brightness: 1,
       },
@@ -127,7 +127,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         link: '/produkte?categoryId=92',
         variant: 'primary',
       },
-      startDate: new Date('2026-04-07T00:00:00Z'),
+      startDate: new Date('2026-03-27T00:00:00Z'),
       endDate: new Date('2026-12-12T23:59:59Z'),
     },
     {
@@ -163,7 +163,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         variant: 'primary',
       },
       startDate: new Date('2026-03-13T00:00:00Z'),
-      endDate: new Date('2026-04-06T23:59:59Z'),
+      endDate: new Date('2026-03-26T23:59:59Z'),
     },
   ],
   campaignTwo: [
