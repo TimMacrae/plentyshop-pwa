@@ -44,6 +44,7 @@ const filterGroups = ref([
       { id: '53', name: 'Korn' },
       { id: '56', name: 'Krauti' },
       { id: '55', name: 'Spliti' },
+      { id: '92', name: 'Corni' },
     ],
   },
   {
