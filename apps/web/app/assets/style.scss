@@ -1,6 +1,8 @@
 @font-face {
   font-family: 'kornfetti-font';
-  src: url('/fonts/Kornfetti_font_2023-Regular.ttf') format('truetype');
+  src:
+    url('https://cdn02.plentyone.com/f4vqow9g5sio/frontend/fonts/Kornfetti_font_2023-Regular.ttf') format('truetype'),
+    url('/fonts/Kornfetti_font_2023-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
