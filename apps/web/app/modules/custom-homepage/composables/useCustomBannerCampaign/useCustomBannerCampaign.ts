@@ -372,7 +372,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       button: {
         label: '',
-        link: '/corni-0-7-liter_252_1211',
+        link: '/spirituosen/corni-16x20ml-glas_273_1232',
         variant: 'primary',
       },
       startDate: new Date('2024-01-01T00:00:00Z'),
