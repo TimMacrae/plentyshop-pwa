@@ -96,6 +96,11 @@ export default defineNuxtModule({
         path: '/rezepte/:id',
         file: resolve('./pages/rezepte/[id].vue'),
       });
+      pages.push({
+        name: 'shipping',
+        path: '/shipping',
+        file: resolve('./pages/shipping.vue'),
+      });
     });
   },
 });
