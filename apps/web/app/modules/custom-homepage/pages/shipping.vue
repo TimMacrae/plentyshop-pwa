@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-kontakt-page">
+  <div class="custom-shipping-page">
     <h1>Versand und Lieferung</h1>
 
     <section>
@@ -62,8 +62,10 @@ definePageMeta({
 onMounted(async () => {});
 </script>
 
-<style>
-.custom-kontakt-page {
+<!-- Scoped: this block previously shared the `custom-kontakt-page` class with
+     kontakt.vue and, being global, capped that page at 900px. -->
+<style scoped>
+.custom-shipping-page {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1rem 4rem;
