@@ -1,79 +1,8 @@
 import { useCustomBannerCampaign } from '~/modules/custom-homepage/composables/useCustomBannerCampaign/useCustomBannerCampaign';
-import type { BannerCampaign } from '../types';
 
-vi.mock('../useCustomBannerCampaign', async (importOriginal) => {
-  const originalModule = await importOriginal<typeof import('../useCustomBannerCampaign')>();
-  const mockCampaigns: Record<string, BannerCampaign[]> = {
-    campaignOne: [
-      {
-        id: 'active-campaign-1',
-        image: { mobile: '', tablet: '', desktop: '', wideScreen: '', alt: 'Active', brightness: 1 },
-        text: {
-          pretitle: '',
-          title: 'Active Campaign',
-          subtitle: '',
-          htmlDescription: '',
-          color: '',
-          bgcolor: '',
-          bgopacity: 0,
-          background: false,
-          align: 'center',
-          justify: 'center',
-          textAlignment: 'center',
-        },
-        button: { label: '', link: '', variant: 'primary' },
-        startDate: new Date('2025-11-01T00:00:00Z'),
-        endDate: new Date('2025-11-10T23:59:59Z'),
-      },
-      {
-        id: 'fallback-1',
-        image: { mobile: '', tablet: '', desktop: '', wideScreen: '', alt: 'Fallback 1', brightness: 1 },
-        text: {
-          pretitle: '',
-          title: 'Fallback 1',
-          subtitle: '',
-          htmlDescription: '',
-          color: '',
-          bgcolor: '',
-          bgopacity: 0,
-          background: false,
-          align: 'center',
-          justify: 'center',
-          textAlignment: 'center',
-        },
-        button: { label: '', link: '', variant: 'primary' },
-        startDate: new Date('2024-01-01T00:00:00Z'),
-        endDate: new Date('2025-12-31T23:59:59Z'),
-      },
-      {
-        id: 'fallback-2',
-        image: { mobile: '', tablet: '', desktop: '', wideScreen: '', alt: 'Fallback 2', brightness: 1 },
-        text: {
-          pretitle: '',
-          title: 'Fallback 2',
-          subtitle: '',
-          htmlDescription: '',
-          color: '',
-          bgcolor: '',
-          bgopacity: 0,
-          background: false,
-          align: 'center',
-          justify: 'center',
-          textAlignment: 'center',
-        },
-        button: { label: '', link: '', variant: 'primary' },
-        startDate: new Date('2024-01-01T00:00:00Z'),
-        endDate: new Date('2025-12-31T23:59:59Z'),
-      },
-    ],
-  };
-
-  return {
-    ...originalModule,
-    bannerCampaigns: mockCampaigns,
-  };
-});
-
+// `bannerCampaigns` is a module-local const the composable closes over, so it cannot be
+// swapped out from a test. These cases exercise the selection rules against the real
+// campaign data instead, with the clock pinned so they stay deterministic.
 describe('useCustomBannerCampaign', () => {
   beforeEach(() => {
     vi.useFakeTimers();
@@ -84,40 +13,55 @@ describe('useCustomBannerCampaign', () => {
     vi.restoreAllMocks();
   });
 
-  it('should return an active campaign if one is within the current date range', () => {
-    vi.setSystemTime(new Date('2025-11-05T12:00:00Z'));
+  it('should return the campaign whose date range covers the current date', () => {
+    vi.setSystemTime(new Date('2026-02-01T12:00:00Z'));
+
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('karneval-2026');
+  });
+
+  it('should pick the campaign matching the current date when several are configured', () => {
+    vi.setSystemTime(new Date('2026-03-20T12:00:00Z'));
+
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('ostern-2026');
+  });
+
+  it('should fall back to the fallback campaign when no campaign is currently running', () => {
+    vi.setSystemTime(new Date('2025-06-01T12:00:00Z'));
+
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('fallback-01');
+  });
+
+  it('should never treat a fallback as an active campaign', () => {
+    // fallback-01 runs 2024-01-01 to 2024-12-31, so it is inside its own date range here.
+    vi.setSystemTime(new Date('2024-06-01T12:00:00Z'));
 
     const result = useCustomBannerCampaign('campaignOne');
 
-    expect(result).toBeDefined();
-    expect(result?.id).toBe('active-campaign-1');
+    expect(result?.id).toBe('fallback-01');
+    expect(result?.startDate).toEqual(new Date('2024-01-01T00:00:00Z'));
   });
 
-  it('should return a random fallback campaign if no active campaign is found', () => {
-    vi.setSystemTime(new Date('2025-12-01T12:00:00Z'));
+  it('should return the fallback belonging to the requested campaign key', () => {
+    vi.setSystemTime(new Date('2025-06-01T12:00:00Z'));
 
-    const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0.1);
+    expect(useCustomBannerCampaign('bannerKrauti')?.id).toBe('fallback-krauti');
+    expect(useCustomBannerCampaign('bannerCorni')?.id).toBe('fallback-corni');
+    expect(useCustomBannerCampaign('bannerRezepte')?.id).toBe('fallback-rezepte');
+  });
+
+  it('should fall back to the first campaignOne entry for an unknown campaign key', () => {
+    vi.setSystemTime(new Date('2025-06-01T12:00:00Z'));
+
+    expect(useCustomBannerCampaign('does-not-exist')?.id).toBe('fallback-01');
+  });
+
+  it('should return a campaign carrying the image and button data the banner needs', () => {
+    vi.setSystemTime(new Date('2026-02-01T12:00:00Z'));
 
     const result = useCustomBannerCampaign('campaignOne');
 
-    expect(result).toBeDefined();
-    expect(result?.id).toBe('fallback-1');
-    expect(randomSpy).toHaveBeenCalled();
-  });
-
-  it('should return another random fallback campaign based on Math.random', () => {
-    vi.setSystemTime(new Date('2025-12-01T12:00:00Z'));
-
-    const randomSpy = vi.spyOn(Math, 'random').mockReturnValue(0.9);
-
-    const result = useCustomBannerCampaign('campaignOne');
-
-    expect(result).toBeDefined();
-    expect(result?.id).toBe('fallback-2');
-    expect(randomSpy).toHaveBeenCalled();
-  });
-
-  it('should return undefined if no active or fallback campaigns are available', () => {
-    expect(true).toBe(true);
+    expect(result?.image.mobile).toContain('banner_kornfetti_karneval_mobile');
+    expect(result?.image.alt).toBe('Karneval');
+    expect(result?.button.link).toBe('/produkte');
   });
 });

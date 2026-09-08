@@ -1,6 +1,6 @@
 <template>
   <div
-    data-testid="customemailnewsletter"
+    data-testid="custom-email-newsletter"
     class="px-4 py-16 sm:px-6 lg:px-8"
     :style="{ backgroundColor: bgColor, color: textColor }"
   >

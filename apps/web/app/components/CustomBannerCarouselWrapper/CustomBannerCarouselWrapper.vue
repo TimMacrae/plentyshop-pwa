@@ -1,5 +1,5 @@
 <template>
-  <div class="banner-carousel-wrapper w-full h-full">
+  <div data-testid="custom-banner-carousel-wrapper" class="banner-carousel-wrapper w-full h-full">
     <!-- Single Banner (No Carousel) -->
     <Banner v-if="banners.length === 1" v-bind="createBannerBlock(banners[0]!, 0)" class="h-full w-full" />
 

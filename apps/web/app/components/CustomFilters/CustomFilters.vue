@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-4 bg-white">
+  <div data-testid="custom-filters" class="flex flex-col gap-4 bg-white">
     <!-- Accordion Groups -->
     <SfAccordionItem v-for="(group, index) in filterGroups" :key="index" v-model="group.isOpen">
       <template #summary>

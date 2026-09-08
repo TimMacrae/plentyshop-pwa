@@ -33,7 +33,9 @@ export interface Banner {
     justify: 'top' | 'center' | 'bottom'; // Vertical alignment (matches Banner.vue)
     textAlignment: 'left' | 'center' | 'right'; // Text alignment
   };
-  button: {
+  // Optional: CustomHero guards every access with `banner.button?.`, and the CTA
+  // is only rendered when a label is present.
+  button?: {
     label: string;
     link: string;
     variant: 'primary' | 'secondary';
