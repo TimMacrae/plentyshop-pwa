@@ -59,6 +59,8 @@ export default {
         headings: headingsStack,
       },
       colors: {
+        // CUSTOM: Kornfetti brand pink
+        'confetti-pink': '#E6007E',
         primary: {
           '50': 'rgb(var(--colors-2-primary-50) / <alpha-value>)',
           '100': 'rgb(var(--colors-2-primary-100) / <alpha-value>)',

@@ -260,7 +260,6 @@ import {
   SfIconFavorite,
   useDisclosure,
 } from '@storefront-ui/vue';
-import { label } from 'happy-dom/lib/PropertySymbol.js';
 import LanguageSelector from '~/components/LanguageSelector/LanguageSelector.vue';
 const isLogin = ref(true);
 const { data: cart } = useCart();

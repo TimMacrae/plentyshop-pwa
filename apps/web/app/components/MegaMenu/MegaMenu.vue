@@ -182,7 +182,7 @@
                   size="lg"
                   :tag="NuxtLink"
                   :href="localePath(menuItem.link)"
-                  class="hover:bg-secondary-100 text-[1.35rem] font-medium !pb-0 !pt-3 text-white"
+                  class="hover:!bg-transparent hover:!text-confetti-pink text-[1.35rem] font-medium !pb-0 !pt-3 text-white"
                   :class="menuItem.label === 'Korn' || menuItem.label === 'Kontakt' ? 'border-b-[1px] !pb-6' : ''"
                   @click="close()"
                 >
@@ -199,7 +199,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 :aria-label="social.name"
-                class="text-[#e6007e] ml-4"
+                class="text-confetti-pink ml-4"
               >
                 <component :is="social.icon" class="h-10 w-10" />
               </a>
@@ -211,7 +211,7 @@
                   size="lg"
                   :tag="NuxtLink"
                   :href="localePath(menuItem.link)"
-                  class="hover:bg-secondary-100 text-[1.35rem] font-medium !pb-0 !pt-3 text-white"
+                  class="hover:!bg-transparent hover:!text-confetti-pink text-[1.35rem] font-medium !pb-0 !pt-3 text-white"
                   :class="menuItem.label === 'Korn' ? 'border-b-2 !pb-4' : ''"
                   @click="close()"
                 >
