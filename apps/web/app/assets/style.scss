@@ -4,8 +4,8 @@
 @font-face {
   font-family: 'kornfetti-font';
   src:
-    url('https://cdn02.plentyone.com/f4vqow9g5sio/frontend/fonts/Kornfetti_font_2023-Regular.ttf') format('truetype'),
-    url('/_nuxt-plenty/kornfetti/Kornfetti_font_2023-Regular.ttf') format('truetype');
+    url('/_nuxt-plenty/kornfetti/Kornfetti_font_2023-Regular.ttf') format('truetype'),
+    url('https://cdn02.plentyone.com/f4vqow9g5sio/frontend/fonts/Kornfetti_font_2023-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -62,6 +62,7 @@ apple-pay-button {
 html a {
   color: rgb(var(--colors-2-primary-700));
   text-decoration: underline;
+  -webkit-text-decoration-color: currentColor;
   text-decoration-color: currentColor;
   cursor: pointer;
   &:hover {
