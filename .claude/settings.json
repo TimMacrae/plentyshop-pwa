@@ -6,7 +6,13 @@
       "Bash(git commit *)",
       "Bash(git checkout *)",
       "Bash(git fetch *)",
-      "Bash(git rev-list *)"
+      "Bash(git rev-list *)",
+      "Bash(curl -s --max-time 20 http://localhost:3000/kontakt -o /private/tmp/claude-501/-Users-timmacrae-Home-Kornfetti-kornfetti-shop-plentyshop-pwa/1e43da08-3bee-4d2a-96e5-d1d7287abe13/scratchpad/kontakt.html -w \"HTTP %{http_code} size=%{size_download}\\\\n\")",
+      "Bash(python3 -c ' *)",
+      "Bash(grep -iE \"^playwright|^puppeteer|^cypress$\")",
+      "Bash(node -e ' *)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(echo \"eslint exit: $?\")"
     ]
   }
 }
