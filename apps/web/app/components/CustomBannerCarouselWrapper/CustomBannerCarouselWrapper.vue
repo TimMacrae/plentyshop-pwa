@@ -55,7 +55,7 @@
 
 <script setup lang="ts">
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/vue';
-import Banner from '~/components/blocks/BannerCarousel/Banner.vue';
+import Banner from '~/components/blocks/Banner/Banner.vue';
 import type { BannerCampaign } from '~/modules/custom-homepage/composables/useCustomBannerCampaign/types';
 
 interface Props {

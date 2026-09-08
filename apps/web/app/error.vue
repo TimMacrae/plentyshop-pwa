@@ -10,13 +10,13 @@
 </template>
 
 <script setup lang="ts">
+// eslint-disable-next-line custom-rules/file-organization-types
 interface ErrorProp {
   statusCode: number;
   statusMessage: string;
   [key: string]: unknown;
 }
 const props = defineProps<{ error: ErrorProp }>();
-const { t } = useI18n();
 const { setInitialDataSSR } = useInitialSetup();
 
 const { getSetting: getFavicon } = useSiteSettings('favicon');
@@ -50,7 +50,6 @@ useSeoMeta({
   ogTitle: () => ogTitle.value,
   ogImage: () => ogImage.value,
   description: () => description.value,
-  keywords: () => keywords.value,
   robots: () => robots.value,
   themeColor: () => themeColor.value,
   generator: 'plentymarkets',
@@ -61,6 +60,7 @@ useHead({
     { rel: 'icon', href: fav.value },
     { rel: 'apple-touch-icon', href: fav.value },
   ],
+  meta: () => [{ name: 'keywords', content: keywords.value }],
 });
 
 await callOnce(async () => {

@@ -3,7 +3,11 @@
     <CategorySidebar class="sidebar w-full" :is-open="isOpen" @close="close">
       <template v-for="key in props.content?.filtersOrder" :key="key">
         <template v-if="key === 'category' && props.content?.fields.category">
-          <CategoryTree v-if="productsCatalog.category" :category="productsCatalog.category" />
+          <CategoryTree
+            v-if="productsCatalog.category"
+            :category="productsCatalog.category"
+            :breadcrumbs="productsCatalog.breadcrumbs"
+          />
         </template>
 
         <template v-if="key === 'sortBy' && props.content?.fields.sortBy">
@@ -68,11 +72,11 @@
       </template>
     </CategorySidebar>
 
-    <UiButton variant="tertiary" class="md:hidden whitespace-nowrap" @click="open">
+    <UiButton variant="tertiary" class="@md:hidden whitespace-nowrap !px-0" @click="open">
       <template #prefix>
         <SfIconTune />
       </template>
-      {{ t('listSettings') }}
+      {{ t('common.labels.listSettings') }}
     </UiButton>
   </div>
 
@@ -93,12 +97,11 @@ const props = defineProps<SortFilterProps>();
 const showSortAndFilter = ref(false);
 const { isOpen, open, close } = useDisclosure();
 const { t } = useI18n({ useScope: 'global' });
-const clientPreview = ref(false);
 
-const { $isPreview } = useNuxtApp();
-onNuxtReady(() => {
-  clientPreview.value = !!$isPreview;
-});
+const viewport = useViewport();
+const { isInEditorClient } = useEditorState();
+const clientPreview = computed(() => isInEditorClient.value && viewport.isGreaterOrEquals('lg'));
+
 const showAllFiltersImmediately = computed(() => props.content?.showAllFiltersImmediately ?? true);
 const numberOfFiltersToShowInitially = computed(() => props.content?.numberOfFiltersToShowInitially ?? 0);
 

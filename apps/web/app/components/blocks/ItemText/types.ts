@@ -20,9 +20,13 @@ export type ItemTextContent = {
     paddingBottom?: number;
     paddingLeft?: number;
     paddingRight?: number;
+    fullWidth?: boolean;
   };
 };
 
 export type ItemTextFormProps = {
   uuid?: string;
 };
+export type TextAlignX = 'left' | 'center' | 'right';
+export type TextAlignY = 'top' | 'center' | 'bottom';
+export type ButtonVariant = 'primary' | 'secondary';

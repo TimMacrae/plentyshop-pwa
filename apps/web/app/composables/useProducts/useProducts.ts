@@ -1,10 +1,4 @@
-import type { FacetSearchCriteria, Product, Facet, Block } from '@plentymarkets/shop-api';
-import { defaults, type SetCurrentProduct } from '~/composables';
-import type { UseProductsState, FetchProducts, UseProductsReturn } from '~/composables/useProducts/types';
-import categoryTemplateData from '~/composables/useCategoryTemplate/categoryTemplateData.json';
-
-const useCategoryTemplateData = () => categoryTemplateData as Block[];
-
+import type { FacetSearchCriteria, Product, Facet } from '@plentymarkets/shop-api';
 /**
  * @description Composable for managing products.
  * @returns UseProductsReturn
@@ -37,17 +31,12 @@ export const useProducts: UseProductsReturn = (category = '') => {
    * ```
    */
   const fetchProducts: FetchProducts = async (params: FacetSearchCriteria) => {
-    const route = useRoute();
     const { $i18n } = useNuxtApp();
-    const { setupBlocks } = useCategoryTemplate(
-      route?.meta?.identifier as string,
-      route.meta.type as string,
-      $i18n.locale.value,
-    );
 
     state.value.loading = true;
 
     if (params.categoryUrlPath?.endsWith('.js')) return state.value.data;
+
     const identifier = category || params.categoryUrlPath || params.categoryId;
 
     const { data } = await useAsyncData(`useProducts-${identifier}-${JSON.stringify(params)}`, () =>
@@ -60,10 +49,6 @@ export const useProducts: UseProductsReturn = (category = '') => {
       data.value.data.pagination.perPageOptions = defaults.PER_PAGE_STEPS;
       state.value.data = data.value.data;
       handlePreviewProducts(state, $i18n.locale.value);
-
-      const defaultData = state.value.data.category.type === 'item' ? useCategoryTemplateData() : [];
-
-      await setupBlocks((state.value.data?.blocks?.length ? state.value.data.blocks : defaultData) as Block[]);
     }
 
     state.value.loading = false;
@@ -87,9 +72,31 @@ export const useProducts: UseProductsReturn = (category = '') => {
     state.value.loading = false;
   };
 
+  const loadFakeGlobalCategoryData: LoadFakeGlobalCategoryData = (locale: string) => {
+    const fakeFacet = locale === 'en' ? fakeFacetCallEN : fakeFacetCallDE;
+
+    state.value.data = {
+      category: fakeFacet['data'].category,
+      products: [],
+      facets: [],
+      languageUrls: {
+        'x-default': '',
+      },
+      pagination: {
+        totals: 8,
+        perPageOptions: defaults.PER_PAGE_STEPS,
+      },
+      breadcrumbs: [],
+    } as Facet;
+
+    handlePreviewProducts(state, locale);
+    state.value.loading = false;
+  };
+
   return {
     fetchProducts,
     setCurrentProduct,
+    loadFakeGlobalCategoryData,
     ...toRefs(state.value),
   };
 };

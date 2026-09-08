@@ -1,8 +1,13 @@
 <template>
-  <NuxtLayout name="checkout" :back-label-desktop="t('back')" :back-label-mobile="t('back')" :heading="t('checkout')">
-    <div class="md:w-full md:flex md:justify-center">
-      <div class="flex flex-col gap-4 p-2 md:p-6 rounded-md w-full md:w-2/3 lg:w-1/2 3xl:w-2/5">
-        <h2 class="font-bold text-lg">{{ t('guestCheckout') }}</h2>
+  <NuxtLayout
+    name="checkout"
+    :back-label-desktop="t('common.actions.back')"
+    :back-label-mobile="t('common.actions.back')"
+    :heading="t('common.labels.checkout')"
+  >
+    <div class="@md:w-full @md:flex @md:justify-center">
+      <div class="flex flex-col gap-4 p-2 @md:p-6 rounded-md w-full @md:w-2/3 @lg:w-1/2 @3xl:w-2/5">
+        <h2 class="font-bold text-lg">{{ t('checkout.guestCheckout') }}</h2>
 
         <UiButton
           data-testid="guest-checkout-button"
@@ -10,7 +15,7 @@
           :to="localePath(paths.checkout)"
           class="w-full my-4"
         >
-          {{ t('continueAsGuest') }}
+          {{ t('checkout.continueAsGuest') }}
         </UiButton>
 
         <OrDivider />
@@ -26,7 +31,7 @@
         </template>
 
         <form :class="{ 'mt-4': isAvailable('guestLoginPage').value }" @submit.prevent="loginUser">
-          <h2 class="font-bold text-lg">{{ t('loginFastCheckout') }}</h2>
+          <h2 class="font-bold text-lg">{{ t('checkout.loginFastCheckout') }}</h2>
 
           <label>
             <UiFormLabel class="w-full mt-4">{{ t('form.emailLabel') }} {{ t('form.required') }}</UiFormLabel>
@@ -39,19 +44,19 @@
           </label>
 
           <div class="text-end mt-4">
-            <SfLink variant="primary" class="underline cursor-pointer" @click="toggleForgotPasswordModal">
-              {{ t('auth.login.forgotPasswordLabel') }}
-            </SfLink>
+            <UiLink variant="primary" class="underline cursor-pointer" @click="toggleForgotPasswordModal">
+              {{ t('authentication.login.forgotPasswordLabel') }}
+            </UiLink>
           </div>
 
           <UiButton :disabled="loading || loginSubmit" type="submit" class="mt-8 w-full">
             <SfLoaderCircular v-if="loading || loginSubmit" class="flex justify-center items-center" size="base" />
-            <template v-else>{{ t('auth.login.loginAndContinue') }}</template>
+            <template v-else>{{ t('authentication.login.loginAndContinue') }}</template>
           </UiButton>
 
           <div class="text-center mt-6">
-            <h3 class="font-bold text-lg mb-6">{{ t('auth.login.createAccount') }}</h3>
-            <p>{{ t('auth.login.createAccountLater') }}!</p>
+            <h3 class="font-bold text-lg mb-6">{{ t('authentication.login.createAccount') }}</h3>
+            <p>{{ t('authentication.login.createAccountLater') }}!</p>
           </div>
         </form>
       </div>
@@ -59,11 +64,11 @@
         v-if="isAuthenticationOpen"
         v-model="isAuthenticationOpen"
         tag="section"
-        class="h-full w-full overflow-auto md:w-[500px] md:h-fit"
+        class="h-full w-full overflow-auto @md:w-[500px] @md:h-fit"
       >
         <header>
           <UiButton
-            :aria-label="t('closeDialog')"
+            :aria-label="t('common.navigation.closeDialog')"
             square
             variant="tertiary"
             class="absolute right-2 top-2"
@@ -79,9 +84,13 @@
 </template>
 
 <script setup lang="ts">
-import { SfIconClose, SfInput, SfLink, SfLoaderCircular } from '@storefront-ui/vue';
-import { paths } from '~/utils/paths';
+import { SfIconClose, SfInput, SfLoaderCircular } from '@storefront-ui/vue';
 import { cartGetters } from '@plentymarkets/shop-api';
+import type { Locale } from '#i18n';
+
+defineI18nRoute({
+  locales: process.env.LANGUAGELIST?.split(',') as Locale[],
+});
 
 definePageMeta({
   pageType: 'static',
@@ -93,11 +102,13 @@ const { login, loading } = useCustomer();
 const { send } = useNotification();
 const { data: cart } = useCart();
 const { loadConfig, loadedConfig, isAvailable } = usePayPal();
-const { t } = useI18n();
-const localePath = useLocalePath();
+const localePath = useLocalizedPath();
 const NuxtLink = resolveComponent('NuxtLink');
 
-onBeforeMount(async () => await loadConfig());
+onBeforeMount(async () => {
+  await loadConfig();
+  useLogEvent().logOpenGuestLoginPage();
+});
 
 const email = ref('');
 const password = ref('');
@@ -115,7 +126,7 @@ const loginUser = async () => {
       return;
     }
 
-    send({ message: t('auth.login.success'), type: 'positive' });
+    send({ message: t('authentication.login.success'), type: 'positive' });
     navigateTo(localePath(paths.checkout));
   });
 };

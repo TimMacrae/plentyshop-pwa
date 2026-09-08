@@ -58,7 +58,7 @@
           v-for="(reply, index) in replies"
           :key="index"
           :class="{ 'mt-5': index === 0, 'mb-5': index < replies.length - 1 }"
-          class="md:mr-16"
+          class="@md:mr-16"
           data-testid="reply-item"
         >
           <div class="flex items-center mb-2 text-xs">
@@ -124,11 +124,9 @@ import {
 } from '@storefront-ui/vue';
 import type { ReviewProps } from './types';
 import { type ReviewItem, reviewGetters, productGetters } from '@plentymarkets/shop-api';
-import { defaults } from '~/composables';
 import { penPath } from '~/assets/icons/paths/pen';
 
 const props = defineProps<ReviewProps>();
-const { t } = useI18n();
 const { reviewItem } = toRefs(props);
 const isAnswerFormOpen = ref(false);
 const isCollapsed = ref(true);
@@ -150,6 +148,6 @@ const isAnswerEditable = (replyItem: ReviewItem) =>
   replyItem.sourceRelation?.[0]?.feedbackRelationSourceId === user.value?.id?.toString();
 
 const isEditable = computed(
-  () => reviewItem.value.sourceRelation?.[0]?.feedbackRelationSourceId === user.value?.id?.toString(),
+  () => reviewItem.value.sourceRelation?.[0]?.feedbackRelationSourceId?.toString() === user.value?.id?.toString(),
 );
 </script>

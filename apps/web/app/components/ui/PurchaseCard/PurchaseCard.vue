@@ -1,29 +1,46 @@
 <template>
   <form
-    class="md:rounded-md"
-    :class="{ 'md:shadow-lg': configuration?.dropShadow, 'md:border md:border-neutral-100': configuration?.borders }"
+    :class="{ '@md:shadow-lg': configuration?.dropShadow, '@md:border @md:border-neutral-100': configuration?.borders }"
     :style="inlineStyle"
+    class="@md:rounded-md"
     data-testid="purchase-card"
     @submit.prevent="handleAddToCart()"
   >
     <div class="relative">
       <div class="drift-zoom-image">
-        <section class="p-4 xl:p-6">
-          <template v-for="key in configuration?.fieldsOrder" :key="key">
+        <section class="@md:p-4">
+          <template v-for="key in configuration?.fieldsOrder" :key="isTextBlock(key) ? key.uuid : key">
+            <template v-if="isTextBlock(key) && key.visible">
+              <div
+                :class="{ 'ring-2 ring-blue-500 ring-offset-1 rounded': highlightedUuid === key.uuid }"
+                :data-uuid="key.uuid"
+                class="mb-2 font-normal typography-text-sm break-words no-preflight rte-prose rte-prose--render transition-all duration-300"
+                v-html="renderTextBlock(key.content)"
+              />
+            </template>
             <template v-if="key === 'itemName' && configuration?.fields.itemName">
               <h1 class="font-bold typography-headline-4 break-word" data-testid="product-name">
                 {{ productGetters.getName(product) }}
               </h1>
             </template>
+            <template v-if="key === 'variationNumber' && configuration?.fields.variationNumber">
+              <p
+                v-if="productGetters.getVariationNumber(product)"
+                class="mb-2 typography-text-sm text-neutral-500"
+                data-testid="product-variation-number"
+              >
+                {{ productGetters.getVariationNumber(product) }}
+              </p>
+            </template>
             <template v-if="key === 'price' && configuration?.fields.price">
               <div class="flex space-x-2">
-                <Price :price="priceWithProperties" :crossed-price="crossedPrice" />
+                <Price :crossed-price="crossedPrice" :price="priceWithProperties" />
                 <div
                   v-if="(productBundleGetters?.getBundleDiscount(product) ?? 0) > 0 && showBundleComponents"
                   class="m-auto"
                 >
                   <UiTag :size="'sm'" :variant="'secondary'">{{
-                    t('procentageSavings', { percent: productBundleGetters.getBundleDiscount(product) })
+                    t('product.bundleSavings', { percent: productBundleGetters.getBundleDiscount(product) })
                   }}</UiTag>
                 </div>
               </div>
@@ -36,10 +53,10 @@
               />
             </template>
             <template v-if="key === 'tags' && configuration?.fields.tags">
-              <UiBadges class="mb-2" :product="product" :use-availability="false" :use-tags="true" />
+              <UiBadges :product="product" :use-availability="false" :use-tags="true" class="mb-2" />
             </template>
             <template v-if="key === 'availability' && configuration?.fields.availability">
-              <UiBadges class="mb-2" :product="product" :use-availability="true" :use-tags="false" />
+              <UiBadges :product="product" :use-availability="true" :use-tags="false" class="mb-2" />
             </template>
             <template v-if="key === 'variationProperties' && configuration?.fields.variationProperties">
               <div class="mb-2 variation-properties">
@@ -49,26 +66,26 @@
             <template v-if="key === 'starRating' && configuration?.fields.starRating">
               <div class="inline-flex items-center mb-2">
                 <SfRating
-                  size="xs"
                   :half-increment="true"
-                  :value="reviewGetters.getAverageRating(reviewAverage, 'half')"
                   :max="5"
+                  :value="reviewGetters.getAverageRating(reviewAverage, 'half')"
+                  size="xs"
                 />
                 <SfCounter class="ml-1" size="xs">{{ reviewGetters.getTotalReviews(reviewAverage) }}</SfCounter>
                 <UiButton
-                  variant="tertiary"
                   class="ml-2 text-xs text-neutral-500 cursor-pointer"
                   data-testid="show-reviews"
+                  variant="tertiary"
                   @click="scrollToReviews"
                 >
-                  {{ t('showAllReviews') }}
+                  {{ t('product.showAllReviews') }}
                 </UiButton>
               </div>
             </template>
             <template v-if="key === 'previewText' && configuration?.fields.previewText">
               <div
                 v-if="productGetters.getShortDescription(product).length > 0"
-                class="mb-2 font-normal typography-text-sm whitespace-pre-line break-words"
+                class="mb-2 font-normal typography-text-sm whitespace-pre-line break-words no-preflight"
                 data-testid="product-description"
                 v-html="productGetters.getShortDescription(product)"
               />
@@ -76,26 +93,26 @@
 
             <template v-if="key === 'addToWishlist' && configuration?.fields.addToWishlist">
               <div
-                class="flex items-center mt-2"
                 :class="{ 'justify-center': configuration?.wishlistSize === 'large' }"
+                class="flex items-center mt-2"
               >
                 <WishlistButton
-                  :variant="configuration?.wishlistSize === 'small' ? 'tertiary' : 'secondary'"
-                  :product="product"
-                  :quantity="quantitySelectorValue"
-                  :square="viewport.isLessThan('lg')"
-                  class="!m-0 !mb-2"
                   :class="{
                     'mr-2 mb-2 bg-white': viewport.isLessThan('lg'),
                     'w-full': configuration?.wishlistSize === 'large',
                     '!p-0 hover:bg-transparent active:bg-transparent': configuration?.wishlistSize === 'small',
                   }"
+                  :product="product"
+                  :quantity="quantitySelectorValue"
+                  :square="viewport.isLessThan('lg')"
+                  :variant="wishlistButtonVariant"
+                  class="!m-0 !mb-2"
                 >
                   <div>
                     {{
                       !isWishlistItem(productGetters.getVariationId(product))
-                        ? t('addToWishlist')
-                        : t('removeFromWishlist')
+                        ? t('common.actions.addToWishlist')
+                        : t('common.actions.removeFromWishlist')
                     }}
                   </div>
                 </WishlistButton>
@@ -113,7 +130,10 @@
               <OrderProperties :product="product" />
             </template>
             <template v-if="key === 'graduatedPrices' && configuration?.fields.graduatedPrices">
-              <GraduatedPriceList :product="product" :count="quantitySelectorValue" />
+              <GraduatedPriceList :count="quantitySelectorValue" :product="product" />
+            </template>
+            <template v-if="key === 'guaranteeLabel' && configuration?.fields.guaranteeLabel">
+              <GuaranteeBlock :product="product" max-width="20rem" class="m-4" />
             </template>
 
             <template v-if="key === 'quantityAndAddToCart' && configuration?.fields.quantityAndAddToCart">
@@ -122,30 +142,38 @@
                 :product="product"
               />
               <div class="mt-4">
-                <div class="flex flex-col md:flex-row flex-wrap gap-4">
+                <div class="flex flex-col @md:flex-row flex-wrap gap-4">
                   <UiQuantitySelector
+                    v-if="productGetters.isActiveVariationSalable(product)"
                     :min-value="productGetters.getMinimumOrderQuantity(product)"
                     :value="quantitySelectorValue"
                     class="min-w-[145px] flex-grow-0 flex-shrink-0 basis-0"
                     @change-quantity="changeQuantity"
                   />
-                  <SfTooltip
-                    show-arrow
-                    placement="top"
-                    :label="isNotValidVariation || isSalableText"
+                  <div
+                    v-if="showNotifyMe && !productGetters.isActiveVariationSalable(product)"
                     class="flex-grow-[2] flex-shrink basis-auto whitespace-nowrap"
                   >
+                    <NotifyMe :variation-id="Number(productGetters.getVariationId(product))" />
+                  </div>
+                  <SfTooltip
+                    v-else
+                    :label="isNotValidVariation || isSalableText"
+                    class="flex-grow-[2] flex-shrink basis-auto whitespace-nowrap"
+                    placement="top"
+                    show-arrow
+                  >
                     <UiButton
-                      type="submit"
+                      :disabled="loading || !productGetters.isSalable(product)"
+                      class="w-full h-full"
                       data-testid="add-to-cart"
                       size="lg"
-                      class="w-full h-full"
-                      :disabled="loading || !productGetters.isSalable(product)"
+                      type="submit"
                     >
                       <template #prefix>
                         <div v-if="!loading" class="flex row items-center">
                           <SfIconShoppingCart size="sm" />
-                          {{ t('addToCart') }}
+                          {{ t('common.actions.addToCart') }}
                         </div>
                         <div v-else>
                           <SfLoaderCircular size="sm" />
@@ -156,31 +184,31 @@
                 </div>
 
                 <div class="mt-4 typography-text-xs flex gap-1">
-                  <span>{{ t('asterisk') }}</span>
-                  <span>{{ showNetPrices ? t('itemExclVAT') : t('itemInclVAT') }}</span>
-                  <i18n-t keypath="excludedShipping" scope="global">
+                  <span>{{ t('common.labels.asterisk') }}</span>
+                  <span>{{ showNetPrices ? t('product.priceExclVAT') : t('product.priceInclVAT') }}</span>
+                  <i18n-t keypath="shipping.excludedLabel" scope="global">
                     <template #shipping>
-                      <SfLink
-                        :href="localePath(paths.shipping)"
-                        target="_blank"
+                      <UiLink
+                        :href="resolvePathTrailingSlash(localePath(paths.shipping))"
                         class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded"
+                        target="_blank"
                       >
-                        {{ t('delivery') }}
-                      </SfLink>
+                        {{ t('common.labels.delivery') }}
+                      </UiLink>
                     </template>
                   </i18n-t>
                 </div>
                 <template v-if="showPayPalButtons">
                   <PayPalExpressButton
-                    type="SingleItem"
-                    location="itemPage"
                     class="mt-4"
+                    location="itemPage"
+                    type="SingleItem"
                     @validation-callback="paypalHandleAddToCart"
                   />
                   <PayPalPayLaterBanner
-                    placement="product"
-                    location="itemPage"
                     :amount="priceWithProperties * quantitySelectorValue"
+                    location="itemPage"
+                    placement="product"
                   />
                 </template>
               </div>
@@ -209,17 +237,21 @@
   </form>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { productGetters, reviewGetters, productBundleGetters } from '@plentymarkets/shop-api';
-import { SfCounter, SfRating, SfIconShoppingCart, SfLoaderCircular, SfTooltip, SfLink } from '@storefront-ui/vue';
-import type { PriceCardPadding, PurchaseCardProps } from '~/components/ui/PurchaseCard/types';
-import type { PayPalAddToCartCallback } from '~/components/PayPal/types';
-import { paths } from '~/utils/paths';
+import { SfCounter, SfRating, SfIconShoppingCart, SfLoaderCircular, SfTooltip } from '@storefront-ui/vue';
+import type { PriceCardPadding, PriceCardTextBlockItem, PurchaseCardProps } from '~/components/ui/PurchaseCard/types';
+import type { PayPalAddToCartCallback } from '#paypal/types';
+const isTextBlock = (item: unknown): item is PriceCardTextBlockItem =>
+  typeof item === 'object' && item !== null && (item as PriceCardTextBlockItem).type === 'textBlock';
+
+const highlightedUuid = useState<string>('toc-highlighted-uuid', () => '');
 
 const props = withDefaults(defineProps<PurchaseCardProps>(), {
   configuration: () => ({
     fields: {
       itemName: true,
+      variationNumber: false,
       price: true,
       tags: true,
       availability: true,
@@ -232,11 +264,13 @@ const props = withDefaults(defineProps<PurchaseCardProps>(), {
       graduatedPrices: true,
       addToWishlist: true,
       quantityAndAddToCart: true,
+      guaranteeLabel: true,
       itemText: false,
       technicalData: false,
     },
     fieldsOrder: [
       'itemName',
+      'variationNumber',
       'price',
       'tags',
       'availability',
@@ -248,6 +282,7 @@ const props = withDefaults(defineProps<PurchaseCardProps>(), {
       'itemBundle',
       'graduatedPrices',
       'addToWishlist',
+      'guaranteeLabel',
       'quantityAndAddToCart',
       'itemText',
       'technicalData',
@@ -263,6 +298,7 @@ const props = withDefaults(defineProps<PurchaseCardProps>(), {
       paddingBottom: 0,
       paddingRight: 0,
       paddingLeft: 0,
+      fullWidth: false,
     },
   }),
 });
@@ -289,13 +325,22 @@ const {
 } = useValidatorAggregator('attributes');
 const { clear, send } = useNotification();
 const { addToCart, loading } = useCart();
-const { t } = useI18n();
 const quantitySelectorValue = ref(productGetters.getMinimumOrderQuantity(props?.product));
 const { isWishlistItem } = useWishlist();
 const { openQuickCheckout } = useQuickCheckout();
 const { crossedPrice } = useProductPrice(props?.product);
 const { reviewArea } = useProductReviews(Number(productGetters.getId(props?.product)));
+const { getBooleanSetting: getNotifyMeSetting } = useSiteSettings('showNotifyMe');
+const showNotifyMe = computed(() => getNotifyMeSetting());
 const localePath = useLocalePath();
+const router = useRouter();
+const { resolvePathTrailingSlash } = useUrlTrailingSlash();
+
+const renderTextBlock = (html: string): string =>
+  replacePropertyPlaceholdersInHtml(
+    localizeHtmlLinks(html, router, localePath, resolvePathTrailingSlash),
+    props.product,
+  );
 
 const inlineStyle = computed(() => {
   const layout = props?.configuration?.layout || ({} as PriceCardPadding);
@@ -320,6 +365,9 @@ onBeforeRouteLeave(() => {
   resetAttributeFields();
 });
 
+const wishlistButtonVariant = computed(() => {
+  return props.configuration?.wishlistSize === 'small' ? 'tertiary' : 'secondary';
+});
 const priceWithProperties = computed(
   () =>
     (productGetters.getSpecialOffer(props?.product) ||
@@ -337,12 +385,12 @@ const basePriceSingleValue = computed(
 const handleValidationErrors = (): boolean => {
   send({
     message: [
-      t('errorMessages.missingOrWrongProperties'),
+      t('error.missingOrWrongProperties'),
       '',
       ...invalidAttributeFields.value.map((field) => field.name),
       ...invalidFields.value.map((field) => field.name),
       '',
-      t('errorMessages.pleaseFillOutAllFields'),
+      t('error.pleaseFillOutAllFields'),
     ],
     type: 'negative',
   });
@@ -359,7 +407,7 @@ const handleAddToCart = async (quickCheckout = true) => {
   }
 
   if (!getCombination()) {
-    send({ message: t('productAttributes.notValidVariation'), type: 'negative' });
+    send({ message: t('product.attributes.notValidVariation'), type: 'negative' });
     return false;
   }
 
@@ -372,7 +420,7 @@ const handleAddToCart = async (quickCheckout = true) => {
   if (addedToCart) {
     quickCheckout
       ? openQuickCheckout(props?.product, quantitySelectorValue.value)
-      : send({ message: t('addedToCart'), type: 'positive' });
+      : send({ message: t('cart.itemAdded'), type: 'positive' });
 
     if (getSetting() === '0') {
       send({ message: t('error.notificationsItemBundleSplitted'), type: 'warning' });
@@ -404,8 +452,8 @@ const openReviewsAccordion = () => {
   customerReviewsClickElement?.click();
 };
 
-const isSalableText = computed(() => (productGetters.isSalable(props?.product) ? '' : t('itemNotAvailable')));
-const isNotValidVariation = computed(() => (getCombination() ? '' : t('productAttributes.notValidVariation')));
+const isSalableText = computed(() => (productGetters.isSalable(props?.product) ? '' : t('product.notAvailable')));
+const isNotValidVariation = computed(() => (getCombination() ? '' : t('product.attributes.notValidVariation')));
 const showPayPalButtons = computed(() => Boolean(getCombination()) && productGetters.isSalable(props?.product));
 
 const scrollToReviews = () => {

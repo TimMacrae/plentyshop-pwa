@@ -47,16 +47,6 @@ apple-pay-button {
   --apple-pay-button-box-sizing: border-box;
 }
 
-.swiper-button-prev {
-  color: rgb(var(--colors-2-primary-500)) !important;
-  z-index: 0 !important;
-}
-
-.swiper-button-next {
-  color: rgb(var(--colors-2-primary-500)) !important;
-  z-index: 0 !important;
-}
-
 #google-pay-button {
   div {
     button {
@@ -64,6 +54,22 @@ apple-pay-button {
       display: block;
     }
   }
+}
+
+html a {
+  color: rgb(var(--colors-2-primary-700));
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+footer a,
+nav a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .no-preflight {

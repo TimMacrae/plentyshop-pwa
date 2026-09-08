@@ -16,10 +16,10 @@
 <script setup lang="ts">
 import { SfSwitch } from '@storefront-ui/vue';
 
-const { updateSetting, getSetting } = useSiteSettings('showCustomerWishComponent');
+const { updateSetting, getBooleanSetting } = useSiteSettings('showCustomerWishComponent');
 
 const showCustomerWishComponent = computed({
-  get: () => !!getSetting(),
+  get: () => getBooleanSetting(),
   set: (value) => updateSetting(value.toString()),
 });
 </script>
@@ -28,11 +28,11 @@ const showCustomerWishComponent = computed({
 {
   "en": {
     "label": "Customer Wish Input Field",
-    "description": "Toggle to show or hide the \"Customer Wish\" input field during checkout."
+    "description": "Show or hide the \"Customer wish\" input field during checkout."
   },
   "de": {
     "label": "Customer Wish Input Field",
-    "description": "Toggle to show or hide the \"Customer Wish\" input field during checkout."
+    "description": "Show or hide the \"Customer wish\" input field during checkout."
   }
 }
 </i18n>

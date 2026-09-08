@@ -8,19 +8,15 @@
       <Cookiebar />
       <PreviewMode />
     </NuxtLazyHydrate>
+    <!-- CUSTOM FOOTER (replaces <UiFooterBlocks />) -->
     <ClientOnly>
-      <!-- CUSTOM FOOTER -->
-      <!-- <FooterBlock v-if="!route.meta.isBlockified" /> -->
       <CustomFooter />
     </ClientOnly>
   </div>
 </template>
 
 <script setup lang="ts">
-// import FooterBlock from '~/components/blocks/Footer/Footer.vue';
 import CustomFooter from '~/components/CustomFooter/CustomFooter.vue';
-
-// const route = useRoute();
 
 usePageTitle();
 useStructuredData().setLogoMeta();

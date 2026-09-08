@@ -1,47 +1,41 @@
 import type { LocaleObject, NuxtI18nOptions } from '@nuxtjs/i18n';
-
-export const getActiveLanguages = (): string[] => {
-  const activeLanguages = process.env.LANGUAGELIST || 'en,de';
-  return activeLanguages.split(',').map((lang) => lang.trim());
-};
+import { validateApiUrl } from '../utils/pathHelper';
 
 export const getLocales = (): LocaleObject[] => {
   const locales: unknown[] = [];
   const allLocales = [
-    { code: 'bg', file: 'bg.ts' },
-    { code: 'cs', file: 'cs.ts' },
-    { code: 'da', file: 'da.ts' },
-    { code: 'de', file: 'de.ts' },
-    { code: 'en', file: 'en.ts' },
-    { code: 'es', file: 'es.ts' },
-    { code: 'et', file: 'et.ts' },
-    { code: 'fi', file: 'fi.ts' },
-    { code: 'fr', file: 'fr.ts' },
-    { code: 'ga', file: 'ga.ts' },
-    { code: 'hr', file: 'hr.ts' },
-    { code: 'hu', file: 'hu.ts' },
-    { code: 'it', file: 'it.ts' },
-    { code: 'lt', file: 'lt.ts' },
-    { code: 'lv', file: 'lv.ts' },
-    { code: 'nl', file: 'nl.ts' },
-    { code: 'no', file: 'no.ts' },
-    { code: 'pl', file: 'pl.ts' },
-    { code: 'pt', file: 'pt.ts' },
-    { code: 'ro', file: 'ro.ts' },
-    { code: 'ru', file: 'ru.ts' },
-    { code: 'sk', file: 'sk.ts' },
-    { code: 'sv', file: 'sv.ts' },
-    { code: 'tr', file: 'tr.ts' },
-    { code: 'vi', file: 'vi.ts' },
-    { code: 'zh', file: 'zh.ts' },
+    { code: 'de', language: 'de-DE', file: 'de.json' },
+    { code: 'en', language: 'en-GB', file: 'en.json' },
+    { code: 'bg', language: 'bg-BG', file: 'bg.json' },
+    { code: 'fr', language: 'fr-FR', file: 'fr.json' },
+    { code: 'it', language: 'it-IT', file: 'it.json' },
+    { code: 'es', language: 'es-ES', file: 'es.json' },
+    { code: 'tr', language: 'tr-TR', file: 'tr.json' },
+    { code: 'nl', language: 'nl-NL', file: 'nl.json' },
+    { code: 'pl', language: 'pl-PL', file: 'pl.json' },
+    { code: 'pt', language: 'pt-PT', file: 'pt.json' },
+    { code: 'nn', language: 'nn-NO', file: 'nn.json' },
+    { code: 'ro', language: 'ro-RO', file: 'ro.json' },
+    { code: 'da', language: 'da-DK', file: 'da.json' },
+    { code: 'se', language: 'sv-SE', file: 'se.json' },
+    { code: 'cz', language: 'cs-CZ', file: 'cz.json' },
+    { code: 'ru', language: 'ru-RU', file: 'ru.json' },
+    { code: 'sk', language: 'sk-SK', file: 'sk.json' },
+    { code: 'cn', language: 'zh-CN', file: 'cn.json' },
+    { code: 'vn', language: 'vi-VN', file: 'vn.json' },
+    /*
+    { code: 'fi', language: 'fi-FI', file: 'fi.json' },
+    { code: 'ga', language: 'ga-IE', file: 'ga.json' },
+    { code: 'lt', language: 'lt-LT', file: 'lt.json' },
+    { code: 'lv', language: 'lv-LV', file: 'lv.json' },
+    { code: 'et', language: 'et-EE', file: 'et.json' },
+    { code: 'hr', language: 'hr-HR', file: 'hr.json' },
+    { code: 'hu', language: 'hu-HU', file: 'hu.json' },
+     */
   ];
 
-  const activeLanguages = getActiveLanguages();
-
   allLocales.forEach((locale) => {
-    if (activeLanguages.includes(locale.code)) {
-      locales.push(locale);
-    }
+    locales.push(locale);
   });
 
   return locales as LocaleObject[];
@@ -58,9 +52,9 @@ const getDefaultLocale = () => {
 export const nuxtI18nOptions: NuxtI18nOptions = {
   locales: getLocales(),
   defaultLocale: getDefaultLocale(),
+  baseUrl: validateApiUrl(process.env.API_URL) ?? process.env.API_ENDPOINT,
   langDir: '../app/lang',
   strategy: 'prefix_and_default',
   vueI18n: '~/configuration/vueI18n.config.ts',
   detectBrowserLanguage: false,
-  lazy: true,
 };

@@ -1,14 +1,10 @@
 <template>
   <div>
-    <UiAccordionItem
+    <EditorFormPanel
       v-model="reviewsOpen"
-      summary-active-class="bg-neutral-100 border-t-0"
-      summary-class="w-full hover:bg-neutral-100 px-4 py-5 flex justify-between items-center select-none border-b"
+      :title="getEditorTranslation('text-label')"
       data-testid="customer-review-text"
     >
-      <template #summary>
-        <h2>{{ getEditorTranslation('text-label') }}</h2>
-      </template>
       <div data-testid="customer-review-form">
         <div class="py-2">
           <div class="flex justify-between mb-2">
@@ -25,16 +21,12 @@
           </label>
         </div>
       </div>
-    </UiAccordionItem>
-    <UiAccordionItem
+    </EditorFormPanel>
+    <EditorFormPanel
       v-model="layoutOpen"
-      summary-active-class="bg-neutral-100 border-t-0"
-      summary-class="w-full hover:bg-neutral-100 px-4 py-5 flex justify-between items-center select-none border-b"
+      :title="getEditorTranslation('layout-group-label')"
       data-testid="customer-review-layout"
     >
-      <template #summary>
-        <h2>{{ getEditorTranslation('layout-group-label') }}</h2>
-      </template>
       <div class="py-2 flex items-center justify-between gap-3">
         <UiFormLabel for="display-collapsible" class="m-0">
           {{ getEditorTranslation('display-collapsible-label') }}
@@ -61,6 +53,8 @@
           class="checked:bg-editor-button checked:before:hover:bg-editor-button checked:border-gray-500 checked:hover:border:bg-gray-700 hover:border-gray-700 hover:before:bg-gray-700 checked:hover:bg-gray-300 checked:hover:border-gray-400 disabled:opacity-50 disabled:cursor-not-allowed"
         />
       </div>
+
+      <EditorFullWidthToggle v-model="isFullWidth" :block-uuid="blockUuid" />
 
       <div class="py-2">
         <UiFormLabel>{{ getEditorTranslation('padding-label') }}</UiFormLabel>
@@ -103,12 +97,12 @@
           </div>
         </div>
       </div>
-    </UiAccordionItem>
+    </EditorFormPanel>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { CustomerReviewProps, CustomerReviewContent } from './types';
+import type { CustomerReviewContent } from './types';
 import {
   SfInput,
   SfIconArrowUpward,
@@ -118,21 +112,16 @@ import {
   SfSwitch,
 } from '@storefront-ui/vue';
 
+const props = defineProps<{ uuid?: string }>();
+
 const reviewsOpen = ref(true);
 const layoutOpen = ref(true);
-const props = defineProps<CustomerReviewProps>();
-
 const { findOrDeleteBlockByUuid } = useBlockManager();
 const { blockUuid } = useSiteConfiguration();
-const route = useRoute();
-const { data } = useCategoryTemplate(
-  route?.meta?.identifier as string,
-  route.meta.type as string,
-  useNuxtApp().$i18n.locale.value,
-);
+const { allBlocks: data } = useBlocks();
 
 const customerReview = computed<CustomerReviewContent>(() => {
-  const uuid = props.meta?.uuid || blockUuid.value;
+  const uuid = props.uuid || blockUuid.value;
   const rawContent = findOrDeleteBlockByUuid(data.value, uuid)?.content ?? {};
   const content = rawContent as Partial<CustomerReviewContent>;
 
@@ -148,6 +137,7 @@ const customerReview = computed<CustomerReviewContent>(() => {
       paddingRight: 0,
       collapsible: true,
       initiallyCollapsed: true,
+      fullWidth: false,
     };
   } else {
     if (content.layout.paddingTop === undefined) content.layout.paddingTop = 0;
@@ -156,10 +146,13 @@ const customerReview = computed<CustomerReviewContent>(() => {
     if (content.layout.paddingRight === undefined) content.layout.paddingRight = 0;
     if (content.layout.collapsible === undefined) content.layout.collapsible = true;
     if (content.layout.initiallyCollapsed === undefined) content.layout.initiallyCollapsed = true;
+    if (content.layout.fullWidth === undefined) content.layout.fullWidth = false;
   }
 
   return content as CustomerReviewContent;
 });
+
+const { isFullWidth } = useFullWidthToggleForContent(customerReview);
 
 const isCollapsibleInit = customerReview.value.layout.collapsible;
 const isCollapsible = ref(isCollapsibleInit);

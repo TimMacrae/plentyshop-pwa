@@ -12,6 +12,12 @@
 </template>
 
 <script lang="ts" setup>
+import type { Locale } from '#i18n';
+
+defineI18nRoute({
+  locales: process.env.LANGUAGELIST?.split(',') as Locale[],
+});
+
 definePageMeta({
   layout: 'simplified-header-and-footer',
   pageType: 'static',
@@ -20,8 +26,7 @@ definePageMeta({
 const { data, error, relatedOrder, hasError, fetchOffer, declineOffer, acceptOffer } = useOffer();
 const { send } = useNotification();
 const route = useRoute();
-const localePath = useLocalePath();
-const { t } = useI18n();
+const localePath = useLocalizedPath();
 
 const offerId = route.params.offerId ? route.params.offerId.toString() : '';
 const accessKey = route.params.accessKey ? route.params.accessKey.toString() : '';

@@ -1,149 +1,140 @@
 <template>
-  <div data-testid="multi-grid-structure" :class="getGridClasses()" :style="gridInlineStyle">
-    <div
-      v-for="(column, colIndex) in columns"
-      :key="colIndex"
-      :class="getColumnClasses(colIndex)"
-      class="group/col relative"
-      data-testid="multi-grid-column"
-    >
-      <div
-        v-for="row in column"
-        :key="row.meta.uuid"
-        class="group/row relative"
-        :data-uuid="row.meta.uuid"
-        @mouseenter="onRowEnter(row)"
-        @mouseleave="onRowLeave"
-      >
+  <div
+    data-testid="multi-grid-structure"
+    :class="[getGridClasses(), { 'px-4': shouldApplyPadding }]"
+    :style="gridInlineStyle"
+  >
+    <template v-for="(gridRow, rowIndex) in gridRows" :key="rowIndex">
+      <template v-for="cell in gridRow.cells" :key="cell.colIndex">
         <div
-          v-if="showOverlay(row)"
-          class="pointer-events-none absolute inset-0 opacity-0 group-hover/row:opacity-100"
-          style="box-shadow: inset 0 0 0 2px #7c3aed"
-        />
-
-        <div
-          v-if="showOverlay(row)"
-          class="pointer-events-none absolute inset-0 z-10 opacity-0 group-hover/row:opacity-100 bg-purple-600/15"
-        />
-
-        <div
-          class="absolute inset-0 z-30 flex items-center justify-center opacity-0 invisible pointer-events-none"
-          :class="
-            showOverlay(row)
-              ? 'group-hover/row:opacity-100 group-hover/row:visible group-hover/row:pointer-events-auto'
-              : ''
-          "
+          v-if="columns[cell.colIndex]?.length || shouldEnableEditorFeatures"
+          :class="getColumnClasses(cell.colIndex)"
+          class="group/col relative"
+          data-testid="multi-grid-column"
         >
-          <UiBlockActions v-if="showOverlay(row)" :block="row" :index="colIndex" :actions="getBlockActions()" />
+          <div
+            v-for="row in columns[cell.colIndex]"
+            :key="row.meta.uuid"
+            class="group/row relative"
+            :data-uuid="row.meta.uuid"
+            @mouseenter="onRowEnter(row)"
+            @mouseleave="onRowLeave"
+          >
+            <slot
+              name="content"
+              :content-block="row"
+              :column-length="(columns[cell.colIndex] ?? []).length"
+              :is-row-hovered="isRowHovered(row)"
+            />
+          </div>
         </div>
+      </template>
 
-        <slot
-          name="content"
-          :content-block="row"
-          :column-length="column.length"
-          :is-row-hovered="showOverlay(row) && isRowHovered(row)"
-        />
-      </div>
-    </div>
+      <ClientOnly>
+        <div
+          v-if="gridRow.free > 0 && shouldEnableEditorFeatures"
+          :class="`col-span-${gridRow.free}`"
+          class="self-stretch rounded-md border border-dashed border-editor-canvas-border bg-editor-hatched flex items-center justify-center"
+          aria-hidden="true"
+        >
+          <span class="text-3xs text-editor-text-dim tracking-wider">{{ gridRow.free }}/12 free</span>
+        </div>
+      </ClientOnly>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { AlignableBlock, MultiGridProps } from '~/components/blocks/structure/MultiGrid/types';
+import type { AlignableBlock, GridRow, MultiGridProps } from '~/components/blocks/structure/MultiGrid/types';
 import type { Block } from '@plentymarkets/shop-api';
+import { computeGridRows } from '~/components/blocks/structure/MultiGrid/multiGridRows';
+import { computeVisibleGrid } from '~/components/blocks/structure/MultiGrid/multiGridVisibility';
+import { useMultiGridDeviceWidths } from '~/components/blocks/structure/MultiGrid/multiGridDeviceWidths';
 
-const { content, configuration } = defineProps<MultiGridProps>();
+const props = defineProps<MultiGridProps>();
+const route = useRoute();
 
 const hoveredRowUuid = ref<string | null>(null);
+const { setHoveredBlock, clearHoveredBlock } = useTableOfContents();
+
 const onRowEnter = (row: Block) => {
   hoveredRowUuid.value = row.meta.uuid;
+  setHoveredBlock(row.meta.uuid);
 };
 const onRowLeave = () => {
   hoveredRowUuid.value = null;
+  clearHoveredBlock();
 };
 const isRowHovered = (row: Block) => hoveredRowUuid.value === row.meta.uuid;
 
-const { $isPreview } = useNuxtApp();
-const { isDragging } = useBlockManager();
-const attrs = useAttrs() as { enableActions?: boolean; root?: boolean };
-const { getSetting: getBlockSize } = useSiteSettings('blockSize');
+const { shouldEnableEditorFeatures } = useEditorState();
+const { getSetting: getBlockSize } = useSiteSettings('verticalBlockSize');
 const blockSize = computed(() => getBlockSize());
+
+const { isFullWidth } = useFullWidthToggleForConfig(computed(() => props.configuration));
+const shouldApplyPadding = computed(() => !isFullWidth.value);
+
 const gapClassMap: Record<string, string> = {
   None: 'gap-x-0',
-  S: 'gap-y-1 md:gap-x-1 md:gap-y-0',
-  M: 'gap-y-2 md:gap-x-2 md:gap-y-0',
-  L: 'gap-y-3 md:gap-x-3 md:gap-y-0',
-  XL: 'gap-y-5 md:gap-x-5 md:gap-y-0',
+  S: 'gap-y-1 @md:gap-x-1 @md:gap-y-0',
+  M: 'gap-y-2 @md:gap-x-2 @md:gap-y-0',
+  L: 'gap-y-3 @md:gap-x-3 @md:gap-y-0',
+  XL: 'gap-y-5 @md:gap-x-5 @md:gap-y-0',
 };
-const gridGapClass = computed(() => gapClassMap[configuration.layout?.gap || 'M']);
-
-const defaultMarginBottom = computed(() => {
-  switch (blockSize.value) {
-    case 's':
-      return 30;
-    case 'm':
-      return 40;
-    case 'l':
-      return 50;
-    case 'xl':
-      return 60;
-    default:
-      return 0;
-  }
-});
+const gridGapClass = computed(() => gapClassMap[props.configuration.layout?.gap || 'M']);
+const defaultMarginBottom = computed(() => getVerticalPixels(blockSize.value));
+const reverseOnMobile = computed(() => props.configuration.layout?.reverseOnMobile === true);
+const alignHeights = computed(() => props.configuration.layout?.alignHeights !== false);
 
 const gridInlineStyle = computed(() => ({
-  backgroundColor: configuration.layout?.backgroundColor ?? 'transparent',
-  marginTop: configuration.layout?.marginTop !== undefined ? `${configuration.layout.marginTop}px` : '0px',
+  backgroundColor: props.configuration.layout?.backgroundColor ?? 'transparent',
+  marginTop: props.configuration.layout?.marginTop === undefined ? '0px' : `${props.configuration.layout.marginTop}px`,
   marginBottom:
-    configuration.layout?.marginBottom !== undefined
-      ? `${configuration.layout.marginBottom}px`
-      : `${defaultMarginBottom.value}px`,
-  marginLeft: configuration.layout?.marginLeft !== undefined ? `${configuration.layout.marginLeft}px` : '40px',
-  marginRight: configuration.layout?.marginRight !== undefined ? `${configuration.layout.marginRight}px` : '40px',
+    props.configuration.layout?.marginBottom === undefined
+      ? `${defaultMarginBottom.value}px`
+      : `${props.configuration.layout.marginBottom}px`,
 }));
 const getGridClasses = () => {
-  return gridClassFor({ mobile: 1, tablet: 12, desktop: 12 }, [gridGapClass.value ?? '', 'items-start']);
+  const alignClass = alignHeights.value ? 'items-stretch' : 'items-start';
+  if (reverseOnMobile.value) {
+    return ['flex flex-col-reverse @md:grid @md:grid-cols-12 @lg:grid-cols-12', gridGapClass.value ?? '', alignClass];
+  }
+  return gridClassFor({ mobile: 12, tablet: 12, desktop: 12 }, [gridGapClass.value ?? '', alignClass]);
 };
 
-const getColumnClasses = (colIndex: number) => {
-  const columnWidth = configuration.columnWidths[colIndex];
-  const classes = [`col-span-${columnWidth}`];
+const { widths: gridColumnsWidth, mobileFullWidthColumn } = useMultiGridDeviceWidths(
+  computed(() => props.configuration),
+);
 
-  if (Array.isArray(configuration.sticky) && configuration.sticky.includes(colIndex)) {
-    classes.push('md:sticky', 'md:top-40');
+const visibleGrid = computed(() => computeVisibleGrid(props.content, gridColumnsWidth.value));
+
+const getColumnClasses = (filteredColIndex: number) => {
+  if (mobileFullWidthColumn.value) {
+    return ['col-span-12'];
   }
 
+  const classes = [`col-span-${visibleGrid.value.columnWidths[filteredColIndex]}`];
+  const originalIdx = visibleGrid.value.filteredToOriginal[filteredColIndex] ?? -1;
+  if (Array.isArray(props.configuration.sticky) && props.configuration.sticky.includes(originalIdx)) {
+    classes.push('@md:sticky', route.meta?.type === 'product' ? '@md:top-40' : '@md:top-5');
+  }
   return classes;
 };
 
-const getBlockActions = () => ({
-  isEditable: true,
-  isMovable: false,
-  isDeletable: false,
-  classes: ['bg-purple-400', 'hover:bg-purple-500', 'transition'],
-  buttonClasses: ['border-2', 'border-purple-600'],
-  hoverBackground: ['hover:bg-purple-500'],
-});
+const gridRows = computed((): GridRow[] => computeGridRows(visibleGrid.value.columnWidths));
 
-const enableActions = computed(() => attrs.enableActions === true);
-
-const blockHasData = (block: Block): boolean => !!block.content && Object.keys(block.content).length > 0;
-
-const showOverlay = computed(
-  () => (block: Block) => enableActions.value && $isPreview && !isDragging.value && blockHasData(block),
-);
-
-const isAlignable = (b: Block): b is AlignableBlock =>
-  typeof b.content === 'object' && b.content !== null && ('imageAlignment' in b.content || 'alignment' in b.content);
+const isAlignable = (block: Block): block is AlignableBlock =>
+  typeof block.content === 'object' &&
+  block.content !== null &&
+  ('imageAlignment' in block.content || 'alignment' in block.content);
 
 const readAlignment = (block: AlignableBlock): 'left' | 'right' | undefined => {
-  const a = block.content?.imageAlignment ?? block.content?.alignment;
-  return a === 'left' || a === 'right' ? a : undefined;
+  const alignmentValue = block.content?.imageAlignment ?? block.content?.alignment;
+  return alignmentValue === 'left' || alignmentValue === 'right' ? alignmentValue : undefined;
 };
 
 const pairWithSlots = computed<Block[]>(() => {
-  const list = content.map((block) => ({ ...block }));
+  const list = visibleGrid.value.blocks.map((block) => ({ ...block }));
 
   const alignableIndex = list.findIndex(isAlignable);
 
@@ -162,19 +153,19 @@ const pairWithSlots = computed<Block[]>(() => {
 });
 
 const columns = computed<Block[][]>(() => {
-  const blocks = ref([] as Block[][]);
+  const blocks: Block[][] = [];
   pairWithSlots.value.forEach((block) => {
     if (block.parent_slot !== undefined) {
-      if (!blocks.value[block.parent_slot]) {
-        blocks.value[block.parent_slot] = [];
+      if (!blocks[block.parent_slot]) {
+        blocks[block.parent_slot] = [];
       }
 
-      const slot = blocks.value[block.parent_slot];
+      const slot = blocks[block.parent_slot];
       if (slot) {
         slot.push(block);
       }
     }
   });
-  return blocks.value;
+  return blocks;
 });
 </script>

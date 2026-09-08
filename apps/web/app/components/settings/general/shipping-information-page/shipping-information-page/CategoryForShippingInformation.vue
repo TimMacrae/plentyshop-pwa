@@ -1,59 +1,43 @@
 <template>
   <div class="py-2">
-    <p class="mb-4">{{ getEditorTranslation('description') }}</p>
-    <div class="flex justify-between mb-2">
-      <UiFormLabel>{{ getEditorTranslation('label') }}</UiFormLabel>
-      <SfTooltip :label="getEditorTranslation('tooltip')" :placement="'top'" :show-arrow="true" class="ml-2 z-10">
-        <SfIconInfo :size="'sm'" />
-      </SfTooltip>
-    </div>
+    <p class="mb-4">{{ getEditorTranslation('editShippingPageDescription') }}</p>
 
-    <Multiselect
-      v-model="shippingTextCategoryId"
-      data-testid="shipping-text-category-id"
-      :options="categories"
-      :placeholder="getEditorTranslation('placeholder')"
-      label="name"
-      track-by="id"
-      :allow-empty="false"
-      class="cursor-pointer"
-      select-label=""
-      :searchable="true"
-      :deselect-label="getEditorTranslation('deselect-label')"
-    />
+    <UiButton :tag="NuxtLink" :to="localePath(paths.shipping)" data-testid="edit-shipping-page-link">
+      {{ getEditorTranslation('editShippingPage') }}
+      <template #suffix>
+        <SfIconArrowForward />
+      </template>
+    </UiButton>
+
+    <UiAccordionItem v-model="isLegacyOpen" class="mt-6" summary-class="!p-0" content-padding-class="pt-4 px-0">
+      <template #summary>
+        <span class="font-medium">{{ getEditorTranslation('legacyOptionLabel') }}</span>
+      </template>
+
+      <p class="mb-4 text-neutral-500">{{ getEditorTranslation('description') }}</p>
+      <div class="flex justify-between mb-2">
+        <UiFormLabel>{{ getEditorTranslation('label') }}</UiFormLabel>
+      </div>
+
+      <EditorCategorySelect
+        v-model="shippingTextCategoryId"
+        :base-search-params="{ type: 'in:content', sortBy: 'position_asc,name_asc' }"
+        data-test-id="shipping-text-category-id"
+      />
+    </UiAccordionItem>
   </div>
 </template>
 <script setup lang="ts">
-import { SfIconInfo, SfTooltip } from '@storefront-ui/vue';
-import Multiselect from 'vue-multiselect';
-import type { CategoryEntry } from '@plentymarkets/shop-api';
-import type { CategoryOption } from '~/components/settings/general/shipping-information-page/shipping-information-page/types';
-const { data, getCategories } = useCategoriesSearch();
-
-const categories = ref<CategoryOption[]>([]);
-
-onMounted(async () => {
-  await getCategories({
-    type: 'in:item,content',
-    sortBy: 'position_asc,name_asc',
-  });
-
-  categories.value = data.value.entries.map((category: CategoryEntry) => {
-    return {
-      id: category.details[0]?.categoryId ?? '0',
-      name: category.details[0]?.name ?? '',
-    };
-  });
-});
+import { SfIconArrowForward } from '@storefront-ui/vue';
 
 const { updateSetting, getSetting } = useSiteSettings('shippingTextCategoryId');
-
+const localePath = useLocalizedPath();
+const NuxtLink = resolveComponent('NuxtLink');
+const isLegacyOpen = ref(false);
 const shippingTextCategoryId = computed({
-  get: () => {
-    return categories.value.find((c: CategoryOption) => c.id === getSetting()) ?? {};
-  },
-  set: (value: CategoryOption) => {
-    updateSetting(value.id);
+  get: () => getSetting()?.toString() ?? null,
+  set: (value: string | null) => {
+    value ? updateSetting(value) : updateSetting('');
   },
 });
 </script>
@@ -61,18 +45,18 @@ const shippingTextCategoryId = computed({
 <i18n lang="json">
 {
   "en": {
-    "description": "Select the category whose template data will be used for the /shipping page. By default, this page is also referenced wherever shipping prices are mentioned.",
-    "label": "Category for shipping information page",
-    "tooltip": "Which category should be used to provide the template for the shipping information?",
-    "placeholder": "Select a category",
-    "deselect-label": "Selected"
+    "editShippingPageDescription": "Configure the /shipping page directly using the page editor and its blocks.",
+    "editShippingPage": "Edit shipping policy",
+    "legacyOptionLabel": "Legacy option: select category manually",
+    "description": "Select the category which should be used for the /shipping page. This page is by default linked wherever shipping prices are mentioned.",
+    "label": "Category for shipping information page"
   },
   "de": {
-    "description": "Select the category whose template data will be used for the /shipping page. By default, this page is also referenced wherever shipping prices are mentioned.",
-    "label": "Category for shipping information page",
-    "tooltip": "Which category should be used to provide the template for the shipping information?",
-    "placeholder": "Select a category",
-    "deselect-label": "Selected"
+    "editShippingPageDescription": "Configure the /shipping page directly using the page editor and its blocks.",
+    "editShippingPage": "Edit shipping policy",
+    "legacyOptionLabel": "Legacy option: select category manually",
+    "description": "Select the category which should be used for the /shipping page. This page is by default linked wherever shipping prices are mentioned.",
+    "label": "Category for shipping information page"
   }
 }
 </i18n>

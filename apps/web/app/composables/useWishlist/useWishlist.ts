@@ -4,17 +4,6 @@ import type {
   AddWishlistItemParams,
   DeleteWishlistItemParams,
 } from '@plentymarkets/shop-api';
-import type {
-  FetchWishlist,
-  UseWishlistReturn,
-  UseWishlistState,
-  DeleteWishlistItem,
-  AddWishlistItem,
-  IsWishlistItem,
-  InteractWithWishlist,
-  SetWishlistItemIds,
-} from '~/composables/useWishlist/types';
-
 /**
  * @description Composable for managing wishlist.
  * @returns UseWishlistReturn
@@ -149,15 +138,14 @@ export const useWishlist: UseWishlistReturn = () => {
    * ```
    */
   const interactWithWishlist: InteractWithWishlist = async (variationId: number, quantity = 1) => {
-    const { $i18n } = useNuxtApp();
     const { send } = useNotification();
 
     await (isWishlistItem(variationId)
       ? deleteWishlistItem({ variationId }).then(() =>
-          send({ type: 'positive', message: $i18n.t('wishlistInteraction.delete') }),
+          send({ type: 'positive', message: t('account.wishlist.notifications.delete') }),
         )
       : addWishlistItem({ variationId, quantity }).then(() =>
-          send({ type: 'positive', message: $i18n.t('wishlistInteraction.add') }),
+          send({ type: 'positive', message: t('account.wishlist.notifications.add') }),
         ));
   };
 

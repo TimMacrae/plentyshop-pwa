@@ -9,7 +9,7 @@
     <SfLoaderCircular
       v-if="loadingReviews"
       data-testid="loader"
-      class="absolute top-[130px] right-0 left-0 m-auto z-[999]"
+      class="absolute top-[130px] right-0 left-0 m-auto z-raised"
       size="2xl"
     />
 
@@ -20,23 +20,25 @@
     >
       <UiAccordionItem
         v-model="reviewsOpen"
-        summary-class="md:rounded-md w-full hover:bg-neutral-100 py-2 pl-4 pr-3 flex justify-between items-center select-none"
+        summary-class="@md:rounded-md w-full hover:bg-neutral-100 py-2 flex justify-between items-center select-none"
+        content-padding-class=""
       >
         <template #summary>
-          <h2 id="customerReviewsClick" class="font-bold text-lg leading-6 md:text-2xl">
+          <h2 id="customerReviewsClick" class="font-bold text-lg leading-6 @md:text-2xl">
             {{ props.content.text.title }}
           </h2>
         </template>
 
-        <UiReviewStatistics :product="props.product" />
+        <UiReviewStatistics :product="product" />
 
+        <UiReview v-for="(reviewItem, key) in authenticatedProductReviews" :key="key" :review-item="reviewItem" />
         <UiReview v-for="(reviewItem, key) in paginatedProductReviews" :key="key" :review-item="reviewItem" />
         <p
           v-if="paginatedProductReviews.length === 0"
           data-testid="no-review-text"
           class="font-bold leading-6 w-full py-2"
         >
-          {{ t('customerReviewsNone') }}
+          {{ t('product.noReviews') }}
         </p>
         <UiPagination
           v-if="paginatedProductReviews.length > 0"
@@ -51,11 +53,11 @@
     </div>
 
     <div v-else>
-      <h2 id="customerReviewsClick" class="font-bold text-lg leading-6 md:text-2xl">
+      <h2 id="customerReviewsClick" class="font-bold text-lg leading-6 @md:text-2xl">
         {{ props.content.text.title }}
       </h2>
 
-      <UiReviewStatistics :product="props.product" />
+      <UiReviewStatistics :product="product" />
 
       <UiReview v-for="(reviewItem, key) in paginatedProductReviews" :key="key" :review-item="reviewItem" />
       <p
@@ -63,7 +65,7 @@
         data-testid="no-review-text"
         class="font-bold leading-6 w-full py-2"
       >
-        {{ t('customerReviewsNone') }}
+        {{ t('product.noReviews') }}
       </p>
       <UiPagination
         v-if="paginatedProductReviews.length > 0"
@@ -85,26 +87,37 @@ import type { ProductAccordionPropsType } from '~/components/ReviewsAccordion/ty
 import type { CustomerReviewProps } from './types';
 
 const props = defineProps<CustomerReviewProps & ProductAccordionPropsType>();
-
-const { t } = useI18n();
-
 const viewport = useViewport();
 const reviewsOpen = ref(!props.content.layout.initiallyCollapsed);
 const route = useRoute();
 
 const config = useRuntimeConfig().public;
+const { currentProduct } = useProducts();
 
-const productId = Number(productGetters.getItemId(props.product));
-const productVariationId = productGetters.getVariationId(props.product);
+const product = computed(() => props.product || currentProduct.value);
+const productId = computed(() => {
+  const id = productGetters.getItemId(product.value);
+  return id ? Number(id) : 0;
+});
+const productVariationId = computed(() => productGetters.getVariationId(product.value));
 
 const {
   data: productReviews,
+  authenticatedData: productAuthenticatedReviews,
   loading: loadingReviews,
   fetchReviews,
+  fetchAuthenticatedReviews,
   reviewArea,
-} = useProductReviews(productId, productVariationId);
+} = useProductReviews(productId.value, productVariationId.value);
+
+watch([productId, productVariationId], async ([newId, newVariationId], [oldId, oldVariationId]) => {
+  if ((newId !== oldId || newVariationId !== oldVariationId) && newId > 0) {
+    await Promise.all([fetchReviews(), fetchAuthenticatedReviews()]);
+  }
+});
 
 const paginatedProductReviews = computed(() => reviewGetters.getReviewItems(productReviews.value));
+const authenticatedProductReviews = computed(() => reviewGetters.getReviewItems(productAuthenticatedReviews.value));
 const pagination = computed(() => reviewGetters.getReviewPagination(productReviews.value));
 const currentPage = computed(() => reviewGetters.getCurrentReviewsPage(productReviews.value));
 
@@ -116,9 +129,9 @@ const hasTitle = computed(() => {
 
 watch(
   () => reviewsOpen.value,
-  (value) => {
+  async (value) => {
     if (value && hasTitle.value && props.content.layout.collapsible) {
-      fetchReviews();
+      await Promise.all([fetchReviews(), fetchAuthenticatedReviews()]);
     }
   },
 );

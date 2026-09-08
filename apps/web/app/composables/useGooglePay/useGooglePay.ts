@@ -1,5 +1,4 @@
-import type { GooglePayConfig, GooglePayPayPal } from '~/composables/useGooglePay/types';
-import { paypalGetters } from '@plentymarkets/shop-api';
+import { type Order, paypalGetters } from '@plentymarkets/shop-api';
 
 const loadExternalScript = async () => {
   return new Promise((resolve, reject) => {
@@ -48,18 +47,20 @@ export const useGooglePay = () => {
     return true;
   };
 
-  const getGoogleTransactionInfo = async () => {
-    const { data: transaction } = await useSdk().plentysystems.getPayPalGooglePayTransactionInfo({});
+  const getGoogleTransactionInfo = async (orderId?: number) => {
+    const { data: transaction } = await useSdk().plentysystems.getPayPalGooglePayTransactionInfo({
+      orderId,
+    });
     return transaction as google.payments.api.TransactionInfo;
   };
 
-  const getGooglePaymentDataRequest = async () => {
+  const getGooglePaymentDataRequest = async (orderId?: number) => {
     return {
       apiVersion: 2,
       apiVersionMinor: 0,
-      allowedPaymentMethods: JSON.parse(JSON.stringify(state.value.googleConfig.allowedPaymentMethods)),
-      transactionInfo: await getGoogleTransactionInfo(),
-      merchantInfo: JSON.parse(JSON.stringify(state.value.googleConfig.merchantInfo)),
+      allowedPaymentMethods: deepClone(state.value.googleConfig.allowedPaymentMethods),
+      transactionInfo: await getGoogleTransactionInfo(orderId),
+      merchantInfo: deepClone(state.value.googleConfig.merchantInfo),
     } as google.payments.api.PaymentDataRequest;
   };
 
@@ -71,29 +72,31 @@ export const useGooglePay = () => {
     state.value.paymentLoading = false;
   };
 
-  const processPayment = async (paymentData: google.payments.api.PaymentData) => {
+  const processPayment = async (paymentData: google.payments.api.PaymentData, order?: Order) => {
     if (!state.value.script) return;
-    const localePath = useLocalePath();
+    const localePath = useLocalizedPath();
     const { createTransaction, getOrder, captureOrder, createPlentyPaymentFromPayPalOrder, createPlentyOrder } =
       usePayPal();
     const { clearCartItems } = useCart();
-    const { $i18n } = useNuxtApp();
-    const { processingOrder } = useProcessingOrder();
+    const { createOrderLoading: processingOrder } = useDynamicPaymentButtons();
     const { emit } = usePlentyEvent();
 
     state.value.paymentLoading = true;
 
-    if (!(await useCartStockReservation().reserve())) {
-      state.value.paymentLoading = false;
-      return;
+    if (!order) {
+      if (!(await useCartStockReservation().reserve())) {
+        state.value.paymentLoading = false;
+        return;
+      }
     }
 
     const transaction = await createTransaction({
-      type: 'basket',
+      type: order ? 'order' : 'basket',
+      plentyOrderId: order?.order?.id,
     });
     if (!transaction || !transaction.id) {
-      await useCartStockReservation().unreserve();
-      showErrorNotification($i18n.t('storefrontError.order.createFailed'));
+      if (!order?.order?.id) await useCartStockReservation().unreserve();
+      showErrorNotification(t('storefrontError.order.createFailed'));
       return;
     }
 
@@ -109,27 +112,32 @@ export const useGooglePay = () => {
     }
 
     if (status === 'APPROVED') {
-      const order = await createPlentyOrder();
+      let plentyOrder: Order | null = order || null;
+      if (!order?.order?.id) {
+        plentyOrder = await createPlentyOrder();
+      }
 
-      if (!order || !order.order || !order.order.id) {
-        showErrorNotification($i18n.t('storefrontError.order.createFailed'));
+      if (!plentyOrder || !plentyOrder.order || !plentyOrder.order.id) {
+        showErrorNotification(t('storefrontError.order.createFailed'));
         return;
       }
 
       await captureOrder(transaction.id);
-      await createPlentyPaymentFromPayPalOrder(transaction.id, order.order.id);
+      await createPlentyPaymentFromPayPalOrder(transaction.id, plentyOrder.order.id);
 
       processingOrder.value = true;
-      emit('frontend:orderCreated', order);
-      emit('module:clearCart', null);
-      clearCartItems();
-      navigateTo(localePath(paths.confirmation + '/' + order.order.id + '/' + order.order.accessKey));
+      if (!order) {
+        emit('frontend:orderCreated', plentyOrder);
+        emit('module:clearCart', null);
+        clearCartItems();
+        navigateTo(localePath(paths.confirmation + '/' + plentyOrder.order.id + '/' + plentyOrder.order.accessKey));
+      }
       state.value.paymentLoading = false;
 
       return { transactionState: 'SUCCESS' };
     } else {
-      await useCartStockReservation().unreserve();
-      showErrorNotification($i18n.t('errorMessages.paymentFailed'));
+      if (!order) await useCartStockReservation().unreserve();
+      showErrorNotification(t('error.paymentFailed'));
       return { transactionState: 'ERROR' };
     }
   };
@@ -138,7 +146,7 @@ export const useGooglePay = () => {
     return {
       apiVersion: 2,
       apiVersionMinor: 0,
-      allowedPaymentMethods: JSON.parse(JSON.stringify(state.value.googleConfig.allowedPaymentMethods)),
+      allowedPaymentMethods: deepClone(state.value.googleConfig.allowedPaymentMethods),
     } as google.payments.api.IsReadyToPayRequest;
   };
 

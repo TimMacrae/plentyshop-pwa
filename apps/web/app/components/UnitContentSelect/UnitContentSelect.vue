@@ -9,7 +9,7 @@
         class="leading-5 text-sm text-zinc-900"
         for="unit-combination"
         data-testing="variation-select-unit-label"
-        >{{ t('content') }}</label
+        >{{ t('common.labels.content') }}</label
       >
       <SfSelect
         id="unit-combination"
@@ -40,14 +40,13 @@ const props = defineProps<{
 
 const route = useRoute();
 const { productParams } = createProductParams(route.params);
-const { buildProductLanguagePath } = useLocalization();
-const { t } = useI18n();
+const localePath = useLocalizedPath();
 
 const selectedUnit = ref(productParams?.variationId?.toString() || '');
 
 function onChange(value: number) {
   navigateTo({
-    path: buildProductLanguagePath(
+    path: localePath(
       `/${productGetters.getUrlPath(props.product)}_${productGetters.getItemId(props.product)}_${value}`,
     ),
     query: route.query,

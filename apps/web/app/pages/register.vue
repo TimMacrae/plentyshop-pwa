@@ -1,14 +1,14 @@
 <template>
   <NuxtLayout name="auth" :heading="''">
-    <div class="w-full max-w-full md:max-w-4xl lg:max-w-3xl xl:max-w-4xl mx-auto md:px-6 lg:px-8">
+    <div class="w-full max-w-full @md:max-w-4xl @lg:max-w-3xl @xl:max-w-4xl mx-auto @md:px-6 @lg:px-8">
       <div class="text-center mb-8">
-        <div class="text-2xl font-semibold mb-2">{{ t('auth.signup.heading') }}</div>
-        <div class="text-lg text-gray-600 mb-6">{{ t('auth.signup.subheading') }}</div>
+        <div class="text-2xl font-semibold mb-2">{{ t('authentication.signup.heading') }}</div>
+        <div class="text-lg text-gray-600 mb-6">{{ t('authentication.signup.subheading') }}</div>
       </div>
 
       <form
         novalidate
-        class="max-w-2xl mx-auto bg-white rounded-lg md:shadow-sm md:border md:border-gray-100 md:p-6 lg:p-8 space-y-4 mb-8"
+        class="max-w-2xl mx-auto bg-white rounded-lg @md:shadow-sm @md:border @md:border-gray-100 @md:p-6 @lg:p-8 space-y-4 mb-8"
         @submit.prevent="onSubmit"
       >
         <label class="w-full">
@@ -24,12 +24,12 @@
           <ErrorMessage as="span" name="email" class="flex text-negative-700 text-sm mt-2" />
         </label>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 @md:grid-cols-2 gap-4">
           <label>
             <UiFormLabel>{{ t('form.passwordLabel') }} {{ t('form.required') }}</UiFormLabel>
             <UiFormPasswordInput
               v-model="formFields.password.value"
-              :title="t('invalidPassword')"
+              :title="t('authentication.signup.passwordValidation.invalidPassword')"
               name="password"
               autocomplete="current-password"
               v-bind="formFieldsAttributes.password"
@@ -43,7 +43,7 @@
             <UiFormLabel>{{ t('form.repeatPasswordLabel') }} {{ t('form.required') }}</UiFormLabel>
             <UiFormPasswordInput
               v-model="formFields.repeatPassword.value"
-              :title="t('invalidPassword')"
+              :title="t('authentication.signup.passwordValidation.invalidPassword')"
               name="password"
               autocomplete="current-password"
               v-bind="formFieldsAttributes.repeatPassword"
@@ -61,7 +61,12 @@
           >
             <SfIconCheck v-if="passwordValidationLength" size="sm" class="mr-2" />
             <SfIconClose v-else size="sm" class="mr-2" />
-            {{ t('auth.signup.passwordValidation.characters', { min: passwordMinLength, max: passwordMaxLength }) }}
+            {{
+              t('authentication.signup.passwordValidation.characters', {
+                min: passwordMinLength,
+                max: passwordMaxLength,
+              })
+            }}
           </div>
           <div
             class="flex items-center"
@@ -69,7 +74,7 @@
           >
             <SfIconCheck v-if="passwordValidationOneDigit" size="sm" class="mr-2" />
             <SfIconClose v-else size="sm" class="mr-2" />
-            {{ t('auth.signup.passwordValidation.numbers') }}
+            {{ t('authentication.signup.passwordValidation.numbers') }}
           </div>
           <div
             class="flex items-center"
@@ -80,11 +85,11 @@
           >
             <SfIconCheck v-if="passwordValidationOneLetter" size="sm" class="mr-2" />
             <SfIconClose v-else size="sm" class="mr-2" />
-            {{ t('auth.signup.passwordValidation.letters') }}
+            {{ t('authentication.signup.passwordValidation.letters') }}
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 @md:grid-cols-2 gap-4">
           <label>
             <UiFormLabel>
               {{ hasCompany ? t('form.firstNameLabel') : `${t('form.firstNameLabel')} ${t('form.required')}` }}
@@ -115,7 +120,7 @@
         </div>
 
         <div class="grid grid-cols-1">
-          <SfLink
+          <UiLink
             class="select-none hover:cursor-pointer"
             role="button"
             tabindex="0"
@@ -125,10 +130,10 @@
             @keydown.enter.space="hasCompany = !hasCompany"
           >
             {{ !hasCompany ? t('form.addCompany') : t('form.removeCompany') }}
-          </SfLink>
+          </UiLink>
         </div>
 
-        <div v-if="hasCompany" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div v-if="hasCompany" class="grid grid-cols-1 @md:grid-cols-2 gap-4">
           <label for="companyName">
             <UiFormLabel for="companyName">{{ t('form.companyLabel') }} {{ t('form.required') }}</UiFormLabel>
             <SfInput
@@ -161,7 +166,7 @@
           </label>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 @md:grid-cols-2 gap-4">
           <label>
             <UiFormLabel>{{ t('form.streetNameLabel') }} {{ t('form.required') }}</UiFormLabel>
             <SfInput
@@ -187,7 +192,7 @@
           </label>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 @md:grid-cols-2 gap-4">
           <label>
             <UiFormLabel>{{ t('form.cityLabel') }} {{ t('form.required') }}</UiFormLabel>
             <SfInput
@@ -252,13 +257,13 @@
           >
             <i18n-t keypath="form.privacyPolicyLabel" scope="global">
               <template #privacyPolicy>
-                <SfLink
+                <UiLink
                   :href="localePath(paths.privacyPolicy)"
                   target="_blank"
                   class="text-primary-600 hover:text-primary-700 underline focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded"
                 >
-                  {{ t('privacyPolicy') }}
-                </SfLink>
+                  {{ t('legal.privacyPolicy') }}
+                </UiLink>
               </template>
             </i18n-t>
             {{ t('form.required') }}
@@ -280,7 +285,7 @@
         <div class="grid grid-cols-1 gap-4">
           <UiButton type="submit" class="py-3 text-base font-medium" :disabled="loading">
             <SfLoaderCircular v-if="loading" class="flex justify-center items-center" size="base" />
-            <template v-else>{{ t('auth.signup.submitLabel') }}</template>
+            <template v-else>{{ t('authentication.signup.submitLabel') }}</template>
           </UiButton>
         </div>
       </form>
@@ -290,21 +295,26 @@
 
 <script setup lang="ts">
 import { ErrorMessage } from 'vee-validate';
-import { paths } from '~/utils/paths';
-import { useRegisterForm } from '~/composables/useRegisterForm';
-import { SfLink, SfInput, SfLoaderCircular, SfCheckbox, SfIconCheck, SfIconClose, SfSelect } from '@storefront-ui/vue';
+import { SfInput, SfLoaderCircular, SfCheckbox, SfIconCheck, SfIconClose, SfSelect } from '@storefront-ui/vue';
 import { AddressType } from '@plentymarkets/shop-api';
+import type { Locale } from '#i18n';
+
+defineI18nRoute({
+  locales: process.env.LANGUAGELIST?.split(',') as Locale[],
+});
 
 const { default: shippingCountries, fetchAggregatedCountries } = useAggregatedCountries();
-const localePath = useLocalePath();
+const localePath = useLocalizedPath();
 const { loading } = useCustomer();
-const { t } = useI18n();
 const { send: _send } = useNotification();
 const runtimeConfig = useRuntimeConfig();
 const passwordMinLength = runtimeConfig.public.passwordMinLength;
 const passwordMaxLength = runtimeConfig.public.passwordMaxLength;
 definePageMeta({ layout: false, middleware: ['guest-guard'] });
-usePageMeta().setPageMeta(t('auth.signup.submitLabel'), 'page');
+usePageMeta().setPageMeta(t('authentication.signup.submitLabel'), 'page');
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
+});
 const turnstileLoad = ref(false);
 const { invalidVAT, clearInvalidVAT } = useCreateAddress(AddressType.Shipping);
 const {

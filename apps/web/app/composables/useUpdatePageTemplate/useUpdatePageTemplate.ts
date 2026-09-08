@@ -1,36 +1,45 @@
+import type { Block } from '@plentymarkets/shop-api';
+
 export const useUpdatePageTemplate = () => {
   const updatePageTemplate = async (): Promise<boolean> => {
     const { isEditingEnabled } = useEditor();
     const { send } = useNotification();
     const route = useRoute();
 
-    const { saveBlocks, data } = useCategoryTemplate(
-      route?.meta?.identifier as string,
-      route.meta.type as string,
-      useNuxtApp().$i18n.locale.value,
-    );
+    const { saveBlocks, data } = useBlocks();
 
     const { data: dataProducts } = useProducts();
 
     try {
-      const cleanedData = JSON.stringify(data.value);
-      const identifier = ref(route.meta.identifier as string | number);
+      const { HeaderContainer, blocks: pageBlocks, Footer } = data.value ?? {};
+      const flat = [HeaderContainer, ...(pageBlocks ?? []), Footer].filter(
+        (block): block is Block => block !== undefined && block !== null,
+      );
+      const cleanedData = JSON.stringify(flat);
 
-      if (dataProducts.value.category?.type === 'content') {
-        identifier.value = dataProducts.value.category?.id;
+      let identifier: string | number = route.meta.identifier as string | number;
+
+      if (
+        route.meta.type === 'category' &&
+        dataProducts.value?.category?.type === 'content' &&
+        dataProducts.value.category.id
+      ) {
+        identifier = dataProducts.value.category.id;
       }
 
-      await saveBlocks(identifier.value, route.meta.type as string, cleanedData);
+      const saved = await saveBlocks(identifier, route.meta.type as string, cleanedData);
 
-      return true;
+      if (saved) {
+        await useBlockSnapshots().markSnapshotSaved();
+      }
+
+      return saved;
     } catch (error) {
-      if (error) {
-        send({
-          message: error.toString(),
-          type: 'negative',
-        });
-        console.error(error);
-      }
+      send({
+        message: `Failed to update page template: ${error instanceof Error ? error.toString() : String(error)}`,
+        type: 'negative',
+      });
+      console.error(error);
       return false;
     } finally {
       isEditingEnabled.value = false;

@@ -1,14 +1,9 @@
 <template>
-  <UiAccordionItem
+  <EditorFormPanel
     v-model="thumbsOpen"
-    summary-active-class="bg-neutral-100 border-t-0"
-    summary-class="w-full hover:bg-neutral-100 px-4 py-5 flex justify-between items-center select-none border-b"
+    :title="getEditorTranslation('item-image-label')"
     data-testid="item-image-thumbnails"
   >
-    <template #summary>
-      <h2>{{ getEditorTranslation('item-image-label') }}</h2>
-    </template>
-
     <div class="space-y-5">
       <div class="flex items-center justify-between">
         <UiFormLabel>{{ getEditorTranslation('show-thumbnails') }}</UiFormLabel>
@@ -49,7 +44,14 @@
         <SfSwitch v-model="uiItemImageBlock.thumbnails.enableHoverZoom" data-testid="enable-zoom-on-hover" />
       </div>
     </div>
-  </UiAccordionItem>
+  </EditorFormPanel>
+  <EditorFormPanel
+    v-model="layoutOpen"
+    :title="getEditorTranslation('layout-label')"
+    data-testid="slider-button-group-title"
+  >
+    <EditorFullWidthToggle v-model="isFullWidth" :block-uuid="blockUuid" />
+  </EditorFormPanel>
 </template>
 
 <script setup lang="ts">
@@ -59,12 +61,7 @@ import type { Thumbnails, ImageGalleryFormProps } from '~/components/blocks/Imag
 
 const props = defineProps<ImageGalleryFormProps>();
 
-const route = useRoute();
-const { data } = useCategoryTemplate(
-  route?.meta?.identifier as string,
-  route.meta.type as string,
-  useNuxtApp().$i18n.locale.value,
-);
+const { allBlocks: data } = useBlocks();
 const { blockUuid } = useSiteConfiguration();
 const { findOrDeleteBlockByUuid } = useBlockManager();
 
@@ -72,22 +69,24 @@ const uiItemImageBlock = computed(
   () => findOrDeleteBlockByUuid(data.value, props.uuid || blockUuid.value)?.content as ImageGalleryContent,
 );
 
-const thumbsOpen = ref(true);
+const { isFullWidth } = useFullWidthToggleForContent(uiItemImageBlock);
 
+const thumbsOpen = ref(true);
+const layoutOpen = ref(true);
 const thumbnails: Thumbnails = [
   {
     type: 'left-vertical',
-    cdn: 'https://cdn02.plentymarkets.com/v5vzmmmcb10k/frontend/PWA/Blocks/preview-thumbs-left.png',
+    cdn: 'https://cdn02.plentyone.com/v5vzmmmcb10k/frontend/PWA/Blocks/preview-thumbs-left.png',
     label: getEditorTranslation('thumb-left-vertical'),
   },
   {
     type: 'right-vertical',
-    cdn: 'https://cdn02.plentymarkets.com/v5vzmmmcb10k/frontend/PWA/Blocks/preview-thumbs-right.png',
+    cdn: 'https://cdn02.plentyone.com/v5vzmmmcb10k/frontend/PWA/Blocks/preview-thumbs-right.png',
     label: getEditorTranslation('thumb-right-vertical'),
   },
   {
     type: 'bottom',
-    cdn: 'https://cdn02.plentymarkets.com/v5vzmmmcb10k/frontend/PWA/Blocks/preview-thumbs-bottom.png',
+    cdn: 'https://cdn02.plentyone.com/v5vzmmmcb10k/frontend/PWA/Blocks/preview-thumbs-bottom.png',
     label: getEditorTranslation('thumb-bottom'),
   },
 ];
@@ -102,7 +101,8 @@ const thumbnails: Thumbnails = [
     "enable-zoom-on-hover": "Enable zoom on hover",
     "thumb-left-vertical": "Left vertical strip",
     "thumb-right-vertical": "Right vertical strip",
-    "thumb-bottom": "Bottom strip"
+    "thumb-bottom": "Bottom strip",
+    "layout-label": "Layout"
   },
   "de": {
     "item-image-label": "Item image",
@@ -111,7 +111,8 @@ const thumbnails: Thumbnails = [
     "enable-zoom-on-hover": "Enable zoom on hover",
     "thumb-left-vertical": "Left vertical strip",
     "thumb-right-vertical": "Right vertical strip",
-    "thumb-bottom": "Bottom strip"
+    "thumb-bottom": "Bottom strip",
+    "layout-label": "Layout"
   }
 }
 </i18n>

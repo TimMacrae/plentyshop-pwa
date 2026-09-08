@@ -1,6 +1,5 @@
 import type { Filters, GetFacetsFromURLResponse, UseCategoryFiltersResponse } from './types';
 import type { RouteLocationNormalizedGeneric } from 'vue-router';
-import { isPageOfType } from '~/utils/pathHelper';
 const nonFilters = new Set(['page', 'sort', 'term', 'facets', 'itemsPerPage', 'priceMin', 'priceMax']);
 
 const reduceFilters =
@@ -44,9 +43,9 @@ const mergeFilters = (oldFilters: Filters, filters: Filters): Filters => {
  * ```
  */
 export const useCategoryFilter = (to?: RouteLocationNormalizedGeneric): UseCategoryFiltersResponse => {
-  const nuxtApp = useNuxtApp();
+  const router = useRouter();
 
-  const getRoute = () => to ?? nuxtApp.$router.currentRoute.value;
+  const getRoute = () => to ?? router.currentRoute.value;
 
   /**
    * @description Function for getting facets from url.
@@ -271,7 +270,12 @@ export const useCategoryFilter = (to?: RouteLocationNormalizedGeneric): UseCateg
         });
       });
 
-      updateQuery({ facets: updatedFacets.join(',') });
+      const newFacets = updatedFacets.join(',');
+      const currentFacets = facetsFromUrl.facets ?? '';
+
+      if (newFacets !== currentFacets) {
+        updateQuery({ facets: newFacets || null });
+      }
     }
   };
 

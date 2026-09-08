@@ -1,7 +1,7 @@
 <template>
-  <!-- CUSTOM NAVBAR BOTTOM BOARDER -->
+  <!-- CUSTOM NAVBAR BOTTOM BORDER: border-t-[1px] border-white -->
   <nav
-    class="w-full fixed bottom-0 left-0 flex flex-row items-stretch md:hidden border-t-[1px] border-white"
+    class="fixed bottom-0 left-0 z-sticky w-full flex flex-row items-stretch @md:hidden border-t-[1px] border-white"
     data-testid="navbar-bottom"
   >
     <UiButton
@@ -15,19 +15,19 @@
       size="sm"
       :tag="link ? NuxtLink : undefined"
       :to="link || undefined"
-      @click="label === t('products') && open()"
+      @click="label === t('common.labels.products') && open()"
     >
       <template #prefix>
         <div class="relative">
           <component :is="icon" />
           <SfBadge
-            v-if="label === t('cart')"
+            v-if="label === t('common.labels.cart')"
             :content="cartItemsCount"
             :max="99"
             class="translate-x-[5px] translate-y-[-3px] outline outline-primary-500 bg-white !text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-700 flex justify-center items-center text-xs min-w-[16px] min-h-[16px]"
           />
           <SfBadge
-            v-if="label === t('wishlist')"
+            v-if="label === t('common.labels.wishlist')"
             :content="wishlistItemIds.length"
             :max="99"
             class="translate-x-[5px] translate-y-[-3px] outline outline-primary-500 bg-white !text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-700 flex justify-center items-center text-xs min-w-[16px] min-h-[16px]"
@@ -42,11 +42,8 @@
 
 <script setup lang="ts">
 import { SfBadge, SfIconShoppingCart, SfIconHome, SfIconMenu, SfIconPerson, SfIconFavorite } from '@storefront-ui/vue';
-import { useCustomer } from '~/composables/useCustomer';
-
-const localePath = useLocalePath();
+const localePath = useLocalizedPath();
 const route = useRoute();
-const { t } = useI18n();
 const { wishlistItemIds } = useWishlist();
 const { data: cart } = useCart();
 const { isAuthorized } = useCustomer();
@@ -54,22 +51,22 @@ const { open } = useMegaMenu();
 
 const items = computed(() => [
   {
-    label: t('home'),
+    label: t('common.labels.home'),
     icon: SfIconHome,
     link: localePath(paths.home),
   },
   {
-    label: t('products'),
+    label: t('common.labels.products'),
     icon: SfIconMenu,
     link: '',
   },
   {
-    label: t('wishlist'),
+    label: t('common.labels.wishlist'),
     icon: SfIconFavorite,
     link: localePath(paths.wishlist),
   },
   {
-    label: t('cart'),
+    label: t('common.labels.cart'),
     icon: SfIconShoppingCart,
     link: localePath(paths.cart),
   },

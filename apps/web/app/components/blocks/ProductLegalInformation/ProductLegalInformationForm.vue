@@ -1,14 +1,6 @@
 <template>
   <div>
-    <UiAccordionItem
-      v-model="textOpen"
-      summary-active-class="bg-neutral-100 border-t-0"
-      summary-class="w-full hover:bg-neutral-100 px-4 py-5 flex justify-between items-center select-none border-b"
-      data-testid="customer-review-text"
-    >
-      <template #summary>
-        <h2>{{ getEditorTranslation('text-label') }}</h2>
-      </template>
+    <EditorFormPanel v-model="textOpen" :title="getEditorTranslation('text-label')" data-testid="customer-review-text">
       <div data-testid="customer-review-form">
         <div class="py-2">
           <div class="flex justify-between mb-2">
@@ -50,16 +42,13 @@
           </label>
         </div>
       </div>
-    </UiAccordionItem>
-    <UiAccordionItem
+    </EditorFormPanel>
+    <EditorFormPanel
       v-model="layoutOpen"
-      summary-active-class="bg-neutral-100 border-t-0"
-      summary-class="w-full hover:bg-neutral-100 px-4 py-5 flex justify-between items-center select-none border-b"
+      :title="getEditorTranslation('layout-group-label')"
       data-testid="customer-review-layout"
     >
-      <template #summary>
-        <h2>{{ getEditorTranslation('layout-group-label') }}</h2>
-      </template>
+      <EditorFullWidthToggle v-model="isFullWidth" :block-uuid="blockUuid" />
 
       <div class="py-2">
         <UiFormLabel>{{ getEditorTranslation('padding-label') }}</UiFormLabel>
@@ -102,7 +91,7 @@
           </div>
         </div>
       </div>
-    </UiAccordionItem>
+    </EditorFormPanel>
 
     <div
       class="bg-[#FEDCA5] border border-[#BBC6BE] text-[#151A16] px-4 py-3 rounded-md mx-5 mt-1 mb-0 shadow-md shadow-[#0000000F]"
@@ -129,12 +118,7 @@ const layoutOpen = ref(true);
 const props = defineProps<ProductLegalInformationProps>();
 const { findOrDeleteBlockByUuid } = useBlockManager();
 const { blockUuid } = useSiteConfiguration();
-const route = useRoute();
-const { data } = useCategoryTemplate(
-  route?.meta?.identifier as string,
-  route.meta.type as string,
-  useNuxtApp().$i18n.locale.value,
-);
+const { allBlocks: data } = useBlocks();
 
 const productLegalInformation = computed<ProductLegalInformationContent>(() => {
   const uuid = props.meta?.uuid || blockUuid.value;
@@ -157,15 +141,19 @@ const productLegalInformation = computed<ProductLegalInformationContent>(() => {
       paddingBottom: 0,
       paddingLeft: 0,
       paddingRight: 0,
+      fullWidth: false,
     };
   } else {
     if (content.layout.paddingTop === undefined) content.layout.paddingTop = 0;
     if (content.layout.paddingBottom === undefined) content.layout.paddingBottom = 0;
     if (content.layout.paddingLeft === undefined) content.layout.paddingLeft = 0;
     if (content.layout.paddingRight === undefined) content.layout.paddingRight = 0;
+    if (content.layout.fullWidth === undefined) content.layout.fullWidth = false;
   }
   return content as ProductLegalInformationContent;
 });
+
+const { isFullWidth } = useFullWidthToggleForContent(productLegalInformation);
 </script>
 
 <i18n lang="json">

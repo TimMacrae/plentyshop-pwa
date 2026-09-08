@@ -1,18 +1,17 @@
 <template>
   <div>
-    <UiHeader />
-    <NarrowContainer v-if="breadcrumbs?.length" class="p-4 md:px-0">
+    <UiHeaderBlocks />
+
+    <NarrowContainer v-if="breadcrumbs?.length" class="p-4">
       <LazyUiBreadcrumbs :breadcrumbs="breadcrumbs" />
     </NarrowContainer>
     <main>
       <slot />
     </main>
-    <UiNavbarBottom v-if="viewport.isLessThan('lg')" />
     <Cookiebar />
     <PreviewMode />
+    <!-- CUSTOM FOOTER (replaces <UiFooterBlocks />) -->
     <ClientOnly>
-      <!-- CUSTOM FOOTER -->
-      <!-- <FooterBlock v-if="!route.meta.isBlockified" /> -->
       <CustomFooter />
     </ClientOnly>
     <QuickCheckout v-if="isOpen" :product="product" />
@@ -21,14 +20,11 @@
 
 <script setup lang="ts">
 import type { DefaultLayoutProps } from '~/layouts/types';
-// import FooterBlock from '~/components/blocks/Footer/Footer.vue';
 import CustomFooter from '~/components/CustomFooter/CustomFooter.vue';
+
 defineProps<DefaultLayoutProps>();
 
 const { setLogoMeta } = useStructuredData();
 const { isOpen, product } = useQuickCheckout();
-const viewport = useViewport();
-const route = useRoute();
-
 setLogoMeta();
 </script>

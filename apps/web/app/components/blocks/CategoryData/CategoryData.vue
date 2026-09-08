@@ -38,7 +38,9 @@
           :class="['object-cover', 'w-full']"
           :style="{
             filter: props.content.image?.brightness ? 'brightness(' + (props.content.image?.brightness ?? 1) + ')' : '',
-            height: '432px',
+            aspectRatio: 'auto 640 / 360',
+            width: '100%',
+            height: 'auto',
           }"
           :loading="'lazy'"
           :data-testid="'category-data-image-' + meta.uuid"
@@ -47,8 +49,8 @@
         <div
           v-if="shouldShowTextBlock"
           :class="[
-            'absolute max-w-screen-3xl mx-auto inset-0 p-4 flex flex-col md:basis-2/4',
-            { 'md:p-10': props.content.text.bgColor },
+            'absolute max-w-screen-3xl mx-auto inset-0 p-4 flex flex-col @md:basis-2/4',
+            { '@md:p-10': props.content.text.bgColor },
           ]"
           :style="{
             color: props.content.text.color,
@@ -100,7 +102,6 @@ const runtimeConfig = useRuntimeConfig();
 const props = defineProps<CategoryDataProps>();
 const { hexToRgba, getTextAlignment, getContentPosition, isMobile } = useBlockContentHelper();
 const { data: productsCatalog } = useProducts();
-const { disableActions } = useEditor();
 const category = computed(() => productsCatalog.value.category || ({} as Category));
 const enabledText = computed(
   () =>
@@ -110,12 +111,9 @@ const enabledText = computed(
     (props.content.fields.shortDescription && details.value.shortDescription),
 );
 const showNoTextMessage = computed(() => !enabledText.value);
-const { $isPreview } = useNuxtApp();
+const { isEditMode, isPreviewMode, isLiveMode } = useEditorState();
 const shouldShowTextBlock = computed(
-  () =>
-    ($isPreview && disableActions.value) ||
-    (!disableActions.value && !showNoTextMessage.value) ||
-    (!$isPreview && disableActions.value && !showNoTextMessage.value),
+  () => isEditMode.value || ((isPreviewMode.value || isLiveMode.value) && !showNoTextMessage.value),
 );
 
 const details = computed(() => categoryGetters.getCategoryDetails(category.value) || ({} as CategoryDetails));
@@ -160,7 +158,7 @@ const inlineStyle = computed(() => {
 });
 
 const categoryDataContentClass = computed(() => {
-  return isMobile.value ? 'p-4 md:p-6 rounded-lg w-full' : 'p-4 md:p-6 rounded-lg md:max-w-[50%] mx-5';
+  return isMobile.value ? 'p-4 @md:p-6 rounded-lg w-full' : 'p-4 @md:p-6 rounded-lg @md:max-w-[50%] mx-5';
 });
 </script>
 <i18n lang="json">

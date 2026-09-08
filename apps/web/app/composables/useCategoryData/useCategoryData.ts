@@ -2,26 +2,18 @@ import { clamp } from '@storefront-ui/shared';
 import { categoryGetters, type Category, type CategoryDetails } from '@plentymarkets/shop-api';
 import type { CategoryDataContent, CategoryDataFieldKey } from '~/components/blocks/CategoryData/types';
 
-declare const getEditorTranslation: (key: string) => string;
-
 export const useCategoryData = () => {
-  const route = useRoute();
-  const { data } = useCategoryTemplate(
-    route?.meta?.identifier as string,
-    route.meta.type as string,
-    useNuxtApp().$i18n.locale.value,
-  );
+  const { allBlocks } = useBlocks();
 
   const { blockUuid } = useSiteConfiguration();
   const { findOrDeleteBlockByUuid } = useBlockManager();
   const { data: productsCatalog } = useProducts();
-  const { t } = useI18n();
 
   const learnMoreUrl: string = 'https://knowledge.plentymarkets.com/en-gb/manual/main/item/categories.html#900';
   const learnMoreTextUrl: string = 'https://knowledge.plentymarkets.com/en-gb/manual/main/item/categories.html#800';
 
   const categoryDataBlock = computed(() => {
-    const block = findOrDeleteBlockByUuid(data.value, blockUuid.value)?.content as CategoryDataContent;
+    const block = findOrDeleteBlockByUuid(allBlocks.value, blockUuid.value)?.content as CategoryDataContent;
     if (block?.image && typeof block.image.fillMode === 'undefined') {
       block.image.fillMode = 'fill';
     }
@@ -31,6 +23,7 @@ export const useCategoryData = () => {
   const isBlank = (v: string | null | undefined): boolean => v == null || v.trim() === '';
 
   const IMAGE_KEYS = ['wideScreen', 'desktop', 'tablet', 'mobile'] as const;
+  // eslint-disable-next-line custom-rules/file-organization-types
   type ImageKey = (typeof IMAGE_KEYS)[number];
 
   const hasAnyLinkedImage = computed<boolean>(() => {
@@ -92,9 +85,9 @@ export const useCategoryData = () => {
     if (count === 1) {
       const onlyKey = missingTextFieldKeys.value[0]!;
       const onlyLabel = (fieldLabels as Record<CategoryDataFieldKey, string>)[onlyKey];
-      return t('field-empty-hint-prefix', { field: onlyLabel });
+      return getEditorTranslation('field-empty-hint-prefix', { field: onlyLabel });
     }
-    return t('fields-empty-hint-prefix', { fields: missingTextLabels.value });
+    return getEditorTranslation('fields-empty-hint-prefix', { fields: missingTextLabels.value });
   });
 
   const clampBrightness = (event: Event, type: 'image' | 'text') => {
