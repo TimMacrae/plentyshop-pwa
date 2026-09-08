@@ -1,8 +1,11 @@
+// Local fallback lives under public/_nuxt-plenty/kornfetti/ — the build guard in
+// vite.config.ts allows only _nuxt-plenty/ inside public/, and the fonts/ subpath
+// there is claimed by @nuxt/fonts, which shadows static files with a 404.
 @font-face {
   font-family: 'kornfetti-font';
   src:
     url('https://cdn02.plentyone.com/f4vqow9g5sio/frontend/fonts/Kornfetti_font_2023-Regular.ttf') format('truetype'),
-    url('/fonts/Kornfetti_font_2023-Regular.ttf') format('truetype');
+    url('/_nuxt-plenty/kornfetti/Kornfetti_font_2023-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
