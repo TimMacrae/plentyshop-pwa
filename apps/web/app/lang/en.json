@@ -553,6 +553,14 @@
       "Status": "Status"
     },
     "marketing": {
+      "cookies": {
+        "facebookPixel": {
+          "name": "Meta Pixel (Facebook)"
+        },
+        "googleAnalytics": {
+          "name": "Google Analytics & Google Ads"
+        }
+      },
       "description": "Marketing cookies are used by third parties and publishers to display personalised advertisements by following users across websites.",
       "label": "Marketing"
     },

@@ -453,8 +453,10 @@ const customMobileMenu = [
   { label: 'Krauti', link: '/produkte/krauti' },
   { label: 'Korn', link: '/produkte/korn' },
   { label: 'Events', link: '/events' },
-  { label: 'Rezepte', link: '/rezepte' },
-  { label: 'Über uns', link: '/ueber-uns' },
+  { label: 'Drinks', link: '/rezepte' },
+  { label: 'Bombs', link: '/rezepte/bombs' },
+  { label: 'Story', link: '/ueber-uns' },
+  { label: 'Team', link: '/ueber-uns/team' },
   { label: 'Kontakt', link: '/kontakt' },
 ];
 

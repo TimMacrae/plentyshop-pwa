@@ -84,9 +84,11 @@ const footerLinkColumns = [
     title: 'Kornfetti',
     links: [
       { name: 'Alle Produkte', path: '/produkte' },
-      { name: 'Über Uns', path: '/ueber-uns' },
+      { name: 'Story', path: '/ueber-uns' },
+      { name: 'Team', path: '/ueber-uns/team' },
       { name: 'Events', path: '/events' },
-      { name: 'Rezepte', path: '/rezepte' },
+      { name: 'Kornfetti Drinks', path: '/rezepte' },
+      { name: 'Kornfetti Bombs', path: '/rezepte/bombs' },
       { name: 'Jobs', path: '/jobs' },
     ],
   },

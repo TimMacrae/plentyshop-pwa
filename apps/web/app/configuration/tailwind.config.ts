@@ -18,6 +18,10 @@ export default {
   ],
   theme: {
     extend: {
+      // CUSTOM: 2:3 portrait frame for the team cards
+      aspectRatio: {
+        portrait: '2 / 3',
+      },
       sfTypography: () => ({
         'display-1': {
           fontFamily: 'inherit',

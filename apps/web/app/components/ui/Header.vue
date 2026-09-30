@@ -373,8 +373,22 @@ const navigationLinks = [
   },
   { label: 'Shop', link: '/produkte' },
   { label: 'Events', link: '/events' },
-  { label: 'Rezepte', link: '/rezepte' },
-  { label: 'Über Uns', link: '/ueber-uns' },
+  {
+    label: 'Rezepte',
+    link: '/rezepte',
+    submenu: [
+      { label: 'Drinks', link: '/rezepte' },
+      { label: 'Bombs', link: '/rezepte/bombs' },
+    ],
+  },
+  {
+    label: 'Über Kornfetti',
+    link: '/ueber-uns',
+    submenu: [
+      { label: 'Story', link: '/ueber-uns' },
+      { label: 'Team', link: '/ueber-uns/team' },
+    ],
+  },
   { label: 'Kontakt', link: '/kontakt' },
 ];
 </script>

@@ -82,6 +82,11 @@ export default defineNuxtModule({
         file: resolve('./pages/ueber-uns.vue'),
       });
       pages.push({
+        name: 'ueber-uns-team',
+        path: '/ueber-uns/team',
+        file: resolve('./pages/team.vue'),
+      });
+      pages.push({
         name: 'kontakt',
         path: '/kontakt',
         file: resolve('./pages/kontakt.vue'),
@@ -90,6 +95,16 @@ export default defineNuxtModule({
         name: 'rezepte',
         path: '/rezepte',
         file: resolve('./pages/rezepte/index.vue'),
+      });
+      pages.push({
+        name: 'rezepte-bombs',
+        path: '/rezepte/bombs',
+        file: resolve('./pages/rezepte/bombs/index.vue'),
+      });
+      pages.push({
+        name: 'rezepte-bomb-detail',
+        path: '/rezepte/bombs/:id',
+        file: resolve('./pages/rezepte/bombs/[id].vue'),
       });
       pages.push({
         name: 'rezept-detail',
