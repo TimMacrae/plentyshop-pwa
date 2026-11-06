@@ -473,7 +473,7 @@ const customSocialLinks = [
   },
   {
     name: 'Instagram',
-    url: 'https://www.instagram.com/kornfetti.korn/?hl=de/',
+    url: 'https://www.instagram.com/kornfetti.shots/?hl=de/',
     icon: resolveComponent('CustomFooterIconsIconInstagram'),
   },
 ];

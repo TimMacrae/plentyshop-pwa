@@ -29,7 +29,7 @@ describe('CustomFooter', () => {
 
     expect(hrefs).toContain('https://www.facebook.com/Kornfetti/');
     expect(hrefs).toContain('https://www.youtube.com/channel/UCMJ4iKjINOUAz6svI4RUJkA');
-    expect(hrefs).toContain('https://www.instagram.com/kornfetti.korn/?hl=de/');
+    expect(hrefs).toContain('https://www.instagram.com/kornfetti.shots/?hl=de/');
     socialLinks.forEach((link) => {
       expect(link.attributes('rel')).toBe('noopener noreferrer');
     });
