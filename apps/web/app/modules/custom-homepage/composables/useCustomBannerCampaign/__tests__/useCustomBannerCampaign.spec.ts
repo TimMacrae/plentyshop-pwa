@@ -64,4 +64,30 @@ describe('useCustomBannerCampaign', () => {
     expect(result?.image.alt).toBe('Karneval');
     expect(result?.button.link).toBe('/produkte');
   });
+
+  it('should show the Black Week banner instead of the Corni banner during Black Week', () => {
+    vi.setSystemTime(new Date('2026-11-25T12:00:00Z'));
+
+    const result = useCustomBannerCampaign('campaignOne');
+
+    expect(result?.id).toBe('black-week-2026');
+    expect(result?.image.mobile).toContain('BlackWeek_banner_2026_mobile.jpg');
+    expect(result?.image.desktop).toContain('BlackWeek_banner_2026_desktop.jpeg');
+  });
+
+  it('should start Black Week at midnight German time on 20.11.', () => {
+    vi.setSystemTime(new Date('2026-11-19T22:59:59Z'));
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('corni');
+
+    vi.setSystemTime(new Date('2026-11-19T23:00:00Z'));
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('black-week-2026');
+  });
+
+  it('should return to the Corni banner after Black Week ends on 29.11.', () => {
+    vi.setSystemTime(new Date('2026-11-29T22:59:59Z'));
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('black-week-2026');
+
+    vi.setSystemTime(new Date('2026-11-29T23:00:00Z'));
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('corni');
+  });
 });

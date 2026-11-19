@@ -169,7 +169,11 @@ export const useCustomContent = () => {
     title: { text: 'HIMMI MORE', color: '#000' },
     subtitle: { text: 'Himmi - Himbeer-Limetten Likör 15% vol.', color: '#fff' },
     description: {
-      text: 'Himmi - Himbeer-Limetten Likör 15% vol. Unser Himmi ist der süße Rebell unter den Shots – frech, fruchtig und immer ein bisschen drüber. 100% natürliche Zutaten, ein Schuss Wahnsinn und der Geschmack von Sommer in flüssig. Saftige Himbeeren treffen auf spritzige Limette und liefern das perfekte Match aus süß und frech. Unsere Zutaten stammen aus kontrolliertem Anbau, das Design straight aus Hamburg von Bobbie Serano. Himmi wird regional abgefüllt und trägt die Kornfetti-DNA im Blut: bunt, laut, kompromisslos lecker. Aber bei Himmi zählt nicht nur, was drin ist – sondern wie’s gemacht wird. Wir setzen auf natürliche Fruchtaromen, echte Handarbeit und eine Basis, die so mild ist, dass du fast vergisst, dass es Likör ist. Kein Chemie-Kram, kein Blendergeschmack – nur ehrliche Fruchtpower mit Limettenkick. Das Ergebnis: Ein Drink, der nicht fragt, ob du bereit bist. Eisgekühlt, pur oder als Bomb – Himmi More macht jede Nacht ein bisschen lauter.',
+      text:
+        'Unser Himmi ist der süße Rebell unter den Shots: frech, fruchtig und immer ein bisschen drüber. 100% natürliche Zutaten, Brause-Nostalgie und ein Schuss Wahnsinn in flüssig. Saftige Himbeeren treffen auf spritzige Limette und liefern das perfekte Match aus süß und frech.<br><br>' +
+        'Unsere Zutaten stammen aus kontrolliertem Anbau, das Design straight aus Hamburg von Bobbie Serano. Regional abgefüllt trägt Himmi die Kornfetti-DNA im Blut: bunt, laut, kompromisslos lecker.<br><br>' +
+        'Wir setzen auf natürliche Fruchtaromen, echte Handarbeit und eine besonders milde Basis. Kein Chemie-Kram, kein Blendergeschmack, nur ehrliche Fruchtpower mit Limettenkick.<br><br>' +
+        'Eisgekühlt, pur oder als Bomb. Himmi macht jede Nacht ein bisschen lauter.',
       color: '#fff',
     },
     cta: {
@@ -273,9 +277,9 @@ export const useCustomContent = () => {
         'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_himmiBomb_homepage_500x500.png',
       alt: 'Himmi Flasche',
     },
-    title: { text: 'Die Himmi Bomb', color: '#000' },
+    title: { text: 'HIMMI BOMB', color: '#000' },
     description: {
-      text: 'Die Himmi Bomb ist da! Kein klassischer Shot, kein Drink – sondern genau das dazwischen, was dir bisher gefehlt hat. Ein bisschen wild, ein bisschen fancy und definitiv mehr als nur ein Getränk. Was drin steckt? 2cl Prosecco und 2cl Himmi – unser fruchtiger Himbeer-Limetten-Likör. Serviert wird das Ganze im legendären Himmi-Bomb-Glas: Das Schnapsglas sitzt direkt im Becher, der Rest wird mit Prosecco aufgefüllt. Erst süß, dann spritzig – und im Mund verschmilzt beides zu purem Knallgeschmack. Prickelnd. Fruchtig. Unverschämt gut. Die Himmi Bomb ist der kleine Adrenalinkick für den Gaumen – so direkt wie ein Shot, so leicht wie ein Drink. Für alle, die sich nicht entscheiden wollen, sondern einfach **beides nehmen.',
+      text: 'Die Himmi Bomb ist da! Kein klassischer Shot, kein Drink, sondern genau das dazwischen: 2cl Prosecco und 2cl Himmi serviert im legendären Bomb-Glas. Das Schnapsglas mit unserem Himbeer-Likör sitzt direkt im Becher, der mit Prosecco aufgefüllt wird. Erst süß, dann spritzig und im Mund verschmilzt beides zu purem Knallgeschmack. Prickelnd. Fruchtig. Unverschämt gut. Die Himmi Bomb ist der kleine Adrenalinkick für den Gaumen.',
       color: '#fff',
     },
     cta: {
@@ -326,7 +330,11 @@ export const useCustomContent = () => {
 
     subtitle: { text: 'Spliti - Maracuja-Vanille Likör 15% vol.', color: '#fff' },
     description: {
-      text: 'Spliti by Kornfetti schmeckt wie ein Kurzurlaub im Glas – sonnig, fruchtig und einfach zum Verlieben. Die Kombination aus reifer Maracuja und feiner Vanille bringt Tropenflair in jeden Moment und sorgt für gute Laune, ganz ohne Schirmchen. Unsere Zutaten? 100% ehrlich, 100% Geschmack. Spliti wird aus bestem Weizen aus deutschem Anbau gemacht und regional abgefüllt – das Design kommt straight aus Hamburg von Bobbie Serrano. Kornfetti-DNA? Ganz klar: wild, frisch, kompromisslos gut. Aber bei Spliti geht’s nicht nur um die Zutaten – sondern um das Feeling. Wir setzen auf natürliche Aromen, echte Handarbeit und den perfekten Mix aus Maracuja und Vanille. Kein künstlicher Kram, kein Zuckerbomber – einfach ehrlicher Sommergeschmack im Glas. Eisgekühlt als Shot serviert entfaltet er seinen vollen Geschmack – süß, wild und immer ein bisschen zu gut, um brav zu bleiben.',
+      text:
+        'Spliti schmeckt wie ein Kurzurlaub im Glas: sonnig, fruchtig und einfach zum Verlieben. Reife Maracuja trifft auf feine Vanille und bringt Tropenflair in jeden Moment, ganz ohne Schirmchen.<br><br>' +
+        'Unsere Zutaten? 100% ehrlich, 100% Geschmack. Spliti wird aus bestem Weizen aus deutschem Anbau hergestellt und regional abgefüllt. Das Design kommt straight aus Hamburg von Bobbie Serrano.<br><br>' +
+        'Wir setzen auf natürliche Aromen, echte Handarbeit und den perfekten Mix aus Maracuja und Vanille. Kein künstlicher Kram, kein Zuckerbomber, nur ehrlicher Geschmack im Glas.<br><br>' +
+        'Eisgekühlt als Shot entfaltet Spliti seinen vollen Geschmack: süß, wild und immer ein bisschen zu gut, um brav zu bleiben.',
       color: '#fff',
     },
     cta: {
@@ -340,6 +348,32 @@ export const useCustomContent = () => {
     gradientFrom: '#F38F36',
     gradientTo: '#FDE63D',
     gradientPosition: 'top-right',
+  };
+
+  const customImageTextBlock_productSpliti_corniColadaBombContent = {
+    image: {
+      url: 'https://cdn02.plentyone.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Cornicolada-Bundle2.png',
+      mobileUrl: 'https://cdn02.plentyone.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Cornicolada-Bundle2.png',
+      alt: 'Corni Colada Bomb',
+    },
+    title: { text: 'CORNI COLADA BOMB', color: '#000' },
+    description: {
+      text:
+        'Cornflakesmilch trifft Frucht. Corni und Spliti sorgen zusammen für einen fruchtig-milchigen Shotmoment, der an Piña Colada erinnert. Direkt kombiniert als Doppelshot oder Supershot.<br><br>' +
+        'Der Knaller: Serviert wird das Ganze in einem besonderen Glas, bei dem das Schnapsglas mitten im Becher steckt. Zuerst kommt Corni rein, dann wird außen mit Spliti aufgefüllt. So entsteht der perfekte Corni Colada Mix, der sich erst im Mund verbindet: fruchtig, milchig und einfach anders.<br><br>' +
+        'Ideal für alle, die es unkompliziert aber ein bisschen drüber mögen.',
+      color: '#fff',
+    },
+    cta: {
+      text: 'Zur Corni Colada Bomb',
+      color: '#fff',
+      bgColor: '#000',
+      link: '/rezepte/bombs/3',
+    },
+    bgColor: '',
+    useGradient: true,
+    gradientFrom: '#F38F36',
+    gradientTo: '#FDE63D',
   };
 
   const customImageTextBlock_productKrauti_krautiBottleContent = {
@@ -696,6 +730,7 @@ export const useCustomContent = () => {
     customImageTextBlock_productHimmi_pinkRiotSquadContent,
     customImageTextBlock_productHimmi_himmiBombContent,
     customImageTextBlock_productSpliti_splitiBottleContent,
+    customImageTextBlock_productSpliti_corniColadaBombContent,
     customImageTextBlock_productKrauti_krautiBottleContent,
     customImageTextBlock_productKorn_kornBottleContent,
     customImageTextBlock_productCorni_corniBottleContent,

@@ -23,6 +23,21 @@ export const useCustomBannerCampaign = (campaignKey: keyof typeof bannerCampaign
   return bannerCampaigns.campaignOne?.[0]; // Default to first campaign of campaignOne if nothing found
 };
 
+/** Overlay text settings shared by every banner (all banners are image-only, no text overlay). */
+const DEFAULT_BANNER_TEXT: BannerCampaign['text'] = {
+  pretitle: '',
+  title: '',
+  subtitle: '',
+  htmlDescription: '',
+  color: '#FFFFFF',
+  bgcolor: '#000000',
+  bgopacity: 0.1,
+  background: true,
+  align: 'center',
+  justify: 'bottom',
+  textAlignment: 'center',
+};
+
 const bannerCampaigns: Record<string, BannerCampaign[]> = {
   campaignOne: [
     {
@@ -39,19 +54,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         alt: 'Kornfetti Banner',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/produkte',
@@ -74,19 +77,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         alt: 'Karneval',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/produkte',
@@ -94,6 +85,30 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       },
       startDate: new Date('2026-01-12T00:00:00Z'),
       endDate: new Date('2026-02-18T23:59:59Z'),
+    },
+    {
+      id: 'black-week-2026',
+      image: {
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_mobile.jpg',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_desktop.jpeg',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_desktop.jpeg',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_desktop.jpeg',
+        alt: 'Black Week',
+        brightness: 1,
+      },
+      text: { ...DEFAULT_BANNER_TEXT },
+      button: {
+        label: '',
+        link: '/produkte',
+        variant: 'primary',
+      },
+      // German local time (CET, UTC+1) — runs 20.11. to 29.11. inclusive.
+      startDate: new Date('2026-11-20T00:00:00+01:00'),
+      endDate: new Date('2026-11-29T23:59:59+01:00'),
     },
     {
       id: 'corni',
@@ -109,19 +124,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         alt: 'corni',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/produkte?categoryId=92',
@@ -144,19 +147,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         alt: 'ostern',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/produkte?categoryId=87',
@@ -170,27 +161,18 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
     {
       id: 'fallback-01',
       image: {
-        mobile: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
-        tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
-        desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_mobile2.jpg',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
         alt: 'Spliti',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/produkte/spliti',
@@ -205,27 +187,17 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       id: 'fallback-01',
       image: {
         mobile:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Himmi_mobile.png',
-        tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
-        desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_mobile.jpg',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
         alt: 'Himmi',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/produkte/himmi',
@@ -240,27 +212,17 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       id: 'fallback-himmi',
       image: {
         mobile:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Himmi_mobile.png',
-        tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
-        desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_mobile.jpg',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_himmi_web.png',
-        alt: 'Krauti Flasche',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
+        alt: 'Himmi',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/himmi-0-7-liter_209_1166',
@@ -285,19 +247,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         alt: 'Krauti Flasche',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/krauti-0-7-liter_212_1169',
@@ -312,27 +262,17 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       id: 'fallback-spliti',
       image: {
         mobile:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_mobile.png',
-        tablet: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
-        desktop: 'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_mobile2.jpg',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Banner_Spliti_web.png',
-        alt: 'Krauti Flasche',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
+        alt: 'Spliti',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/spliti-0-7-liter_252_1211',
@@ -357,19 +297,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         alt: 'Corni Flasche',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/spirituosen/corni-16x20ml-glas_273_1232',
@@ -391,19 +319,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         alt: 'Korn Flasche',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '/kornfetti-0-7l_139_1074',
@@ -426,19 +342,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         alt: 'Rezept Banner',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '',
@@ -459,19 +363,7 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         alt: 'Kornfetti Bombs Banner',
         brightness: 1,
       },
-      text: {
-        pretitle: '',
-        title: '',
-        subtitle: '',
-        htmlDescription: '',
-        color: '#FFFFFF',
-        bgcolor: '#000000',
-        bgopacity: 0.1,
-        background: true,
-        align: 'center',
-        justify: 'bottom',
-        textAlignment: 'center',
-      },
+      text: { ...DEFAULT_BANNER_TEXT },
       button: {
         label: '',
         link: '',

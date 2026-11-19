@@ -25,6 +25,11 @@
       <CustomImageTextBlockReverse :data="customImageTextBlock_productSpliti_splitiBottleContent" />
     </div>
 
+    <!-- Image text section -->
+    <div v-if="customImageTextBlock_productSpliti_corniColadaBombContent">
+      <CustomImageTextBlock :data="customImageTextBlock_productSpliti_corniColadaBombContent" />
+    </div>
+
     <!-- Box section -->
     <section class="bg-black py-16 xs:py-16 md:py-32 xs:px-8">
       <div class="max-w-[1400px] mx-auto">
@@ -86,7 +91,10 @@ const { fetchProducts: fetch83, data: data83 } = useProducts('products-83');
 await fetch83({ categoryId: '83' });
 const products83 = computed(() => data83.value?.products || []);
 
-const { customImageTextBlock_productSpliti_splitiBottleContent } = useCustomContent();
+const {
+  customImageTextBlock_productSpliti_splitiBottleContent,
+  customImageTextBlock_productSpliti_corniColadaBombContent,
+} = useCustomContent();
 
 definePageMeta({
   layout: 'default',
