@@ -72,7 +72,7 @@ describe('useCustomBannerCampaign', () => {
 
     expect(result?.id).toBe('black-week-2026');
     expect(result?.image.mobile).toContain('BlackWeek_banner_2026_mobile.jpg');
-    expect(result?.image.desktop).toContain('BlackWeek_banner_2026_desktop.jpeg');
+    expect(result?.image.desktop).toContain('BlackWeek_banner_2026_desktop.jpg');
   });
 
   it('should start Black Week at midnight German time on 20.11.', () => {
@@ -83,11 +83,35 @@ describe('useCustomBannerCampaign', () => {
     expect(useCustomBannerCampaign('campaignOne')?.id).toBe('black-week-2026');
   });
 
-  it('should return to the Corni banner after Black Week ends on 29.11.', () => {
+  it('should switch to the all-products banner after Black Week ends on 29.11.', () => {
     vi.setSystemTime(new Date('2026-11-29T22:59:59Z'));
     expect(useCustomBannerCampaign('campaignOne')?.id).toBe('black-week-2026');
 
     vi.setSystemTime(new Date('2026-11-29T23:00:00Z'));
-    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('corni');
+    const result = useCustomBannerCampaign('campaignOne');
+    expect(result?.id).toBe('all-products-2026');
+    expect(result?.image.desktop).toContain('Kornfetti_all_products_banner_2026_desktop.jpg');
+    expect(result?.image.mobile).toContain('Kornfetti_all_products_banner_2026_mobile.jpg');
+  });
+
+  it('should keep the all-products banner until the end of the year instead of the Corni banner', () => {
+    vi.setSystemTime(new Date('2026-12-10T12:00:00Z'));
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('all-products-2026');
+
+    vi.setSystemTime(new Date('2026-12-31T22:59:59Z'));
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('all-products-2026');
+
+    vi.setSystemTime(new Date('2026-12-31T23:00:00Z'));
+    expect(useCustomBannerCampaign('campaignOne')?.id).toBe('fallback-01');
+  });
+
+  it('should provide the Corni banner for the homepage section below the products', () => {
+    vi.setSystemTime(new Date('2026-11-25T12:00:00Z'));
+
+    const result = useCustomBannerCampaign('campaignCorni');
+
+    expect(result?.id).toBe('fallback-corni');
+    expect(result?.image.desktop).toContain('Corni_Banner_final_web.png');
+    expect(result?.button.link).toBe('/produkte?categoryId=92');
   });
 });

@@ -36,6 +36,9 @@
       </div>
     </div>
 
+    <!-- Corni campaign section (hidden while the hero itself shows the Corni banner) -->
+    <div v-if="showCorniBanner && bannerCampaignCorni"><CustomHero :banner="bannerCampaignCorni" /></div>
+
     <!-- Image text section -->
     <div v-if="customImageTextBlock_himmiBombContent">
       <CustomImageTextBlock :data="customImageTextBlock_himmiBombContent" />
@@ -160,6 +163,9 @@ import ProductCard from '~/components/ui/ProductCard/ProductCard.vue';
 const bannerCampaignOne = useCustomBannerCampaign('campaignOne');
 const bannerCampaignTwo = useCustomBannerCampaign('campaignTwo');
 const bannerCampaignThree = useCustomBannerCampaign('campaignThree');
+const bannerCampaignCorni = useCustomBannerCampaign('campaignCorni');
+// Avoid showing the Corni banner twice when it is the current hero banner.
+const showCorniBanner = bannerCampaignOne?.image.desktop !== bannerCampaignCorni?.image.desktop;
 
 // Fetch products from category 40
 // const { fetchProducts, data: productsData, loading: productsLoading } = useProducts('homepage-products');

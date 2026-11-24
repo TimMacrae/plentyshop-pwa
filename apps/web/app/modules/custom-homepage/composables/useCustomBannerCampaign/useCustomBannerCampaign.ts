@@ -92,11 +92,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         mobile:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_mobile.jpg',
         tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_desktop.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_desktop.jpg',
         desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_desktop.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_desktop.jpg',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_desktop.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/BlackWeek_banner_2026_desktop.jpg',
         alt: 'Black Week',
         brightness: 1,
       },
@@ -109,6 +109,30 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       // German local time (CET, UTC+1) — runs 20.11. to 29.11. inclusive.
       startDate: new Date('2026-11-20T00:00:00+01:00'),
       endDate: new Date('2026-11-29T23:59:59+01:00'),
+    },
+    {
+      id: 'all-products-2026',
+      image: {
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_all_products_banner_2026_mobile.jpg',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_all_products_banner_2026_desktop.jpg',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_all_products_banner_2026_desktop.jpg',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Kornfetti_all_products_banner_2026_desktop.jpg',
+        alt: 'Kornfetti Produkte',
+        brightness: 1,
+      },
+      text: { ...DEFAULT_BANNER_TEXT },
+      button: {
+        label: '',
+        link: '/produkte',
+        variant: 'primary',
+      },
+      // German local time (CET, UTC+1) — runs from the end of Black Week until 31.12. inclusive.
+      startDate: new Date('2026-11-30T00:00:00+01:00'),
+      endDate: new Date('2026-12-31T23:59:59+01:00'),
     },
     {
       id: 'corni',
@@ -157,6 +181,31 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
       endDate: new Date('2026-03-26T23:59:59Z'),
     },
   ],
+  campaignCorni: [
+    {
+      id: 'fallback-corni',
+      image: {
+        mobile:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_mobile.png',
+        tablet:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_web.png',
+        desktop:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_web.png',
+        wideScreen:
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Corni_Banner_final_web.png',
+        alt: 'corni',
+        brightness: 1,
+      },
+      text: { ...DEFAULT_BANNER_TEXT },
+      button: {
+        label: '',
+        link: '/produkte?categoryId=92',
+        variant: 'primary',
+      },
+      startDate: new Date('2024-01-01T00:00:00Z'),
+      endDate: new Date('2025-12-31T23:59:59Z'),
+    },
+  ],
   campaignTwo: [
     {
       id: 'fallback-01',
@@ -164,11 +213,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         mobile:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_mobile2.jpg',
         tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpg',
         desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpg',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpg',
         alt: 'Spliti',
         brightness: 1,
       },
@@ -189,11 +238,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         mobile:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_mobile.jpg',
         tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpg',
         desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpg',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpg',
         alt: 'Himmi',
         brightness: 1,
       },
@@ -214,11 +263,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         mobile:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_mobile.jpg',
         tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpg',
         desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpg',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop.jpg',
         alt: 'Himmi',
         brightness: 1,
       },
@@ -264,11 +313,11 @@ const bannerCampaigns: Record<string, BannerCampaign[]> = {
         mobile:
           'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_mobile2.jpg',
         tablet:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpg',
         desktop:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpg',
         wideScreen:
-          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpeg',
+          'https://cdn02.plentymarkets.com/f4vqow9g5sio/frontend/Image_Startseite/NEW2025/Himmi_Splitti_banner_2026_desktop2.jpg',
         alt: 'Spliti',
         brightness: 1,
       },
